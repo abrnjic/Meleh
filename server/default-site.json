@@ -43,7 +43,16 @@
       "type": "couple",
       "price": null,
       "description": "",
-      "seasons": []
+      "seasons": [],
+      "amenities": {
+        "terrace": null,
+        "balcony": null,
+        "parking": null,
+        "wifi": null,
+        "aircon": null,
+        "kitchen": null,
+        "stepFree": null
+      }
     },
     {
       "slug": "lavanda",
@@ -58,7 +67,16 @@
       "type": "family",
       "price": null,
       "description": "",
-      "seasons": []
+      "seasons": [],
+      "amenities": {
+        "terrace": null,
+        "balcony": null,
+        "parking": null,
+        "wifi": null,
+        "aircon": null,
+        "kitchen": null,
+        "stepFree": null
+      }
     },
     {
       "slug": "more",
@@ -73,7 +91,16 @@
       "type": "couple",
       "price": null,
       "description": "",
-      "seasons": []
+      "seasons": [],
+      "amenities": {
+        "terrace": null,
+        "balcony": null,
+        "parking": null,
+        "wifi": null,
+        "aircon": null,
+        "kitchen": null,
+        "stepFree": null
+      }
     }
   ],
   "photos": [

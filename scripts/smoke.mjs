@@ -8,7 +8,7 @@ for(const route of ['config','content','availability']){
  const value=await response.json();if(route==='config'){assert.equal(typeof value.adminReady,'boolean');assert.equal(typeof value.mailReady,'boolean')}else assert.equal(typeof value.configured,'boolean');
  console.log('PASS /api/'+route);
 }
-for(const route of ['/usporedba/','/admin/','/dostupnost/','/vodic/','/faq/','/apartmani/maslina/']){
+for(const route of ['/pronadi-apartman/','/plan-dana/','/gost/','/usporedba/','/admin/','/dostupnost/','/vodic/','/faq/','/apartmani/maslina/']){
  const response=await fetch(origin+route,{signal:AbortSignal.timeout(25000)});
  assert.equal(response.status,200,route+' should load');assert.match(await response.text(),/type="module" src="\/app.js"/);console.log('PASS '+route);
 }

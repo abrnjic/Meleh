@@ -1,0 +1,6 @@
+export function memoryDb(seed={}){
+ const data=new Map(Object.entries(seed).map(([k,v])=>[k,structuredClone(v)]));
+ const snapshot=(path)=>({id:path.split('/').at(-1),exists:data.has(path),data:()=>structuredClone(data.get(path))});
+ const collection=(name,order=null,max=Infinity)=>({name,doc:id=>({path:name+'/'+id,get:async()=>snapshot(name+'/'+id),set:async value=>data.set(name+'/'+id,structuredClone(value)),delete:async()=>data.delete(name+'/'+id)}),limit:n=>collection(name,order,n),orderBy:(field,direction)=>collection(name,{field,direction},max),get:async()=>{let docs=[...data.keys()].filter(p=>p.startsWith(name+'/')&&p.split('/').length===2).map(snapshot);if(order)docs.sort((a,b)=>String(a.data()?.[order.field]||'').localeCompare(String(b.data()?.[order.field]||''))*(order.direction==='desc'?-1:1));return {docs:docs.slice(0,max)}}});
+ return {data,collection,runTransaction:async fn=>fn({get:async target=>target.path?snapshot(target.path):target.get(),set:(ref,value)=>data.set(ref.path,structuredClone(value)),update:(ref,value)=>{if(!data.has(ref.path))throw new Error('missing document');data.set(ref.path,{...data.get(ref.path),...structuredClone(value)})}})};
+}

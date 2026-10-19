@@ -41,3 +41,7 @@ test('inquiry workflow reads and writes remain restricted to authenticated admin
  const before=process.env.ADMIN_EMAIL;process.env.ADMIN_EMAIL='owner@example.test';
  try{for(const method of ['GET','PUT']){const response=await handle(request('admin?resource=inquiries',method,method==='PUT'?{id:'12345678-1234-1234-1234-123456789012',status:'confirmed',internalNote:'Private test',workflowRevision:0}:undefined));assert.equal(response.status,401)}}finally{if(before)process.env.ADMIN_EMAIL=before;else delete process.env.ADMIN_EMAIL}
 });
+
+test('calendar connection secrets and private guest instructions require administrator authentication',async()=>{
+ const before=process.env.ADMIN_EMAIL;process.env.ADMIN_EMAIL='owner@example.test';try{for(const resource of ['calendar-feeds','calendar-sync','calendar-export','guest-guide','guest-links']){for(const method of ['GET','POST','PUT','DELETE']){const r=await handle(request('admin?resource='+resource,method,method==='GET'?undefined:{}));assert.equal(r.status,401)}}}finally{if(before)process.env.ADMIN_EMAIL=before;else delete process.env.ADMIN_EMAIL}
+});
