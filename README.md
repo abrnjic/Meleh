@@ -14,7 +14,21 @@ Uredite `dist/content.js`: naziv, lokaciju, adresu, e-mail, telefon, WhatsApp/Vi
 
 Tri apartmana i fotografije su ogledni primjeri. Zamijenite fotografije u `dist/assets/`, podatke u `SITE.apartments` i tekstove u `dist/app.js`. Za svaki novi apartman dodajte pripadajuću mapu s kopijom `dist/index.html`, kao kod postojećih apartmana. `app.js` bira stranicu prema putanji. Pri promjeni zajedničkog HTML zaglavlja osvježite kopije index.html u podmapama. Tekstovi i prijevodi su u pozivima `t(hr,en,de)`.
 
-Fotografije su ilustrativne fotografije s Unsplasha; ne prikazuju stvarni objekt. Izvori: photo-1533105079780-92b9be482077, photo-1600210492486-724fe5c67fb0, photo-1611892440504-42a792e24d32, photo-1613490493576-7fde63acd811, photo-1600607687920-4e2a09cf159d, photo-1600210491892-03d54c0aaf87. Fotografije se poslužuju lokalno. Fontovi se učitavaju s Google Fonts, uz sistemske zamjene.
+## Fotografije
+
+Prizori destinacije su stvarne fotografije Crikvenice, preuzete s Wikimedia Commonsa. Autor, izvor, licenca i prilagodbe navedeni su na javnoj stranici `/fotografije/` i u `SITE.photoCredits`. Fotografije su smanjene na širinu 1600 px i u pojedinim sekcijama prikazane kroz CSS izrez i zatamnjenje. Izmijenjeni prikazi dostupni su pod izvornom licencom.
+
+- `crikvenica-plaza.jpg`: Elekes Andor, Beach - Crikvenica (8), CC BY-SA 4.0.
+- `crikvenica-obala.jpg`: Zoran Kurelić Rabko, Crikvenica, beach - panoramio, CC BY-SA 3.0.
+- `crikvenica-more.jpg`: Elekes Andor, Beach - Crikvenica (9), CC BY-SA 4.0.
+
+Četiri fotografije interijera s Unsplasha ostaju jasno označene kao ogledne i ne prikazuju apartmane Meleh. Fotografije destinacije nisu fotografije objekta i ne potvrđuju njegovu točnu lokaciju. Fotografije se poslužuju lokalno. Fontovi se učitavaju s Google Fonts, uz sistemske zamjene.
+
+## Svijetla i tamna tema
+
+Prekidač s ikonom sunca/mjeseca nalazi se u zaglavlju svih stranica, uz izbornik jezika. Pri prvom posjetu slijedi sistemsku postavku `prefers-color-scheme`. Ručni izbor sprema se lokalno pod ključem `meleh-theme` i vrijedi pri navigaciji, osvježavanju i u drugim karticama. Bez ručnog izbora tema prati promjene postavke uređaja. Ako lokalna pohrana nije dostupna, prekidač i dalje radi u trenutnoj stranici.
+
+`dist/theme.js` učitava se prije CSS-a kako bi se izbjegao bljesak pogrešne teme. Boje obiju tema definirane su CSS varijablama u `dist/style.css`.
 
 ## Upiti
 
@@ -29,7 +43,8 @@ Potvrdite sve podatke o apartmanima, sadržajima, cijenama, udaljenostima i kuć
 - `dist/index.html`: ulazni dokument
 - `dist/style.css`: responzivni stilovi
 - `dist/app.js`: stranice, prijevodi i interakcije
-- `dist/content.js`: podaci vlasnika i apartmana
+- `dist/content.js`: podaci vlasnika i apartmana te izvori fotografija
+- `dist/theme.js`: inicijalizacija i pamćenje teme
 - `dist/assets/`: fotografije i favicon
 - `vercel.json`: Vercel konfiguracija za posluživanje mape `dist`
 
