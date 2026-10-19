@@ -4,8 +4,10 @@ Javna web konfiguracija projekta `meleh-ce687` spremljena je u `server/firebase-
 
 ## Firebase
 
+Status postavljanja (19. listopada 2026.): Email/Password je aktiviran, a Firestore `(default)` stvoren u `europe-west3` (Frankfurt), u Production načinu s blokiranim izravnim pristupom. Na Vercelu su postavljeni privatni `ADMIN_EMAIL` i identifikator servisnog računa `FIREBASE_CLIENT_EMAIL`; privatni ključ i stvarni administratorski račun još čekaju korisnikov unos. Firebase Storage još nije aktiviran jer konzola traži nadogradnju plana.
+
 1. U projektu `meleh-ce687` uključite Authentication, Firestore u Native načinu i Storage.
-2. U Authentication uključite Email/Password, izradite administratorski račun i potvrdite njegov email. Aplikacija ne nudi javnu registraciju administratora.
+2. U Authentication uključite Email/Password, izradite administratorski račun i potvrdite njegov email. Aplikacija ne nudi javnu registraciju administratora. Pri prvoj prijavi nepotvrđenog računa panel nudi gumb za slanje poveznice za potvrdu. Poruka se šalje tek klikom korisnika, putem Firebase Authenticationa, bez Resenda. Nakon potvrde treba se ponovno prijaviti.
 3. Postavite privatne Vercel varijable za odabrano okruženje: `ADMIN_EMAIL`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY`. Projekt, Storage bucket i web API ključ već imaju javne zadane vrijednosti; `FIREBASE_PROJECT_ID`, `FIREBASE_STORAGE_BUCKET` i `FIREBASE_API_KEY` služe kao neobavezne zamjene. Pri promjeni projekta postavite sve tri zamjene zajedno.
 4. Privatni ključ i serverski email servisnog računa držite u privatnim Vercel varijablama. `FIREBASE_PRIVATE_KEY` može sadržavati stvarne nove retke ili doslovni `\n`; server oba oblika podržava. Ne objavljivati ih u repozitoriju ili mapi `dist`.
 5. Nakon provjere ciljanog projekta primijenite priložena `firestore.rules` i `storage.rules` pravila, primjerice Firebase CLI naredbom `firebase deploy --only firestore:rules,storage --project meleh-ce687`. Ne primjenjivati ih na projekt s drugim aplikacijama bez pregleda postojećih pravila jer zamjenjuju izravni klijentski pristup.
