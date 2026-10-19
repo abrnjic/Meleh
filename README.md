@@ -1,65 +1,76 @@
 # Meleh Apartmani
 
-Glavni repozitorij: https://github.com/abrnjic/Meleh. Hosting: Vercel. Ako uvedemo bazu podataka, koristimo Firebase.
+Glavni repozitorij: https://github.com/abrnjic/Meleh. Hosting: **Vercel**. Baza podataka, prijava i fotografije: **Firebase**. Slanje e-pošte: **Resend**, nakon naknadnog povezivanja i potvrde pošiljatelja.
 
-Responzivna statička web stranica na hrvatskom, engleskom i njemačkom jeziku. Za rad stranice nisu potrebne ovisnosti.
+## Pokretanje i provjera
 
-## Lokalni pregled
+Potrebni su Node.js 24 i npm.
 
-Iz ovog direktorija: `python3 -m http.server 4173 --directory dist`, zatim otvorite `http://localhost:4173`.
+```sh
+npm ci --ignore-scripts
+npm run build
+npm run dev
+npm test
+```
 
-## Unos podataka
+Lokalni frontend i API: `http://127.0.0.1:4174`. Varijabla `PORT` može promijeniti port. Dev skripta čita `.env.local`; nikada je ne dodavati u Git.
 
-Uredite `dist/content.js`: naziv, lokaciju, adresu, e-mail, telefon, WhatsApp/Viber brojeve u međunarodnom formatu, Google Maps embed URL i poveznicu za upute, društvene mreže, kućni red i udaljenosti. Podaci koji nedostaju imaju vrijednost `null`. Koristite samo provjerene poveznice.
+`npm run build` provjerava zadani sadržaj, izrađuje ulazne HTML stranice i serversku kopiju zadanog sadržaja. Vercel koristi `vercel.json`, instalira ovisnosti, pokreće build i poslužuje `dist` zajedno s API-jem. Nove apartmane iz administracije podržava rewrite `/apartmani/:slug/`.
 
-Tri apartmana i fotografije su ogledni primjeri. Zamijenite fotografije u `dist/assets/`, podatke u `SITE.apartments` i tekstove u `dist/app.js`. Za svaki novi apartman dodajte pripadajuću mapu s kopijom `dist/index.html`, kao kod postojećih apartmana. `app.js` bira stranicu prema putanji. Pri promjeni zajedničkog HTML zaglavlja osvježite kopije index.html u podmapama. Tekstovi i prijevodi su u pozivima `t(hr,en,de)`.
+## Što je dostupno
+
+- Responzivna stranica s HR/EN/DE prijevodima, svijetlom i tamnom temom te galerijom.
+- `/vodic/`: filtrirani vodič kroz Crikvenicu s poveznicama na službene turističke izvore i karte.
+- `/faq/`: česta pitanja; nepotvrđeni uvjeti objekta ne predstavljaju se kao stvarni podaci.
+- `/dostupnost/` i stranice apartmana: kalendar zauzetosti, odabir mjeseca i datuma, sezonski cjenik i izračun cijene.
+- `/admin/`: Firebase prijava ovlaštenog administratora te odvojeni, jasno označeni lokalni ogledni panel.
+- Panel uređuje podatke objekta, priču domaćina, apartmane i opise na tri jezika, cijene po sezonama, naslovne fotografije, galeriju, zauzeća, vodič i FAQ. Podržava izvoz i uvoz kopije sadržaja.
+- Mobilna traka prikazuje upit i kalendar dok nema kontakata; stvarni telefon i WhatsApp pojavljuju se nakon unosa brojeva.
+- Serverski tok upita: validacija → provjera termina i ograničenje učestalosti → Firestore zapis → zasebna e-poruka domaćinu i potvrda gostu. Neuspješna dostava vidi se u panelu i može se ponoviti.
+
+## Ogledni panel bez servisa
+
+Na `/admin/` odaberite **Otvori ogledni panel**. To ne daje pristup javnoj administraciji. Promjene se spremaju samo u lokalnu pohranu ovog preglednika, pod ključem `meleh-editor-preview-v1`, i utječu samo na lokalni pregled. Nakon osvježavanja ponovno otvorite ogledni panel kako biste učitali spremljeni pregled. Gumb za vraćanje početnog sadržaja uklanja ovu kopiju. Izvoz kopije ne uključuje osobne podatke upita.
+
+Stvarni Firebase i slanje e-pošte nisu konfigurirani. Dok nisu povezani, prijava je onemogućena, upit se može pripremiti/kopirati/preuzeti, a kalendar navodi da dostupnost nije potvrđena. Ne prikazujemo lažnu potvrdu slanja ni sigurno slobodne termine.
+
+## Naknadno povezivanje Firebasea i e-pošte
+
+Detaljni koraci su u [SETUP.md](SETUP.md). `.env.example` sadrži samo nazive varijabli, bez stvarnih vrijednosti. Administratorski email lokalno je predviđen u privatnoj varijabli `ADMIN_EMAIL`; nije javni kontakt `SITE.email` niti se objavljuje u frontend.
+
+Za administratorski pristup API provjerava potpis, opoziv i trajanje Firebase ID tokena, potvrđen email i točno podudaranje s privatnim `ADMIN_EMAIL`. ID i refresh token ostaju u memoriji stranice, ne u lokalnoj pohrani. Osvježavanje stranice zahtijeva novu prijavu. Firestore i Storage pravila onemogućuju izravni klijentski pristup; podaci prolaze kroz zaštićeni API. Nemojte koristiti e-mail podudaranje samo u klijentu kao zaštitu.
+
+## Stvarni sadržaj kasnije
+
+Početne podatke možete urediti u `dist/content.js`, a nakon povezivanja u administratorskom panelu. Nazivi apartmana, površine, kapaciteti i interijeri i dalje su ogledni. Adresa, kontakt, točne udaljenosti i pravila čekaju unos. Cijene nisu izmišljene: bez unesenih sezona prikazuje se „cijena na upit”.
+
+Gostu se objavljuju samo datumi zauzetosti, bez privatnih bilježaka. Intervali su od dolaska do odlaska, uz slobodan dan odlaska za promjenu gostiju. Preklapajuća zauzeća i sezone odbijaju se. Brisanje ili promjena oznake apartmana s postojećim zauzećima odbija se dok se termini ne urede.
+
+Prije pravog primanja upita dovršite podatke vlasnika, privatnost, uvjete rezervacije, kontakt i potvrđene cijene. U panelu isključite oznaku ogledne verzije tek kad sadržaj bude spreman. Serversko slanje upita dodatno je blokirano dok je `demo` uključen.
 
 ## Fotografije
 
-Prizori destinacije su stvarne fotografije Crikvenice, preuzete s Wikimedia Commonsa. Autor, izvor, licenca i prilagodbe navedeni su na javnoj stranici `/fotografije/` i u `SITE.photoCredits`. Fotografije su smanjene na širinu 1600 px i u pojedinim sekcijama prikazane kroz CSS izrez i zatamnjenje. Izmijenjeni prikazi dostupni su pod izvornom licencom.
+Prizori destinacije prikazuju Crikvenicu. Autori, izvori, licence i prilagodbe navedeni su na javnoj stranici `/fotografije/` i u `SITE.photoCredits`.
 
 - `crikvenica-plaza.jpg`: Elekes Andor, Beach - Crikvenica (8), CC BY-SA 4.0.
 - `crikvenica-obala.jpg`: Zoran Kurelić Rabko, Crikvenica, beach - panoramio, CC BY-SA 3.0.
 - `crikvenica-more.jpg`: Elekes Andor, Beach - Crikvenica (9), CC BY-SA 4.0.
 
-Četiri fotografije interijera s Unsplasha ostaju jasno označene kao ogledne i ne prikazuju apartmane Meleh. Fotografije destinacije nisu fotografije objekta i ne potvrđuju njegovu točnu lokaciju. Fotografije se poslužuju lokalno. Fontovi se učitavaju s Google Fonts, uz sistemske zamjene.
-
-## Svijetla i tamna tema
-
-Prekidač s ikonom sunca/mjeseca nalazi se u zaglavlju svih stranica, uz izbornik jezika. Pri prvom posjetu slijedi sistemsku postavku `prefers-color-scheme`. Ručni izbor sprema se lokalno pod ključem `meleh-theme` i vrijedi pri navigaciji, osvježavanju i u drugim karticama. Bez ručnog izbora tema prati promjene postavke uređaja. Ako lokalna pohrana nije dostupna, prekidač i dalje radi u trenutnoj stranici.
-
-`dist/theme.js` učitava se prije CSS-a kako bi se izbjegao bljesak pogrešne teme. Boje obiju tema definirane su CSS varijablama u `dist/style.css`.
-
-## Upiti
-
-Obrazac provjerava obavezna polja, datume i broj gostiju prema odabranom apartmanu. Podaci se obrađuju u pregledniku, bez slanja na poslužitelj i bez pohrane osobnih podataka. Pripremljeni upit može se kopirati ili preuzeti kao tekst. Kada je unesen `SITE.email`, pojavljuje se poveznica za otvaranje korisnikove aplikacije za e-poštu s pripremljenim upitom. Korisnik poruku šalje iz te aplikacije. Za automatsku dostavu treba naknadno povezati servis za slanje e-pošte.
-
-## Prije objave za goste
-
-Potvrdite sve podatke o apartmanima, sadržajima, cijenama, udaljenostima i kućnom redu. Zamijenite ogledne tekstove i fotografije, dodajte potvrđene recenzije s izvorom i dovršite privatnost te uvjete poslovanja stvarnim podacima vlasnika. Tada uklonite demo obavijesti iz `app.js`. Vrijednost `SITE.demo` samo je urednička oznaka i sama ne skriva obavijesti.
+Fotografije su smanjene i u pojedinim prikazima koriste CSS izrez i zatamnjenje; prilagođeni prikazi dostupni su pod istom licencom. Fotografije interijera s Unsplasha su ilustrativne i ne prikazuju apartmane Meleh. Nove fotografije prolaze provjeru formata, prilagodbu veličine i, u javnom načinu, autentikaciju prije spremanja u Firebase Storage.
 
 ## Struktura
 
-- `dist/index.html`: ulazni dokument
-- `dist/style.css`: responzivni stilovi
-- `dist/app.js`: stranice, prijevodi i interakcije
-- `dist/content.js`: podaci vlasnika i apartmana te izvori fotografija
-- `dist/theme.js`: inicijalizacija i pamćenje teme
-- `dist/assets/`: fotografije i favicon
-- `vercel.json`: Vercel konfiguracija za posluživanje mape `dist`
+- `dist/app.js`, `dist/style.css`: javna stranica, postojeći sadržaj i stilovi.
+- `dist/features.js`: vodič, FAQ, kalendar, cijene, mobilni kontakti i panel.
+- `dist/model.js`: zajednička validacija i izračuni u pregledniku i na serveru.
+- `dist/theme.js`: rano učitavanje i pamćenje teme.
+- `api/index.js`: zajednički Vercel Functions API ulaz.
+- `server/firebase.js`, `server/mail.js`: administratorska provjera, pohrana i dostava e-pošte.
+- `server/default-site.json`: zadani sadržaj generiran buildom.
+- `tests/`: datumi, cijene, kapacitet, neispravan sadržaj, zaštita API-ja i djelomične greške e-pošte.
 
-## GitHub i Vercel
+## Provjera i ograničenja
 
-Repozitorij treba biti povezan s postojećim Vercel projektom `meleh`. Postavke: Root Directory = korijen repozitorija; Framework Preset = Other; Build Command i Install Command bez naredbe; Output Directory = `dist`. Te vrijednosti deklarirane su u `vercel.json`. Stranica nema build korak ni npm ovisnosti. Glavna grana je `main`; radne grane mogu koristiti Vercel preview deployment.
+Automatizirani testovi pokrivaju datume i promjene gostiju, preklapanja, cijene preko sezona, kapacitete, opasan sadržaj i URL-ove, neprijavljeni pristup, privole te neuspješnu i ponovljenu dostavu poruka. U pregledniku je provjeren tok oglednog uređivanja → spremanje cjenika i zauzeća → prikaz gostu i izračun cijene.
 
-Ne prenosimo Sites identitet, konfiguraciju ni repozitorij u ovaj projekt. Stari Sites pregled je zasebna ogledna objava.
-
-## Firebase
-
-Trenutno nije potreban i nije konfiguriran. Ako uvedemo trajno spremanje upita, administraciju ili kalendar zauzetosti, koristimo Firebase. U tom koraku dodaju se autentikacija, ograničenja pristupa i potrebna pravila. Ne spremati privatne servisne ključeve u frontend ili Git. Varijable i konfiguraciju uvodimo tek s konkretnom funkcionalnosti.
-
-## Administrator
-
-Administratorski email postavlja se privatnom varijablom `ADMIN_EMAIL`, odvojeno od javnog kontakta `SITE.email`. Lokalna vrijednost nalazi se u `.env.local`, koji je izuzet iz Gita. `.env.example` sadrži samo predložak bez adrese. Za hosting se ova vrijednost postavlja u Vercel Environment Variables; ne koristiti javni frontend prefiks niti kopirati stvarnu vrijednost u `dist`.
-
-Administratorska prijava i autorizacija još nisu implementirane. Pri uvođenju administracije povezati ovaj identitet s provjerenim Firebase Auth računom i provoditi autorizaciju na poslužitelju odnosno u Firebase pravilima. Sam zapis emaila ne daje pristup niti stvara korisnički račun. Trenutna statička stranica ne učitava ovu varijablu.
+Prava Firebase prijava, pisanje u stvarnu bazu, Storage i stvarna dostava e-pošte zahtijevaju naknadne pristupne podatke i moraju se provjeriti nakon povezivanja. Test dostave koristi kontrolirani zamjenski HTTP odgovor i ne šalje stvarne poruke.
