@@ -7,6 +7,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/__/auth/:path*",
+      "destination": "https://meleh-ce687.firebaseapp.com/__/auth/:path*"
+    },
+    {
       "source": "/api/:path*",
       "destination": "/api/index?route=:path*"
     },

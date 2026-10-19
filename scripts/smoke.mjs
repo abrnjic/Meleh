@@ -13,7 +13,7 @@ for(const route of ['/admin/','/dostupnost/','/vodic/','/faq/','/apartmani/masli
  assert.equal(response.status,200,route+' should load');assert.match(await response.text(),/type="module" src="\/app.js"/);console.log('PASS '+route);
 }
 const loginModule=await fetch(origin+'/features.js');assert.equal(loginModule.status,200);const loginSource=await loginModule.text();assert.match(loginSource,/Prijavi se putem Googlea/);assert.doesNotMatch(loginSource,/signInWithPassword/);console.log('PASS Google-only login UI');
-const googleBundle=await fetch(origin+'/auth.js');assert.equal(googleBundle.status,200);assert.match(await googleBundle.text(),/signInWithPopup/);console.log('PASS Firebase Google SDK bundle');
+const googleBundle=await fetch(origin+'/auth.js');assert.equal(googleBundle.status,200);assert.match(await googleBundle.text(),/signInWithRedirect/);console.log('PASS Firebase Google SDK bundle');
 const protectedResponse=await fetch(origin+'/api/admin',{redirect:'manual',signal:AbortSignal.timeout(25000)});
 assert.ok([401,503].includes(protectedResponse.status),'Admin endpoint must reject unauthenticated callers');
 console.log('PASS unauthenticated admin is rejected');

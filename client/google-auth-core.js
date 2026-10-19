@@ -1,11 +1,15 @@
-// The Firebase SDK handles OAuth state, popup messaging and token renewal.
+// The Firebase SDK handles redirect state, temporary session storage and token renewal.
+export function googleAuthConfig(config,hostname){
+ return hostname==='meleh.vercel.app'?{...config,authDomain:hostname}:config;
+}
 export function createGoogleLogin(sdk,config){
  const existing=sdk.getApps().find(app=>app.name==='meleh-admin');
  const auth=existing?sdk.getAuth(existing):sdk.initializeAuth(sdk.initializeApp(config,'meleh-admin'),{persistence:sdk.inMemoryPersistence,popupRedirectResolver:sdk.browserPopupRedirectResolver});
  const provider=new sdk.GoogleAuthProvider();
  provider.setCustomParameters({prompt:'select_account'});
  return {
-  async signIn(){await sdk.signInWithPopup(auth,provider)},
+  async signIn(){await sdk.signInWithRedirect(auth,provider)},
+  async resume(){return Boolean(await sdk.getRedirectResult(auth))},
   async getToken(){if(!auth.currentUser)throw new Error('Potrebna je prijava.');return auth.currentUser.getIdToken()},
   async signOut(){await sdk.signOut(auth)}
  };
