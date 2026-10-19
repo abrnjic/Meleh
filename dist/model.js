@@ -15,6 +15,12 @@ export function nights(a,b){return Math.round((new Date(b+'T12:00:00Z')-new Date
 export function interval(a,b){return date(a)&&date(b)&&a<b&&nights(a,b)<=730}
 export function overlaps(a,b){return a.arrival<b.departure&&b.arrival<a.departure}
 export function capacity(a){return String(a.guests).split('+').reduce((n,v)=>n+Number(v.trim()),0)}
+export function whatsappNumber(value){
+ const raw=String(value||'').trim();
+ if(!/^[+\d\s()-]+$/.test(raw))return null;
+ const digits=raw.replace(/[\s()-]/g,'').replace(/^\+/,'').replace(/^00/,'');
+ return /^[1-9]\d{6,14}$/.test(digits)?digits:null;
+}
 export function number(value,min,max){const n=Number(value);if(!Number.isFinite(n)||n<min||n>max)throw invalid('Broj je izvan dopuštenog raspona.');return n}
 export function integer(value,min,max){const n=number(value,min,max);if(!Number.isInteger(n))throw invalid('Unesite cijeli broj.');return n}
 export function email(value){return typeof value==='string'&&value.length<=254&&/^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(value)}
@@ -27,6 +33,7 @@ export function validateContent(input,{allowDataImages=false}={}){
   const result={};for(const k of ['name','location','address','email','phone','whatsapp','viber','checkIn','checkOut','pets','smoking','quietHours'])result[k]=text(input[k],k==='address'?500:250);
   if(!result.name)throw invalid('Naziv objekta je obavezan.');if(result.email&&!email(result.email))throw invalid('Neispravna kontaktna email adresa.');
   for(const k of ['phone','whatsapp','viber'])if(result[k]&&!/^\+?[\d\s()-]{5,40}$/.test(result[k]))throw invalid('Provjerite telefonski broj.');
+  if(result.whatsapp&&!whatsappNumber(result.whatsapp))throw invalid('WhatsApp broj unesite u međunarodnom obliku s pozivnim brojem države (npr. +385…), bez početne lokalne nule.');
   for(const k of ['mapsUrl','instagram','facebook'])result[k]=https(input[k]);
   result.mapEmbed=https(input.mapEmbed);if(result.mapEmbed){const u=new URL(result.mapEmbed);if(u.hostname!=='www.google.com'||!u.pathname.startsWith('/maps/embed'))throw invalid('Koristite Google Maps embed poveznicu.');}
   result.demo=input.demo!==false;result.aboutText=localized(input.aboutText);result.distances={};for(const k of ['beach','center','shop','restaurant','airport','parking'])result.distances[k]=text(input.distances?.[k],100);
