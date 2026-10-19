@@ -53,3 +53,9 @@ Lokalni ogledni panel nema pristup ovim podacima niti ovlasti za serversko sprem
 - [Firestore transactions](https://firebase.google.com/docs/firestore/manage-data/transactions)
 - [Resend send-email API](https://resend.com/docs/api-reference/emails/send-email)
 - [Vercel Node.js Functions](https://vercel.com/docs/functions/runtimes/node-js)
+
+## Kompatibilnost runtimea
+
+Firebase Admin SDK vezan je na verziju 13.10.0. Firebase Admin 14.x uvodi `jwks-rsa` 4 i ESM-only `jose` 6, što je na ovom Vercel runtimeu uzrokovalo `ERR_REQUIRE_ESM` pri pokretanju, iako je build prolazio. Kompatibilna 13.x grana izbjegava taj loader problem bez promjene provjere potpisa tokena.
+
+Prije nadogradnje pokrenite `npm run test:runtime`, a nakon deploya `npm run smoke -- https://meleh.vercel.app`. Prvi testira učitavanje bez eksperimentalnog CommonJS → ESM require interopa, a drugi stvarnu mrežnu rutu i odgovor funkcije. Uspješan build sam po sebi ne potvrđuje ispravnost runtimea.

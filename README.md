@@ -11,6 +11,7 @@ npm ci --ignore-scripts
 npm run build
 npm run dev
 npm test
+npm run test:runtime
 npm run smoke -- https://meleh.vercel.app
 ```
 
