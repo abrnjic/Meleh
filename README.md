@@ -34,7 +34,7 @@ Lokalni frontend i API: `http://127.0.0.1:4174`. Varijabla `PORT` može promijen
 
 Na `/admin/` odaberite **Otvori ogledni panel**. To ne daje pristup javnoj administraciji. Promjene se spremaju samo u lokalnu pohranu ovog preglednika, pod ključem `meleh-editor-preview-v1`, i utječu samo na lokalni pregled. Nakon osvježavanja ponovno otvorite ogledni panel kako biste učitali spremljeni pregled. Gumb za vraćanje početnog sadržaja uklanja ovu kopiju. Izvoz kopije ne uključuje osobne podatke upita.
 
-Javna Firebase konfiguracija projekta `meleh-ce687` ugrađena je u aplikaciju. Serverske Firebase vjerodajnice i slanje e-pošte još nisu konfigurirani. Dok nisu povezani, prijava je onemogućena, upit se može pripremiti/kopirati/preuzeti, a kalendar navodi da dostupnost nije potvrđena. Ne prikazujemo lažnu potvrdu slanja ni sigurno slobodne termine.
+Javna Firebase konfiguracija projekta `meleh-ce687` ugrađena je u aplikaciju. Serverski Firebase pristup koristi produkcijsku Vercel OIDC federaciju, bez servisnog privatnog ključa. Google prijava omogućuje se kada `/api/config` potvrdi stvarni pristup bazi i provjeri korisnika. Slanje e-pošte i Storage čekaju naknadnu aktivaciju; upit se može pripremiti/kopirati/preuzeti, a kalendar bez unesenih podataka navodi da dostupnost nije potvrđena. Ne prikazujemo lažnu potvrdu slanja ni sigurno slobodne termine.
 
 ## Povezivanje Firebasea i e-pošte
 
@@ -75,4 +75,4 @@ Fotografije su smanjene i u pojedinim prikazima koriste CSS izrez i zatamnjenje;
 
 Automatizirani testovi pokrivaju datume i promjene gostiju, preklapanja, cijene preko sezona, kapacitete, opasan sadržaj i URL-ove, neprijavljeni pristup, privole te neuspješnu i ponovljenu dostavu poruka. U pregledniku je provjeren tok oglednog uređivanja → spremanje cjenika i zauzeća → prikaz gostu i izračun cijene.
 
-Prava Firebase prijava, pisanje u stvarnu bazu, Storage i stvarna dostava e-pošte zahtijevaju naknadne pristupne podatke i moraju se provjeriti nakon povezivanja. Test dostave koristi kontrolirani zamjenski HTTP odgovor i ne šalje stvarne poruke.
+Google prijava i Firestore koriste produkcijsku federaciju; prvi ulazak stvarnog administratora dovršava se njegovim Google računom. Storage i stvarna dostava e-pošte zahtijevaju naknadnu aktivaciju i provjeru. Test dostave koristi kontrolirani zamjenski HTTP odgovor i ne šalje stvarne poruke.

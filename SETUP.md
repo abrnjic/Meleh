@@ -4,16 +4,29 @@ Javna web konfiguracija projekta `meleh-ce687` spremljena je u `server/firebase-
 
 ## Firebase
 
-Status postavljanja (19. listopada 2026.): Google prijava je aktivirana, a Email/Password isključen. Firestore `(default)` postoji u `europe-west3` (Frankfurt), u Production načinu s blokiranim izravnim pristupom. Na Vercelu su postavljeni privatni `ADMIN_EMAIL` i identifikator servisnog računa `FIREBASE_CLIENT_EMAIL`; privatni ključ još čeka korisnikov unos. Firebase Storage još nije aktiviran jer konzola traži nadogradnju plana.
+Status postavljanja (19. listopada 2026.): Google prijava je aktivirana, a Email/Password isključen. Firestore `(default)` postoji u `europe-west3` (Frankfurt), u Production načinu s blokiranim izravnim pristupom. Postavljena je Vercel OIDC federacija za produkciju Meleh, bez privatnog ključa. Zaseban račun `vercel-meleh-server` ima prava za podatke Firestorea i čitanje Firebase korisnika. Privatni `ADMIN_EMAIL` određuje jedinog dopuštenog administratora. Produkcijski `/api/config` provjerava stvarni pristup bazi i Authentication API-ju prije nego omogući prijavu. Firebase Storage još nije aktiviran jer konzola traži nadogradnju plana.
 
 1. U projektu `meleh-ce687` uključite Authentication, Firestore u Native načinu i Storage.
 2. U Authentication koristite Google pružatelja; prijava lozinkom je isključena. Za produkciju dopustite samo domenu `meleh.vercel.app` (domena je dodana u konzoli). Google zahtijeva javni naziv aplikacije i odobreni kontakt podrške. Administratorski Google račun ne treba unaprijed izrađivati niti mu postavljati posebnu lozinku: Firebase ga stvara pri prvom uspješnom Google ulasku. Server dopušta pristup samo ako je token iz Google prijave (`firebase.sign_in_provider === 'google.com'`), email potvrđen i jednak privatnom `ADMIN_EMAIL`. Ostali Google računi mogu dovršiti identifikaciju kod pružatelja, ali dobivaju zabranu pristupa svim administratorskim API rutama.
-3. Postavite privatne Vercel varijable za odabrano okruženje: `ADMIN_EMAIL`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY`. Projekt, Storage bucket i web API ključ već imaju javne zadane vrijednosti; `FIREBASE_PROJECT_ID`, `FIREBASE_STORAGE_BUCKET` i `FIREBASE_API_KEY` služe kao neobavezne zamjene. Pri promjeni projekta postavite sve tri zamjene zajedno.
+3. Produkcija koristi privatne Vercel varijable za federaciju iz sljedećeg odjeljka i `ADMIN_EMAIL`. Alternativni način s ključem koristi `FIREBASE_CLIENT_EMAIL` i `FIREBASE_PRIVATE_KEY`; nije potreban kada je federacija aktivna. Projekt, Storage bucket i web API ključ već imaju javne zadane vrijednosti; `FIREBASE_PROJECT_ID`, `FIREBASE_STORAGE_BUCKET` i `FIREBASE_API_KEY` služe kao neobavezne zamjene. Pri promjeni projekta postavite sve tri zamjene zajedno.
 4. Privatni ključ i serverski email servisnog računa držite u privatnim Vercel varijablama. `FIREBASE_PRIVATE_KEY` može sadržavati stvarne nove retke ili doslovni `\n`; server oba oblika podržava. Ne objavljivati ih u repozitoriju ili mapi `dist`.
 5. Nakon provjere ciljanog projekta primijenite priložena `firestore.rules` i `storage.rules` pravila, primjerice Firebase CLI naredbom `firebase deploy --only firestore:rules,storage --project meleh-ce687`. Ne primjenjivati ih na projekt s drugim aplikacijama bez pregleda postojećih pravila jer zamjenjuju izravni klijentski pristup.
 6. Prijavite se kroz `/admin/`. Prvi unos sadržaja stvara dokument `site/public`; prvo zauzeće stvara `site/calendar`. Dok kalendar nema potvrđen zapis, javna stranica ga označava nepotvrđenim.
 
 Serverski SDK provjerava Firebase ID token s provjerom opoziva, Google pružatelja, `email_verified` i podudaranjem privatnog administratorskog emaila. Firebase Admin SDK koristi povlašteni pristup; zato se klijentu ne daju servisni ključevi i svaki zaštićeni API zahtjev zasebno provjerava.
+
+## Serverski pristup bez privatnog ključa
+
+Aplikacija podržava Vercel OIDC uz Google Workload Identity Federation. Ta opcija zamjenjuje servisni privatni ključ kratkotrajnim tokenima i koristi se samo u produkciji. Vlasnik je odobrio i postavljena su navedena IAM prava. Pool je `meleh-vercel-production`, provider `vercel`, a servisni račun `vercel-meleh-server@meleh-ce687.iam.gserviceaccount.com`.
+
+- Zaseban pool i OIDC provider vjeruju izdavatelju `https://oidc.vercel.com/proservers-projects` i audience vrijednosti `https://vercel.com/proservers-projects`.
+- Uvjet pružatelja i IAM binding ograničavaju pristup na `owner:proservers-projects:project:meleh:environment:production`, uz provjeru stabilnog ID-a tima i projekta.
+- Zaseban servisni račun ima `roles/datastore.user` za podatke aplikacije i `roles/firebaseauth.viewer` za provjeru opoziva i statusa korisnika. Pravo impersonacije `roles/iam.workloadIdentityUser` pripada samo navedenom produkcijskom identitetu.
+- U privatne produkcijske Vercel postavke dolaze `FIREBASE_FEDERATION_ENABLED=true`, `FIREBASE_WORKLOAD_IDENTITY_PROVIDER` (putanja `projects/NUMBER/locations/global/workloadIdentityPools/POOL/providers/PROVIDER`) i `FIREBASE_FEDERATED_SERVICE_ACCOUNT`.
+- SDK traži aktualni Vercel token u kontekstu zahtjeva, a Google biblioteka obnavlja pristupne tokene. Korisnički Google token i dalje prolazi provjeru potpisa, trajanja, opoziva, pružatelja i privatne email dozvole.
+- Storage prava nisu dio ove veze. Prijenos fotografija ostaje za naknadnu aktivaciju Storagea i zasebno ograničenje prava.
+
+Izvori: [Vercel Google Cloud OIDC](https://vercel.com/docs/oidc/gcp), [Google Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation).
 
 ## E-pošta
 

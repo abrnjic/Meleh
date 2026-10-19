@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {checkAdminServices} from '../server/readiness.js';
+const services=(error)=>({db:{collection:()=>({doc:()=>({get:async()=>({exists:false})})})},auth:{getUserByEmail:async()=>{if(error)throw Object.assign(new Error('test'),{code:error});return {emailVerified:true}}}});
+test('ready login requires actual Firestore and Auth API access',async()=>{assert.equal(await checkAdminServices(services(),'owner@example.test'),true);await assert.rejects(checkAdminServices({...services(),db:{collection:()=>{throw new Error('database denied')}}},'owner@example.test'),/denied/)});
+test('a first-time Google administrator need not exist yet, but denied Auth access blocks readiness',async()=>{assert.equal(await checkAdminServices(services('auth/user-not-found'),'owner@example.test'),true);await assert.rejects(checkAdminServices(services('auth/insufficient-permission'),'owner@example.test'));assert.equal(await checkAdminServices(services(),''),false)});
