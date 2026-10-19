@@ -8,7 +8,7 @@ test('background endpoint requires an exact strong production-only scheduler cre
 });
 test('background job covers all forty connections in bounded batches and records aggregate progress only',async()=>{
  const seed=Object.fromEntries(Array.from({length:40},(_,n)=>['calendarFeeds/'+n,{url:'PRIVATE_CALENDAR_URL',apartment:'more'}]));const db=memoryDb(seed);let batches=0;
- const result=await runCalendarBackground(db,{sync:async(_db,options)=>{assert.equal(options.limit,8);assert.equal(options.overview,false);batches++;return {attempted:8,succeeded:7,failed:1}}});assert.equal(batches,5);assert.equal(result.attempted,40);assert.equal(result.failed,5);assert.equal(db.data.get('site/calendarBackground').state,'partial');assert.doesNotMatch(JSON.stringify(db.data.get('site/calendarBackground')),/PRIVATE/);
+ const result=await runCalendarBackground(db,{sync:async(_db,options)=>{assert.equal(options.force,true);assert.equal(options.limit,8);assert.equal(options.overview,false);batches++;return {attempted:8,succeeded:7,failed:1}}});assert.equal(batches,5);assert.equal(result.attempted,40);assert.equal(result.failed,5);assert.equal(db.data.get('site/calendarBackground').state,'partial');assert.doesNotMatch(JSON.stringify(db.data.get('site/calendarBackground')),/PRIVATE/);
 });
 test('background job skips concurrent runs and recovers an expired execution lease',async()=>{
  const now=new Date();const db=memoryDb({'site/calendarBackground':{state:'running',lastStartedAt:now.toISOString(),runId:'existing'}});
@@ -19,7 +19,7 @@ test('failed background execution is recorded without leaking the provider error
 });
 
 test('background scheduler runs the actual importer across more than the interactive batch limit',async()=>{
- const {syncFeeds}=await import('../server/calendars.js');const seed=Object.fromEntries(Array.from({length:16},(_,n)=>['calendarFeeds/'+n,{apartment:'more',provider:'Airbnb',url:'https://www.airbnb.com/calendar/ical/'+n+'.ics',periods:[]}]));const db=memoryDb(seed);let calls=0;
+ const {syncFeeds}=await import('../server/calendars.js');const seed=Object.fromEntries(Array.from({length:16},(_,n)=>['calendarFeeds/'+n,{apartment:'more',provider:'Airbnb',url:'https://www.airbnb.com/calendar/ical/'+n+'.ics',periods:[],lastAttempt:new Date(Date.now()-14*60000).toISOString()}]));const db=memoryDb(seed);let calls=0;
  const fetcher=async()=>{calls++;return new Response('BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART;VALUE=DATE:20270701\r\nDTEND;VALUE=DATE:20270708\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n')};
  const result=await runCalendarBackground(db,{sync:(store,options)=>syncFeeds(store,{...options,fetcher})});assert.equal(calls,16);assert.equal(result.attempted,16);assert.equal(result.succeeded,16);assert.equal(result.failed,0);assert.equal(db.data.get('site/calendarBackground').state,'completed');
 });

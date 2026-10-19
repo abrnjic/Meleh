@@ -18,7 +18,7 @@ export async function runCalendarBackground(db,{sync=syncFeeds,now=()=>new Date(
  try{
   const feeds=await calendarFeeds(db);
   for(let batch=0;batch<Math.ceil(feeds.length/8);batch++){
-   const result=await sync(db,{limit:8,overview:false});
+   const result=await sync(db,{force:true,limit:8,overview:false});
    for(const key of Object.keys(counts))counts[key]+=result[key];
    if(!result.attempted)break;
   }
