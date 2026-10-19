@@ -32,3 +32,10 @@ html:is([data-text-size="130"],[data-text-size="150"]) .nav-links{display:none;p
 @media(max-width:600px){.mobile-cta{padding:10px 12px}.mobile-contact{flex-wrap:nowrap;gap:10px}.mobile-contact>a:first-child{font-size:.8125rem;min-width:0}.mobile-contact .btn{font-size:.875rem;padding:12px 10px;gap:6px;flex-shrink:0}}
 @media(max-width:600px){.hero h1{font-size:clamp(2.5rem,11vw,3rem)}}
 @media(max-width:360px){html[data-text-size="150"] .distances{grid-template-columns:minmax(0,1fr)}}
+/* Enlarged text must reflow inside status rows and long mobile headings. */
+.status-pill{max-width:100%;white-space:normal;overflow-wrap:anywhere;line-height:1.5}.admin-checklist>div{flex-wrap:wrap;align-items:flex-start}.admin-checklist>div>span{min-width:0}
+@media(max-width:600px){.page-head h1,.admin-heading h1{font-size:clamp(1.5rem,8vw,2.5rem);letter-spacing:-.6px;hyphens:auto;overflow-wrap:normal}.admin-card h2{hyphens:auto}html:is([data-text-size="130"],[data-text-size="150"]) .season-row,html:is([data-text-size="130"],[data-text-size="150"]) .availability-widget .form-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.field{overflow-wrap:anywhere}html:is([data-text-size="130"],[data-text-size="150"]) .admin-photo-grid{grid-template-columns:minmax(0,1fr)}html:is([data-text-size="130"],[data-text-size="150"]) .admin-photo>img{height:auto;aspect-ratio:16/10}}
+@media(max-width:600px){.month-picker{max-width:none;width:100%}.month-picker input{width:100%;min-width:0;font-size:.875rem}}
+@media(max-width:1150px){.nav-links{max-height:var(--menu-space,calc(100dvh - 180px));overflow-y:auto;overscroll-behavior:contain}}
+html:is([data-text-size="130"],[data-text-size="150"]) .nav-links{max-height:var(--menu-space,calc(100dvh - 180px));overflow-y:auto;overscroll-behavior:contain}
