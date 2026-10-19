@@ -4,7 +4,7 @@ window.SITE = {
   email: null, phone: null, whatsapp: null, viber: null,
   mapEmbed: null, mapsUrl: null, instagram: null, facebook: null,
   checkIn: null, checkOut: null, pets: null, smoking: null, quietHours: null,
-  distances: {beach:null, center:null, shop:null, restaurant:null, airport:null},
+  distances: {beach:null, center:null, shop:null, restaurant:null, airport:null, parking:null},
   reviews: [],
   apartments: [
     {slug:'maslina',name:'Maslina',guests:'2 + 2',rooms:1,baths:1,area:45,floor:'1',image:'room',tag:'Za lagana jutra',type:'couple',price:null},
