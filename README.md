@@ -1,6 +1,6 @@
 # Meleh Apartmani
 
-Glavni repozitorij: https://github.com/abrnjic/Meleh. Hosting: **Vercel**. Baza podataka, prijava i fotografije: **Firebase**. Slanje e-pošte: **Resend**, nakon naknadnog povezivanja i potvrde pošiljatelja.
+Glavni repozitorij: https://github.com/abrnjic/Meleh. Hosting: **Vercel**, [produkcijska stranica](https://meleh.vercel.app). Baza podataka, prijava i fotografije: **Firebase**. Slanje e-pošte: **Resend**, nakon naknadnog povezivanja i potvrde pošiljatelja.
 
 ## Pokretanje i provjera
 
@@ -11,11 +11,12 @@ npm ci --ignore-scripts
 npm run build
 npm run dev
 npm test
+npm run smoke -- https://meleh.vercel.app
 ```
 
 Lokalni frontend i API: `http://127.0.0.1:4174`. Varijabla `PORT` može promijeniti port. Dev skripta čita `.env.local`; nikada je ne dodavati u Git.
 
-`npm run build` provjerava zadani sadržaj, izrađuje ulazne HTML stranice i serversku kopiju zadanog sadržaja. Vercel koristi `vercel.json`, instalira ovisnosti, pokreće build i poslužuje `dist` zajedno s API-jem. Nove apartmane iz administracije podržava rewrite `/apartmani/:slug/`.
+`npm run build` provjerava zadani sadržaj, izrađuje ulazne HTML stranice i serversku kopiju zadanog sadržaja. Vercel koristi `vercel.json`, instalira ovisnosti, pokreće build i poslužuje `dist` zajedno s API-jem. Nove apartmane iz administracije podržava rewrite `/apartmani/:slug`. Završne kose crte uklanjaju se kako API funkcije ne bi bile preusmjerene na nepostojeću putanju s kosom crtom.
 
 ## Što je dostupno
 
