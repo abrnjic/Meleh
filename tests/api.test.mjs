@@ -45,3 +45,8 @@ test('inquiry workflow reads and writes remain restricted to authenticated admin
 test('calendar connection secrets and private guest instructions require administrator authentication',async()=>{
  const before=process.env.ADMIN_EMAIL;process.env.ADMIN_EMAIL='owner@example.test';try{for(const resource of ['calendar-feeds','calendar-sync','calendar-export','guest-guide','guest-links']){for(const method of ['GET','POST','PUT','DELETE']){const r=await handle(request('admin?resource='+resource,method,method==='GET'?undefined:{}));assert.equal(r.status,401)}}}finally{if(before)process.env.ADMIN_EMAIL=before;else delete process.env.ADMIN_EMAIL}
 });
+
+test('background job cannot be started by public users or forged Vercel user-agent headers',async()=>{
+ const before=process.env.CRON_SECRET;process.env.CRON_SECRET='test-only-'+ 'x'.repeat(48);
+ try{for(const headers of [{},{'User-Agent':'vercel-cron/1.0'},{Authorization:'Bearer invalid'}]){const result=await handle(request('calendar-background','GET',undefined,headers));assert.equal(result.status,401)}}finally{if(before)process.env.CRON_SECRET=before;else delete process.env.CRON_SECRET}
+});

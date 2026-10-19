@@ -1,3 +1,4 @@
+import {requireCalendarCron,runCalendarBackground} from '../server/calendar-background.js';
 import {addFeed,feedOverview,syncFeeds,combinedAvailability,createCalendarExport,readCalendarExport} from '../server/calendars.js';
 import {readGuideSettings,saveGuide,createGuestLink,listGuestLinks,redeemGuestLink} from '../server/guest-guide.js';
 import {updateInquiry} from '../server/inquiries.js';
@@ -13,6 +14,7 @@ async function body(req,limit=700000){const raw=await req.text();if(Buffer.byteL
 async function siteData(db){const snap=await db.collection('site').doc('public').get();return snap.exists?snap.data():{revision:0,data:clone(defaults)}}
 async function bookings(db){return (await db.collection('site').doc('calendar').get()).data()?.bookings||[]}
 export async function handle(request){try{const u=new URL(request.url);const route=(u.searchParams.get('route')||u.pathname.replace(/^\/api\/?/,'')).replace(/\/$/,'');const method=request.method;if(!['GET','POST','PUT','DELETE'].includes(method))return json({error:'Metoda nije dopuštena.'},405);if(method!=='GET')sameOrigin(request);
+ if(route==='calendar-background'&&method==='GET'){requireCalendarCron(request);return json(await runCalendarBackground(firebase().db));}
  if(route==='config'&&method==='GET'){const firebaseConfig=firebaseWebConfig();return json({firebaseConfigured:firebaseConfigured(),adminReady:Boolean(firebaseConfig.apiKey)&&await adminServicesReady(),mailReady:firebaseConfigured()&&mailConfigured(),firebaseApiKey:firebaseConfig.apiKey,firebaseConfig});}
  if(route==='content'&&method==='GET'){if(!firebaseConfigured())return json({configured:false,revision:0,data:null});const result=await siteData(firebase().db);return json({configured:true,...result});}
  if(route==='availability'&&method==='GET'){if(!firebaseConfigured())return json({configured:false,periods:[],lastSync:null});return json(await combinedAvailability(firebase().db,{sync:true}));}
