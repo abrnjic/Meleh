@@ -34,12 +34,14 @@ export function firebase(){
 }
 let readinessPromise,readinessExpires=0;
 export async function adminServicesReady(){
- if(!firebaseConfigured()||!process.env.ADMIN_EMAIL)return false;
+ const emails=adminEmailAllowlist();
+ if(!firebaseConfigured()||!emails.length)return false;
  if(!readinessPromise||Date.now()>=readinessExpires){
   readinessExpires=Date.now()+30000;
-  readinessPromise=Promise.resolve().then(()=>checkAdminServices(firebase(),process.env.ADMIN_EMAIL)).catch(error=>{console.error('Firebase access check failed',{code:error.code||'unavailable'});return false});
+  readinessPromise=Promise.resolve().then(()=>checkAdminServices(firebase(),emails[0])).catch(error=>{console.error('Firebase access check failed',{code:error.code||'unavailable'});return false});
  }
  return readinessPromise;
 }
-export function adminIdentityAllowed(user,adminEmail){return Boolean(adminEmail&&user.email_verified===true&&user.firebase?.sign_in_provider==='google.com'&&user.email?.toLowerCase()===adminEmail.trim().toLowerCase())}
-export async function requireAdmin(request){if(!process.env.ADMIN_EMAIL)throw Object.assign(new Error('Administracija nije aktivirana.'),{status:503});const token=(request.headers.get('authorization')||'').match(/^Bearer (.+)$/)?.[1];if(!token)throw Object.assign(new Error('Potrebna je prijava.'),{status:401});let user;try{user=await firebase().auth.verifyIdToken(token,true)}catch{throw Object.assign(new Error('Prijava je istekla ili nije valjana.'),{status:401})}if(!adminIdentityAllowed(user,process.env.ADMIN_EMAIL))throw Object.assign(new Error('Ovaj račun nema administratorski pristup.'),{status:403});return user}
+export function adminEmailAllowlist(env=process.env){return [...new Set([env.ADMIN_EMAIL,env.ADMIN_EMAILS].filter(Boolean).join(',').split(',').map(email=>email.trim().toLowerCase()).filter(Boolean))]}
+export function adminIdentityAllowed(user,adminEmails){const emails=(Array.isArray(adminEmails)?adminEmails:String(adminEmails||'').split(',')).map(email=>email.trim().toLowerCase()).filter(Boolean);return Boolean(user.email_verified===true&&user.firebase?.sign_in_provider==='google.com'&&emails.includes(user.email?.toLowerCase()))}
+export async function requireAdmin(request){const emails=adminEmailAllowlist();if(!emails.length)throw Object.assign(new Error('Administracija nije aktivirana.'),{status:503});const token=(request.headers.get('authorization')||'').match(/^Bearer (.+)$/)?.[1];if(!token)throw Object.assign(new Error('Potrebna je prijava.'),{status:401});let user;try{user=await firebase().auth.verifyIdToken(token,true)}catch{throw Object.assign(new Error('Prijava je istekla ili nije valjana.'),{status:401})}if(!adminIdentityAllowed(user,emails))throw Object.assign(new Error('Ovaj račun nema administratorski pristup.'),{status:403});return user}

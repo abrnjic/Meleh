@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {handle} from '../api/index.js';import {adminIdentityAllowed,firebaseWebConfig,firebaseConfigured} from '../server/firebase.js';
+import {handle} from '../api/index.js';import {adminEmailAllowlist,adminIdentityAllowed,firebaseWebConfig,firebaseConfigured} from '../server/firebase.js';
 const request=(path,method='GET',body,headers={})=>new Request('https://example.test/api/'+path,{method,headers:{...(method==='GET'?{}:{Origin:'https://example.test','Content-Type':'application/json'}),...headers},...(body?{body:JSON.stringify(body)}:{})});
 test('without service configuration API does not claim availability or accept mail',async()=>{for(const path of ['config','content','availability']){const r=await handle(request(path));assert.equal(r.status,200);const data=await r.json();if(path==='config'){assert.equal(data.adminReady,false);assert.equal(data.mailReady,false);assert.equal(Object.hasOwn(data,'ADMIN_EMAIL'),false)}else assert.equal(data.configured,false)}const r=await handle(request('inquiry','POST',{name:'Example'}));assert.equal(r.status,503);assert.equal((await r.json()).accepted,undefined)});
 test('private routes reject unauthenticated requests and cross-origin writes',async()=>{const before=process.env.ADMIN_EMAIL;process.env.ADMIN_EMAIL='owner@example.test';try{const r=await handle(request('admin'));assert.equal(r.status,401);const cross=await handle(request('admin','PUT',{}, {Origin:'https://other.test'}));assert.equal(cross.status,403);const photo=await handle(request('photo?id=../../secret'));assert.equal(photo.status,404)}finally{if(before)process.env.ADMIN_EMAIL=before;else delete process.env.ADMIN_EMAIL}});
@@ -26,3 +26,13 @@ test('project overrides do not inherit identifiers from the original Firebase pr
 });
 
 test('password and missing-provider tokens cannot access administration even with the allowed verified email',()=>{for(const firebase of [undefined,{sign_in_provider:'password'},{sign_in_provider:'anonymous'}])assert.equal(adminIdentityAllowed({email:'owner@example.test',email_verified:true,firebase},'owner@example.test'),false)});
+
+test('additional administrators retain the original owner and require verified Google identities',()=>{
+ const emails=adminEmailAllowlist({ADMIN_EMAIL:'Owner@example.test',ADMIN_EMAILS:' second@example.test,OWNER@example.test, '});
+ assert.deepEqual(emails,['owner@example.test','second@example.test']);
+ const user=email=>({email,email_verified:true,firebase:{sign_in_provider:'google.com'}});
+ for(const email of emails){assert.equal(adminIdentityAllowed(user(email),emails),true);assert.equal(adminIdentityAllowed({...user(email),email_verified:false},emails),false);assert.equal(adminIdentityAllowed({...user(email),firebase:{sign_in_provider:'password'}},emails),false)}
+ assert.equal(adminIdentityAllowed(user('second@example.test.attacker.test'),emails),false);
+ assert.equal(adminIdentityAllowed(user('other@example.test'),emails),false);
+ assert.deepEqual(adminEmailAllowlist({}),[]);
+});
