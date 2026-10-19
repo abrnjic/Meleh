@@ -57,3 +57,9 @@ Ne prenosimo Sites identitet, konfiguraciju ni repozitorij u ovaj projekt. Stari
 ## Firebase
 
 Trenutno nije potreban i nije konfiguriran. Ako uvedemo trajno spremanje upita, administraciju ili kalendar zauzetosti, koristimo Firebase. U tom koraku dodaju se autentikacija, ograničenja pristupa i potrebna pravila. Ne spremati privatne servisne ključeve u frontend ili Git. Varijable i konfiguraciju uvodimo tek s konkretnom funkcionalnosti.
+
+## Administrator
+
+Administratorski email postavlja se privatnom varijablom `ADMIN_EMAIL`, odvojeno od javnog kontakta `SITE.email`. Lokalna vrijednost nalazi se u `.env.local`, koji je izuzet iz Gita. `.env.example` sadrži samo predložak bez adrese. Za hosting se ova vrijednost postavlja u Vercel Environment Variables; ne koristiti javni frontend prefiks niti kopirati stvarnu vrijednost u `dist`.
+
+Administratorska prijava i autorizacija još nisu implementirane. Pri uvođenju administracije povezati ovaj identitet s provjerenim Firebase Auth računom i provoditi autorizaciju na poslužitelju odnosno u Firebase pravilima. Sam zapis emaila ne daje pristup niti stvara korisnički račun. Trenutna statička stranica ne učitava ovu varijablu.
