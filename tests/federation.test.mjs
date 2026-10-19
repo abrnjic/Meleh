@@ -22,3 +22,11 @@ test('Firebase readiness accepts complete production federation without a privat
  assert.equal(firebaseConfigured({...configured,VERCEL_ENV:'preview'}),false);
  assert.equal(firebaseConfigured({...configured,FIREBASE_FEDERATED_SERVICE_ACCOUNT:''}),false);
 });
+test('Google auth headers remain compatible with the Firestore 7 gRPC transport',async()=>{
+ const client=createFederatedClient(federationSettings(env,'sample-project'));
+ client.setCredentials({access_token:'transport-test-token',expiry_date:Date.now()+3600000});
+ const headers=await client.getRequestHeaders();
+ const key=Object.keys(headers).find(key=>key.toLowerCase()==='authorization');
+ assert.ok(key,'Firestore gRPC reads enumerable object header fields');
+ assert.equal(headers[key],'Bearer transport-test-token');
+});

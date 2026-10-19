@@ -74,3 +74,5 @@ Lokalni ogledni panel nema pristup ovim podacima niti ovlasti za serversko sprem
 Firebase Admin SDK vezan je na verziju 13.10.0. Firebase Admin 14.x uvodi `jwks-rsa` 4 i ESM-only `jose` 6, što je na ovom Vercel runtimeu uzrokovalo `ERR_REQUIRE_ESM` pri pokretanju, iako je build prolazio. Kompatibilna 13.x grana izbjegava taj loader problem bez promjene provjere potpisa tokena.
 
 Prije nadogradnje pokrenite `npm run test:runtime`, a nakon deploya `npm run smoke -- https://meleh.vercel.app`. Prvi testira učitavanje bez eksperimentalnog CommonJS → ESM require interopa, a drugi stvarnu mrežnu rutu i odgovor funkcije. Uspješan build sam po sebi ne potvrđuje ispravnost runtimea.
+
+Google Auth za federirani Firestore/Storage klijent vezan je na 9.15.1, kompatibilno s Firestore 7 / google-gax 4. Google Auth 10 vraća `Headers`, dok gRPC transport ove grane očekuje običan objekt; takva kombinacija tiho izostavlja autorizacijsko zaglavlje i Firestore odbija pristup. Test federacije provjerava i stvarni format zaglavlja. Firebase Admin zasebno koristi svoju ovisnost Google Auth 10, a pristup dobiva preko sučelja `getAccessToken`.
