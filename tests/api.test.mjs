@@ -36,3 +36,8 @@ test('additional administrators retain the original owner and require verified G
  assert.equal(adminIdentityAllowed(user('other@example.test'),emails),false);
  assert.deepEqual(adminEmailAllowlist({}),[]);
 });
+
+test('inquiry workflow reads and writes remain restricted to authenticated administrators',async()=>{
+ const before=process.env.ADMIN_EMAIL;process.env.ADMIN_EMAIL='owner@example.test';
+ try{for(const method of ['GET','PUT']){const response=await handle(request('admin?resource=inquiries',method,method==='PUT'?{id:'12345678-1234-1234-1234-123456789012',status:'confirmed',internalNote:'Private test',workflowRevision:0}:undefined));assert.equal(response.status,401)}}finally{if(before)process.env.ADMIN_EMAIL=before;else delete process.env.ADMIN_EMAIL}
+});
