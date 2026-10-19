@@ -21,7 +21,7 @@ Lokalni frontend i API: `http://127.0.0.1:4174`. Varijabla `PORT` može promijen
 
 ## Što je dostupno
 
-- Responzivna stranica s HR/EN/DE prijevodima, svijetlom i tamnom temom te galerijom.
+- Responzivna stranica s HR/EN/DE prijevodima, isključivo svijetlom temom te galerijom.
 - `/vodic/`: filtrirani vodič kroz Crikvenicu s poveznicama na službene turističke izvore i karte.
 - `/faq/`: česta pitanja; nepotvrđeni uvjeti objekta ne predstavljaju se kao stvarni podaci.
 - `/dostupnost/` i stranice apartmana: kalendar zauzetosti, odabir mjeseca i datuma, sezonski cjenik i izračun cijene.
@@ -65,7 +65,7 @@ Fotografije su smanjene i u pojedinim prikazima koriste CSS izrez i zatamnjenje;
 - `dist/app.js`, `dist/style.css`: javna stranica, postojeći sadržaj i stilovi.
 - `dist/features.js`: vodič, FAQ, kalendar, cijene, mobilni kontakti i panel.
 - `dist/model.js`: zajednička validacija i izračuni u pregledniku i na serveru.
-- `dist/theme.js`: rano učitavanje i pamćenje teme.
+- `dist/theme.js`: prelazak ranije spremljenih postavki na isključivo svijetli izgled.
 - `api/index.js`: zajednički Vercel Functions API ulaz.
 - `server/firebase.js`, `server/mail.js`: administratorska provjera, pohrana i dostava e-pošte.
 - `server/default-site.json`: zadani sadržaj generiran buildom.
