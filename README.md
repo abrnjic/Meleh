@@ -34,7 +34,7 @@ Lokalni frontend i API: `http://127.0.0.1:4174`. Varijabla `PORT` može promijen
 
 Na `/admin/` odaberite **Otvori ogledni panel**. To ne daje pristup javnoj administraciji. Promjene se spremaju samo u lokalnu pohranu ovog preglednika, pod ključem `meleh-editor-preview-v1`, i utječu samo na lokalni pregled. Nakon osvježavanja ponovno otvorite ogledni panel kako biste učitali spremljeni pregled. Gumb za vraćanje početnog sadržaja uklanja ovu kopiju. Izvoz kopije ne uključuje osobne podatke upita.
 
-Stvarni Firebase i slanje e-pošte nisu konfigurirani. Dok nisu povezani, prijava je onemogućena, upit se može pripremiti/kopirati/preuzeti, a kalendar navodi da dostupnost nije potvrđena. Ne prikazujemo lažnu potvrdu slanja ni sigurno slobodne termine.
+Javna Firebase konfiguracija projekta `meleh-ce687` ugrađena je u aplikaciju. Serverske Firebase vjerodajnice i slanje e-pošte još nisu konfigurirani. Dok nisu povezani, prijava je onemogućena, upit se može pripremiti/kopirati/preuzeti, a kalendar navodi da dostupnost nije potvrđena. Ne prikazujemo lažnu potvrdu slanja ni sigurno slobodne termine.
 
 ## Naknadno povezivanje Firebasea i e-pošte
 

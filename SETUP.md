@@ -1,14 +1,14 @@
 # Naknadno povezivanje servisa
 
-Ove korake provodimo nakon što vlasnik dostavi podatke i odabere Firebase projekt. Projekt trenutačno ne sadrži stvarne ključeve ni dovršene kontaktne podatke.
+Javna web konfiguracija projekta `meleh-ce687` spremljena je u `server/firebase-web.json` i dostupna klijentu preko `/api/config`. Serverski pristup, prijava i slanje e-pošte čekaju aktivaciju servisa i privatne varijable. Kontaktni podaci ostaju za kasnije.
 
 ## Firebase
 
-1. Odaberite Firebase projekt; uključite Authentication, Firestore u Native načinu i Storage.
+1. U projektu `meleh-ce687` uključite Authentication, Firestore u Native načinu i Storage.
 2. U Authentication uključite Email/Password, izradite administratorski račun i potvrdite njegov email. Aplikacija ne nudi javnu registraciju administratora.
-3. Postavite Vercel varijable za odabrano okruženje: `ADMIN_EMAIL`, `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY`, `FIREBASE_STORAGE_BUCKET`, `FIREBASE_API_KEY`.
+3. Postavite privatne Vercel varijable za odabrano okruženje: `ADMIN_EMAIL`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY`. Projekt, Storage bucket i web API ključ već imaju javne zadane vrijednosti; `FIREBASE_PROJECT_ID`, `FIREBASE_STORAGE_BUCKET` i `FIREBASE_API_KEY` služe kao neobavezne zamjene. Pri promjeni projekta postavite sve tri zamjene zajedno.
 4. Privatni ključ i serverski email servisnog računa držite u privatnim Vercel varijablama. `FIREBASE_PRIVATE_KEY` može sadržavati stvarne nove retke ili doslovni `\n`; server oba oblika podržava. Ne objavljivati ih u repozitoriju ili mapi `dist`.
-5. Nakon provjere ciljanog projekta primijenite priložena `firestore.rules` i `storage.rules` pravila, primjerice Firebase CLI naredbom `firebase deploy --only firestore:rules,storage --project YOUR_PROJECT_ID`. Ne primjenjivati ih na projekt s drugim aplikacijama bez pregleda postojećih pravila jer zamjenjuju izravni klijentski pristup.
+5. Nakon provjere ciljanog projekta primijenite priložena `firestore.rules` i `storage.rules` pravila, primjerice Firebase CLI naredbom `firebase deploy --only firestore:rules,storage --project meleh-ce687`. Ne primjenjivati ih na projekt s drugim aplikacijama bez pregleda postojećih pravila jer zamjenjuju izravni klijentski pristup.
 6. Prijavite se kroz `/admin/`. Prvi unos sadržaja stvara dokument `site/public`; prvo zauzeće stvara `site/calendar`. Dok kalendar nema potvrđen zapis, javna stranica ga označava nepotvrđenim.
 
 Serverski SDK provjerava Firebase ID token s provjerom opoziva, `email_verified` i podudaranjem privatnog administratorskog emaila. Firebase Admin SDK koristi povlašteni pristup; zato se klijentu ne daju servisni ključevi i svaki zaštićeni API zahtjev zasebno provjerava.

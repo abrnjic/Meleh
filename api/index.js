@@ -1,5 +1,5 @@
 import {createHash,createHmac,randomUUID} from 'node:crypto';
-import {firebase,firebaseConfigured,requireAdmin} from '../server/firebase.js';
+import {firebase,firebaseConfigured,firebaseWebConfig,requireAdmin} from '../server/firebase.js';
 import {mailConfigured,deliverInquiry} from '../server/mail.js';
 import {clone,validateContent,validateInquiry,validateBooking,overlaps} from '../dist/model.js';
 import defaults from '../server/default-site.json' with {type:'json'};
@@ -10,7 +10,7 @@ async function body(req,limit=700000){const raw=await req.text();if(Buffer.byteL
 async function siteData(db){const snap=await db.collection('site').doc('public').get();return snap.exists?snap.data():{revision:0,data:clone(defaults)}}
 async function bookings(db){return (await db.collection('site').doc('calendar').get()).data()?.bookings||[]}
 export async function handle(request){try{const u=new URL(request.url);const route=(u.searchParams.get('route')||u.pathname.replace(/^\/api\/?/,'')).replace(/\/$/,'');const method=request.method;if(!['GET','POST','PUT','DELETE'].includes(method))return json({error:'Metoda nije dopuštena.'},405);if(method!=='GET')sameOrigin(request);
- if(route==='config'&&method==='GET')return json({firebaseConfigured:firebaseConfigured(),adminReady:firebaseConfigured()&&Boolean(process.env.ADMIN_EMAIL&&process.env.FIREBASE_API_KEY),mailReady:firebaseConfigured()&&mailConfigured(),firebaseApiKey:process.env.FIREBASE_API_KEY||null});
+ if(route==='config'&&method==='GET'){const firebaseConfig=firebaseWebConfig();return json({firebaseConfigured:firebaseConfigured(),adminReady:firebaseConfigured()&&Boolean(process.env.ADMIN_EMAIL&&firebaseConfig.apiKey),mailReady:firebaseConfigured()&&mailConfigured(),firebaseApiKey:firebaseConfig.apiKey,firebaseConfig});}
  if(route==='content'&&method==='GET'){if(!firebaseConfigured())return json({configured:false,revision:0,data:null});const result=await siteData(firebase().db);return json({configured:true,...result});}
  if(route==='availability'&&method==='GET'){if(!firebaseConfigured())return json({configured:false,periods:[]});const snapshot=await firebase().db.collection('site').doc('calendar').get();const all=snapshot.data()?.bookings||[];return json({configured:snapshot.exists,periods:all.map(({apartment,arrival,departure})=>({apartment,arrival,departure}))});}
  if(route==='photo'&&method==='GET'){const id=u.searchParams.get('id');if(!/^[a-f0-9-]{36}\.(?:jpg|png|webp)$/.test(id||''))throw error('Fotografija nije pronađena.',404);const bucket=firebase().bucket();let data,meta;try{[data]=await bucket.file('photos/'+id).download();[meta]=await bucket.file('photos/'+id).getMetadata()}catch{throw error('Fotografija nije pronađena.',404)}return new Response(data,{headers:{'Content-Type':meta.contentType||'image/jpeg','X-Content-Type-Options':'nosniff','Cache-Control':'public, max-age=86400'}});}
