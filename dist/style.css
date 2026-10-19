@@ -58,3 +58,11 @@ html:is([data-text-size="130"],[data-text-size="150"]) .comparison-grid{grid-tem
 @media(max-width:600px){.planner-form{padding:20px}.planner-form .form-grid,.planner-amenities{grid-template-columns:minmax(0,1fr)}.planner-result>div,.day-stops>li{padding:22px}.planner-result h2{font-size:1.75rem}.actions>.btn{width:100%}.comparison-body dl>div{flex-wrap:wrap;gap:6px}.comparison-body dd{margin-left:auto}.guest-guide-block h2{font-size:1.35rem}}
 @media(min-width:601px){html:is([data-text-size="130"],[data-text-size="150"]) .day-stops{grid-template-columns:minmax(0,1fr)}}
 .background-sync-status{padding:20px;margin:24px 0;border:1px solid var(--line);border-radius:8px;background:var(--cream);overflow-wrap:anywhere}.background-sync-status h3{font-size:1.25rem;margin-bottom:12px}
+
+/* Useful surroundings cards with separate guest and public parking information. */
+.distances .distance h3{font-family:var(--sans,Arial,sans-serif);font-size:1rem;line-height:1.45;font-weight:600;margin:0;overflow-wrap:anywhere}
+.distances .distance p{font-size:.9375rem;line-height:1.6;margin:0;color:var(--muted);overflow-wrap:anywhere}
+.distances .distance small{margin-top:0}
+.distance-actions{margin-top:auto;padding-top:12px;display:flex;flex-direction:column;gap:8px;width:100%}
+.distance-actions a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 4px;color:#076b95;font-size:.9375rem;font-weight:600;line-height:1.5;text-decoration:underline;text-underline-offset:4px;border-radius:4px;overflow-wrap:anywhere}
+.distance-actions a:hover{background:#d6edf9;color:#064c6b}.distance-actions a:focus-visible{outline:3px solid #087fae;outline-offset:3px}
