@@ -14,6 +14,10 @@
     "test:runtime": "node --no-experimental-require-module --test tests/*.test.mjs"
   },
   "dependencies": {
+    "firebase": "13.0.0",
     "firebase-admin": "13.10.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
   }
 }

@@ -25,7 +25,7 @@ Lokalni frontend i API: `http://127.0.0.1:4174`. Varijabla `PORT` može promijen
 - `/vodic/`: filtrirani vodič kroz Crikvenicu s poveznicama na službene turističke izvore i karte.
 - `/faq/`: česta pitanja; nepotvrđeni uvjeti objekta ne predstavljaju se kao stvarni podaci.
 - `/dostupnost/` i stranice apartmana: kalendar zauzetosti, odabir mjeseca i datuma, sezonski cjenik i izračun cijene.
-- `/admin/`: Firebase prijava ovlaštenog administratora te odvojeni, jasno označeni lokalni ogledni panel.
+- `/admin/`: Google prijava ovlaštenog administratora putem Firebasea te odvojeni, jasno označeni lokalni ogledni panel.
 - Panel uređuje podatke objekta, priču domaćina, apartmane i opise na tri jezika, cijene po sezonama, naslovne fotografije, galeriju, zauzeća, vodič i FAQ. Podržava izvoz i uvoz kopije sadržaja.
 - Mobilna traka prikazuje upit i kalendar dok nema kontakata; stvarni telefon i WhatsApp pojavljuju se nakon unosa brojeva.
 - Serverski tok upita: validacija → provjera termina i ograničenje učestalosti → Firestore zapis → zasebna e-poruka domaćinu i potvrda gostu. Neuspješna dostava vidi se u panelu i može se ponoviti.
@@ -36,11 +36,11 @@ Na `/admin/` odaberite **Otvori ogledni panel**. To ne daje pristup javnoj admin
 
 Javna Firebase konfiguracija projekta `meleh-ce687` ugrađena je u aplikaciju. Serverske Firebase vjerodajnice i slanje e-pošte još nisu konfigurirani. Dok nisu povezani, prijava je onemogućena, upit se može pripremiti/kopirati/preuzeti, a kalendar navodi da dostupnost nije potvrđena. Ne prikazujemo lažnu potvrdu slanja ni sigurno slobodne termine.
 
-## Naknadno povezivanje Firebasea i e-pošte
+## Povezivanje Firebasea i e-pošte
 
 Detaljni koraci su u [SETUP.md](SETUP.md). `.env.example` sadrži samo nazive varijabli, bez stvarnih vrijednosti. Administratorski email lokalno je predviđen u privatnoj varijabli `ADMIN_EMAIL`; nije javni kontakt `SITE.email` niti se objavljuje u frontend.
 
-Za administratorski pristup API provjerava potpis, opoziv i trajanje Firebase ID tokena, potvrđen email i točno podudaranje s privatnim `ADMIN_EMAIL`. ID i refresh token ostaju u memoriji stranice, ne u lokalnoj pohrani. Osvježavanje stranice zahtijeva novu prijavu. Firestore i Storage pravila onemogućuju izravni klijentski pristup; podaci prolaze kroz zaštićeni API. Nemojte koristiti e-mail podudaranje samo u klijentu kao zaštitu.
+Za administratorski pristup API provjerava potpis, opoziv i trajanje Firebase ID tokena, Google pružatelja prijave, potvrđen email i točno podudaranje s privatnim `ADMIN_EMAIL`. Firebase web SDK koristi isključivo memorijsku pohranu; obnavlja ID token i briše sesiju pri odjavi. Osvježavanje stranice zahtijeva novu prijavu. Firestore i Storage pravila onemogućuju izravni klijentski pristup; podaci prolaze kroz zaštićeni API. Nemojte koristiti e-mail podudaranje samo u klijentu kao zaštitu.
 
 ## Stvarni sadržaj kasnije
 

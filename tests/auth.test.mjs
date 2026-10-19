@@ -1,16 +1,14 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {passwordSignIn,sendVerification} from '../dist/auth.js';
-test('sign-in reads verification state without automatically sending email',async()=>{
- const calls=[];const fetcher=async(url,options)=>{calls.push({url,body:JSON.parse(options.body)});return Response.json(calls.length===1?{idToken:'test-token',refreshToken:'test-refresh',expiresIn:'3600'}:{users:[{emailVerified:false}]})};
- const result=await passwordSignIn('test-key','owner@example.test','test-password',fetcher);
- assert.equal(result.emailVerified,false);assert.equal(calls.length,2);assert.ok(calls[1].url.includes('accounts:lookup'));assert.deepEqual(calls[1].body,{idToken:'test-token'});
+import {createGoogleLogin,googleLoginError} from '../client/google-auth-core.js';
+test('Google sign-in uses memory-only persistence, account choice and SDK token renewal',async()=>{
+ const calls=[];const auth={currentUser:null};
+ const sdk={getApps:()=>[],inMemoryPersistence:'memory',browserPopupRedirectResolver:'popup',initializeApp:(config,name)=>({name,config}),initializeAuth:(app,options)=>{calls.push({app,options});return auth},GoogleAuthProvider:class{setCustomParameters(options){calls.push(options)}},signInWithPopup:async()=>{auth.currentUser={getIdToken:async()=> 'fresh-token'}},signOut:async()=>{auth.currentUser=null}};
+ const login=createGoogleLogin(sdk,{projectId:'test'});
+ assert.equal(calls[0].options.persistence,'memory');assert.deepEqual(calls[1],{prompt:'select_account'});
+ await assert.rejects(login.getToken(),/Potrebna/);await login.signIn();assert.equal(await login.getToken(),'fresh-token');await login.signOut();await assert.rejects(login.getToken(),/Potrebna/);
 });
-test('verification is explicit and uses the authenticated account token',async()=>{
- let payload;await sendVerification('test-key','account-token',async(url,options)=>{assert.ok(url.includes('accounts:sendOobCode'));payload=JSON.parse(options.body);return Response.json({})});
- assert.deepEqual(payload,{requestType:'VERIFY_EMAIL',idToken:'account-token'});
-});
-test('failed or incomplete account lookup cannot claim a verified identity',async()=>{
- const fetcher=async(url)=>Response.json(url.includes('signInWithPassword')?{idToken:'test-token'}:{});
- assert.equal((await passwordSignIn('key','owner@example.test','pass',fetcher)).emailVerified,false);
- await assert.rejects(passwordSignIn('key','owner@example.test','pass',async()=>Response.json({error:{}},{status:400})),/Pogrešni/);
+test('popup failures give actionable messages without exposing provider internals',()=>{
+ assert.match(googleLoginError({code:'auth/popup-blocked'}),/skočne/);
+ assert.match(googleLoginError({code:'auth/unauthorized-domain'}),/domena/);
+ assert.equal(googleLoginError({message:'private provider detail'}),'Google prijava nije uspjela. Pokušajte ponovno.');
 });
