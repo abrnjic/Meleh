@@ -20,127 +20,148 @@
   "arrivalDays": {
     "hr": "Dolazak je moguć bilo kojim danom.",
     "en": "Arrival is possible on any day.",
-    "de": "Anreise ist an jedem Wochentag möglich."
+    "de": "Anreise ist an jedem Wochentag möglich.",
+    "cs": "Příjezd je možný kterýkoli den."
   },
   "propertyFacts": [
     {
       "label": {
         "hr": "Kategorija",
         "en": "Category",
-        "de": "Kategorie"
+        "de": "Kategorie",
+        "cs": "Kategorie"
       },
       "value": {
         "hr": "3 zvjezdice",
         "en": "3 stars",
-        "de": "3 Sterne"
+        "de": "3 Sterne",
+        "cs": "3 hvězdičky"
       }
     },
     {
       "label": {
         "hr": "Smještaj",
         "en": "Accommodation",
-        "de": "Unterkunft"
+        "de": "Unterkunft",
+        "cs": "Ubytování"
       },
       "value": {
         "hr": "6 apartmana",
         "en": "6 apartments",
-        "de": "6 Apartments"
+        "de": "6 Apartments",
+        "cs": "6 apartmánů"
       }
     },
     {
       "label": {
         "hr": "Ukupno soba u objektu",
         "en": "Total rooms in the property",
-        "de": "Zimmer insgesamt im Haus"
+        "de": "Zimmer insgesamt im Haus",
+        "cs": "Celkový počet pokojů v objektu"
       },
       "value": {
         "hr": "15",
         "en": "15",
-        "de": "15"
+        "de": "15",
+        "cs": "15"
       }
     },
     {
       "label": {
         "hr": "Parking i internet",
         "en": "Parking and internet",
-        "de": "Parkplätze und Internet"
+        "de": "Parkplätze und Internet",
+        "cs": "Parkování a internet"
       },
       "value": {
         "hr": "Besplatan privatni parking i Wi-Fi",
         "en": "Free private parking and Wi-Fi",
-        "de": "Kostenlose Privatparkplätze und WLAN"
+        "de": "Kostenlose Privatparkplätze und WLAN",
+        "cs": "Bezplatné soukromé parkování a Wi-Fi"
       }
     },
     {
       "label": {
         "hr": "Uključeno",
         "en": "Included",
-        "de": "Inklusive"
+        "de": "Inklusive",
+        "cs": "Zahrnuto"
       },
       "value": {
         "hr": "Posteljina, ručnici i boravišna pristojba",
         "en": "Bed linen, towels and tourist tax",
-        "de": "Bettwäsche, Handtücher und Kurtaxe"
+        "de": "Bettwäsche, Handtücher und Kurtaxe",
+        "cs": "Ložní prádlo, ručníky a pobytová taxa"
       }
     },
     {
       "label": {
         "hr": "Zajednički sadržaji",
         "en": "Shared facilities",
-        "de": "Gemeinschaftliche Ausstattung"
+        "de": "Gemeinschaftliche Ausstattung",
+        "cs": "Společné vybavení"
       },
       "value": {
         "hr": "Okućnica, roštilj i stolni tenis",
         "en": "Garden, barbecue and table tennis",
-        "de": "Garten, Grill und Tischtennis"
+        "de": "Garten, Grill und Tischtennis",
+        "cs": "Zahrada, gril a stolní tenis"
       }
     },
     {
       "label": {
         "hr": "Za nautičare",
         "en": "For boaters",
-        "de": "Für Bootsfahrer"
+        "de": "Für Bootsfahrer",
+        "cs": "Pro jachtaře"
       },
       "value": {
         "hr": "Mogućnost veza za čamac",
         "en": "Boat mooring available",
-        "de": "Bootsliegeplatz möglich"
+        "de": "Bootsliegeplatz möglich",
+        "cs": "Možnost kotvení člunu"
       }
     },
     {
       "label": {
         "hr": "Plaže",
         "en": "Beaches",
-        "de": "Strände"
+        "de": "Strände",
+        "cs": "Pláže"
       },
       "value": {
         "hr": "Šljunčana i betonska plaža",
         "en": "Pebble and concrete beaches",
-        "de": "Kies- und Betonstrände"
+        "de": "Kies- und Betonstrände",
+        "cs": "Oblázkové a betonové pláže"
       }
     },
     {
       "label": {
         "hr": "Aktivnosti u okolici",
         "en": "Activities nearby",
-        "de": "Aktivitäten in der Umgebung"
+        "de": "Aktivitäten in der Umgebung",
+        "cs": "Aktivity v okolí"
       },
       "value": {
         "hr": "Ronjenje i snorkeling",
         "en": "Diving and snorkelling",
-        "de": "Tauchen und Schnorcheln"
+        "de": "Tauchen und Schnorcheln",
+        "cs": "Potápění a šnorchlování"
       }
     },
     {
       "label": {
         "hr": "Sadržaji koji nisu dostupni",
         "en": "Facilities not available",
-        "de": "Nicht verfügbare Ausstattung"
+        "de": "Nicht verfügbare Ausstattung",
+        "cs": "Nedostupné vybavení"
       },
       "value": {
         "hr": "Garaža, bazen, whirlpool, tenisko igralište i polupansion",
         "en": "Garage, pool, whirlpool, tennis court and half board",
-        "de": "Garage, Pool, Whirlpool, Tennisplatz und Halbpension"
+        "de": "Garage, Pool, Whirlpool, Tennisplatz und Halbpension",
+        "cs": "Garáž, bazén, vířivka, tenisový kurt a polopenze"
       }
     }
   ],
@@ -149,7 +170,8 @@
       "label": {
         "hr": "More",
         "en": "Sea",
-        "de": "Meer"
+        "de": "Meer",
+        "cs": "Moře"
       },
       "distance": "10 m"
     },
@@ -157,7 +179,8 @@
       "label": {
         "hr": "Plaža",
         "en": "Beach",
-        "de": "Strand"
+        "de": "Strand",
+        "cs": "Pláž"
       },
       "distance": "200 m"
     },
@@ -165,7 +188,8 @@
       "label": {
         "hr": "Restoran",
         "en": "Restaurant",
-        "de": "Restaurant"
+        "de": "Restaurant",
+        "cs": "Restaurace"
       },
       "distance": "300 m"
     },
@@ -173,7 +197,8 @@
       "label": {
         "hr": "Market",
         "en": "Grocery shop",
-        "de": "Lebensmittelgeschäft"
+        "de": "Lebensmittelgeschäft",
+        "cs": "Obchod s potravinami"
       },
       "distance": "3 km"
     },
@@ -181,7 +206,8 @@
       "label": {
         "hr": "Pošta",
         "en": "Post office",
-        "de": "Post"
+        "de": "Post",
+        "cs": "Pošta"
       },
       "distance": "3 km"
     },
@@ -189,7 +215,8 @@
       "label": {
         "hr": "Liječnik",
         "en": "Doctor",
-        "de": "Arzt"
+        "de": "Arzt",
+        "cs": "Lékař"
       },
       "distance": "3 km"
     },
@@ -197,7 +224,8 @@
       "label": {
         "hr": "Bankomat",
         "en": "ATM",
-        "de": "Geldautomat"
+        "de": "Geldautomat",
+        "cs": "Bankomat"
       },
       "distance": "3 km"
     },
@@ -205,7 +233,8 @@
       "label": {
         "hr": "Ljekarna",
         "en": "Pharmacy",
-        "de": "Apotheke"
+        "de": "Apotheke",
+        "cs": "Lékárna"
       },
       "distance": "3 km"
     },
@@ -213,7 +242,8 @@
       "label": {
         "hr": "Autobusno stajalište",
         "en": "Bus stop",
-        "de": "Bushaltestelle"
+        "de": "Bushaltestelle",
+        "cs": "Autobusová zastávka"
       },
       "distance": "3 km"
     },
@@ -221,7 +251,8 @@
       "label": {
         "hr": "Benzinska postaja",
         "en": "Petrol station",
-        "de": "Tankstelle"
+        "de": "Tankstelle",
+        "cs": "Čerpací stanice"
       },
       "distance": "10 km"
     }
@@ -230,7 +261,8 @@
   "aboutText": {
     "hr": "Meleh Apartmani nalaze se u Luci Dubravi na Pelješcu, na adresi Luka Dubrava 28. Kuća s tri zvjezdice ima šest klimatiziranih apartmana s terasom i balkonom, opremljenom kuhinjom, vlastitom kupaonicom, pogledom na more i vrt te prostorom za sjedenje i blagovanje. Gostima su dostupni besplatan Wi-Fi i privatni parking ispred kuće, posteljina, ručnici, okućnica, roštilj i stolni tenis. More je udaljeno 10 m, a plaža 200 m. Kućni ljubimci su dobrodošli uz doplatu 10 € dnevno.",
     "en": "Meleh Apartments are in Luka Dubrava on Pelješac, at Luka Dubrava 28. The three-star house offers six air-conditioned apartments with a terrace and balcony, equipped kitchen, private bathroom, sea and garden views, seating and dining areas. Guests enjoy free Wi-Fi and private parking in front of the house, bed linen, towels, the garden, a barbecue and table tennis. The sea is 10 m away and the beach is 200 m away. Pets are welcome for €10 per day.",
-    "de": "Die Meleh Apartments liegen in Luka Dubrava auf Pelješac, Luka Dubrava 28. Das Haus mit drei Sternen bietet sechs klimatisierte Apartments mit Terrasse und Balkon, ausgestatteter Küche, eigenem Bad, Meer- und Gartenblick sowie Sitz- und Essbereich. WLAN und Privatparkplätze vor dem Haus sind kostenlos. Bettwäsche, Handtücher, Garten, Grill und Tischtennis stehen zur Verfügung. Das Meer ist 10 m, der Strand 200 m entfernt. Haustiere sind für 10 € pro Tag willkommen."
+    "de": "Die Meleh Apartments liegen in Luka Dubrava auf Pelješac, Luka Dubrava 28. Das Haus mit drei Sternen bietet sechs klimatisierte Apartments mit Terrasse und Balkon, ausgestatteter Küche, eigenem Bad, Meer- und Gartenblick sowie Sitz- und Essbereich. WLAN und Privatparkplätze vor dem Haus sind kostenlos. Bettwäsche, Handtücher, Garten, Grill und Tischtennis stehen zur Verfügung. Das Meer ist 10 m, der Strand 200 m entfernt. Haustiere sind für 10 € pro Tag willkommen.",
+    "cs": "Apartmány Meleh se nacházejí v Luce Dubravě na poloostrově Pelješac, na adrese Luka Dubrava 28. Tříhvězdičkový dům nabízí šest klimatizovaných apartmánů s terasou a balkonem, vybavenou kuchyní, vlastní koupelnou, výhledem na moře i do zahrady a prostorem k posezení a stolování. Hosté mají zdarma Wi-Fi a soukromé parkování před domem, ložní prádlo, ručníky, zahradu, gril a stolní tenis. Moře je vzdálené 10 m a pláž 200 m. Domácí zvířata jsou vítána za příplatek 10 € denně."
   },
   "distances": {
     "beach": "200 m",
@@ -259,7 +291,8 @@
       "description": {
         "hr": "Apartman A-3 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
         "en": "Apartment A-3 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-3 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "de": "Apartment A-3 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos.",
+        "cs": "Apartmán A-3 má 30 m², jednu ložnici, 2 základní lůžka a 1 přistýlku. Nabízí terasu a balkon, výhled na moře i do zahrady, klimatizaci, vybavenou kuchyň, vlastní koupelnu a TV/SAT. Wi-Fi a soukromé parkování jsou zdarma."
       },
       "seasons": [
         {
@@ -339,7 +372,8 @@
       "description": {
         "hr": "Apartman A-4 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
         "en": "Apartment A-4 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-4 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "de": "Apartment A-4 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos.",
+        "cs": "Apartmán A-4 má 60 m², dvě ložnice a 4 základní lůžka. Nabízí terasu a balkon, výhled na moře i do zahrady, klimatizaci, vybavenou kuchyň, vlastní koupelnu a TV/SAT. Wi-Fi a soukromé parkování jsou zdarma."
       },
       "seasons": [
         {
@@ -419,7 +453,8 @@
       "description": {
         "hr": "Apartman A-9 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
         "en": "Apartment A-9 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-9 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "de": "Apartment A-9 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos.",
+        "cs": "Apartmán A-9 má 60 m², dvě ložnice a 4 základní lůžka. Nabízí terasu a balkon, výhled na moře i do zahrady, klimatizaci, vybavenou kuchyň, vlastní koupelnu a TV/SAT. Wi-Fi a soukromé parkování jsou zdarma."
       },
       "seasons": [
         {
@@ -499,7 +534,8 @@
       "description": {
         "hr": "Apartman A-13 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
         "en": "Apartment A-13 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-13 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "de": "Apartment A-13 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos.",
+        "cs": "Apartmán A-13 má 60 m², dvě ložnice a 4 základní lůžka. Nabízí terasu a balkon, výhled na moře i do zahrady, klimatizaci, vybavenou kuchyň, vlastní koupelnu a TV/SAT. Wi-Fi a soukromé parkování jsou zdarma."
       },
       "seasons": [
         {
@@ -579,7 +615,8 @@
       "description": {
         "hr": "Apartman A-8 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
         "en": "Apartment A-8 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-8 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "de": "Apartment A-8 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos.",
+        "cs": "Apartmán A-8 má 30 m², jednu ložnici, 2 základní lůžka a 1 přistýlku. Nabízí terasu a balkon, výhled na moře i do zahrady, klimatizaci, vybavenou kuchyň, vlastní koupelnu a TV/SAT. Wi-Fi a soukromé parkování jsou zdarma."
       },
       "seasons": [
         {
@@ -659,7 +696,8 @@
       "description": {
         "hr": "Apartman A-12 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
         "en": "Apartment A-12 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-12 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "de": "Apartment A-12 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos.",
+        "cs": "Apartmán A-12 má 30 m², jednu ložnici, 2 základní lůžka a 1 přistýlku. Nabízí terasu a balkon, výhled na moře i do zahrady, klimatizaci, vybavenou kuchyň, vlastní koupelnu a TV/SAT. Wi-Fi a soukromé parkování jsou zdarma."
       },
       "seasons": [
         {
@@ -730,6 +768,7 @@
       "alt": "Južna obala Pelješca",
       "altEn": "South coast of Pelješac",
       "altDe": "Südküste von Pelješac",
+      "altCs": "Jižní pobřeží Pelješce",
       "category": "location",
       "illustrative": false
     },
@@ -740,6 +779,7 @@
       "alt": "Uvala Prapratno na Pelješcu",
       "altEn": "Prapratno bay on Pelješac",
       "altDe": "Bucht Prapratno auf Pelješac",
+      "altCs": "Zátoka Prapratno na Pelješci",
       "category": "location",
       "illustrative": false
     },
@@ -750,6 +790,7 @@
       "alt": "Pogled na Ston na Pelješcu",
       "altEn": "View of Ston on Pelješac",
       "altDe": "Blick auf Ston auf Pelješac",
+      "altCs": "Pohled na Ston na Pelješci",
       "category": "location",
       "illustrative": false
     },
@@ -760,6 +801,7 @@
       "alt": "Apartman A-3 — fotografija 1",
       "altEn": "Apartment A-3 — photograph 1",
       "altDe": "Apartment A-3 — Foto 1",
+      "altCs": "Apartmán A-3 — fotografie 1",
       "category": "a-3",
       "illustrative": false
     },
@@ -770,6 +812,7 @@
       "alt": "Apartman A-3 — fotografija 2",
       "altEn": "Apartment A-3 — photograph 2",
       "altDe": "Apartment A-3 — Foto 2",
+      "altCs": "Apartmán A-3 — fotografie 2",
       "category": "a-3",
       "illustrative": false
     },
@@ -780,6 +823,7 @@
       "alt": "Apartman A-3 — fotografija 3",
       "altEn": "Apartment A-3 — photograph 3",
       "altDe": "Apartment A-3 — Foto 3",
+      "altCs": "Apartmán A-3 — fotografie 3",
       "category": "a-3",
       "illustrative": false
     },
@@ -790,6 +834,7 @@
       "alt": "Apartman A-3 — fotografija 4",
       "altEn": "Apartment A-3 — photograph 4",
       "altDe": "Apartment A-3 — Foto 4",
+      "altCs": "Apartmán A-3 — fotografie 4",
       "category": "a-3",
       "illustrative": false
     },
@@ -800,6 +845,7 @@
       "alt": "Apartman A-3 — fotografija 5",
       "altEn": "Apartment A-3 — photograph 5",
       "altDe": "Apartment A-3 — Foto 5",
+      "altCs": "Apartmán A-3 — fotografie 5",
       "category": "a-3",
       "illustrative": false
     },
@@ -810,6 +856,7 @@
       "alt": "Apartman A-3 — fotografija 6",
       "altEn": "Apartment A-3 — photograph 6",
       "altDe": "Apartment A-3 — Foto 6",
+      "altCs": "Apartmán A-3 — fotografie 6",
       "category": "a-3",
       "illustrative": false
     },
@@ -820,6 +867,7 @@
       "alt": "Apartman A-3 — fotografija 7",
       "altEn": "Apartment A-3 — photograph 7",
       "altDe": "Apartment A-3 — Foto 7",
+      "altCs": "Apartmán A-3 — fotografie 7",
       "category": "a-3",
       "illustrative": false
     },
@@ -830,6 +878,7 @@
       "alt": "Apartman A-3 — fotografija 8",
       "altEn": "Apartment A-3 — photograph 8",
       "altDe": "Apartment A-3 — Foto 8",
+      "altCs": "Apartmán A-3 — fotografie 8",
       "category": "a-3",
       "illustrative": false
     },
@@ -840,6 +889,7 @@
       "alt": "Apartman A-3 — fotografija 9",
       "altEn": "Apartment A-3 — photograph 9",
       "altDe": "Apartment A-3 — Foto 9",
+      "altCs": "Apartmán A-3 — fotografie 9",
       "category": "a-3",
       "illustrative": false
     },
@@ -850,6 +900,7 @@
       "alt": "Apartman A-3 — fotografija 10",
       "altEn": "Apartment A-3 — photograph 10",
       "altDe": "Apartment A-3 — Foto 10",
+      "altCs": "Apartmán A-3 — fotografie 10",
       "category": "a-3",
       "illustrative": false
     },
@@ -860,6 +911,7 @@
       "alt": "Apartman A-3 — fotografija 11",
       "altEn": "Apartment A-3 — photograph 11",
       "altDe": "Apartment A-3 — Foto 11",
+      "altCs": "Apartmán A-3 — fotografie 11",
       "category": "a-3",
       "illustrative": false
     },
@@ -870,6 +922,7 @@
       "alt": "Apartman A-3 — fotografija 12",
       "altEn": "Apartment A-3 — photograph 12",
       "altDe": "Apartment A-3 — Foto 12",
+      "altCs": "Apartmán A-3 — fotografie 12",
       "category": "a-3",
       "illustrative": false
     },
@@ -880,6 +933,7 @@
       "alt": "Apartman A-3 — fotografija 13",
       "altEn": "Apartment A-3 — photograph 13",
       "altDe": "Apartment A-3 — Foto 13",
+      "altCs": "Apartmán A-3 — fotografie 13",
       "category": "a-3",
       "illustrative": false
     },
@@ -890,6 +944,7 @@
       "alt": "Apartman A-3 — fotografija 14",
       "altEn": "Apartment A-3 — photograph 14",
       "altDe": "Apartment A-3 — Foto 14",
+      "altCs": "Apartmán A-3 — fotografie 14",
       "category": "a-3",
       "illustrative": false
     },
@@ -900,6 +955,7 @@
       "alt": "Apartman A-3 — fotografija 15",
       "altEn": "Apartment A-3 — photograph 15",
       "altDe": "Apartment A-3 — Foto 15",
+      "altCs": "Apartmán A-3 — fotografie 15",
       "category": "a-3",
       "illustrative": false
     },
@@ -910,6 +966,7 @@
       "alt": "Apartman A-3 — fotografija 16",
       "altEn": "Apartment A-3 — photograph 16",
       "altDe": "Apartment A-3 — Foto 16",
+      "altCs": "Apartmán A-3 — fotografie 16",
       "category": "a-3",
       "illustrative": false
     },
@@ -920,6 +977,7 @@
       "alt": "Apartman A-3 — fotografija 17",
       "altEn": "Apartment A-3 — photograph 17",
       "altDe": "Apartment A-3 — Foto 17",
+      "altCs": "Apartmán A-3 — fotografie 17",
       "category": "a-3",
       "illustrative": false
     },
@@ -930,6 +988,7 @@
       "alt": "Apartman A-3 — fotografija 18",
       "altEn": "Apartment A-3 — photograph 18",
       "altDe": "Apartment A-3 — Foto 18",
+      "altCs": "Apartmán A-3 — fotografie 18",
       "category": "a-3",
       "illustrative": false
     },
@@ -940,6 +999,7 @@
       "alt": "Apartman A-3 — fotografija 19",
       "altEn": "Apartment A-3 — photograph 19",
       "altDe": "Apartment A-3 — Foto 19",
+      "altCs": "Apartmán A-3 — fotografie 19",
       "category": "a-3",
       "illustrative": false
     },
@@ -950,6 +1010,7 @@
       "alt": "Apartman A-3 — fotografija 20",
       "altEn": "Apartment A-3 — photograph 20",
       "altDe": "Apartment A-3 — Foto 20",
+      "altCs": "Apartmán A-3 — fotografie 20",
       "category": "a-3",
       "illustrative": false
     },
@@ -960,6 +1021,7 @@
       "alt": "Apartman A-3 — fotografija 21",
       "altEn": "Apartment A-3 — photograph 21",
       "altDe": "Apartment A-3 — Foto 21",
+      "altCs": "Apartmán A-3 — fotografie 21",
       "category": "a-3",
       "illustrative": false
     },
@@ -970,6 +1032,7 @@
       "alt": "Apartman A-4 — balkon 1",
       "altEn": "Apartment A-4 — photograph 1",
       "altDe": "Apartment A-4 — Foto 1",
+      "altCs": "Apartmán A-4 — fotografie 1",
       "category": "a-4",
       "illustrative": false
     },
@@ -980,6 +1043,7 @@
       "alt": "Apartman A-4 — fotografija 2",
       "altEn": "Apartment A-4 — photograph 2",
       "altDe": "Apartment A-4 — Foto 2",
+      "altCs": "Apartmán A-4 — fotografie 2",
       "category": "a-4",
       "illustrative": false
     },
@@ -990,6 +1054,7 @@
       "alt": "Apartman A-4 — fotografija 3",
       "altEn": "Apartment A-4 — photograph 3",
       "altDe": "Apartment A-4 — Foto 3",
+      "altCs": "Apartmán A-4 — fotografie 3",
       "category": "a-4",
       "illustrative": false
     },
@@ -1000,6 +1065,7 @@
       "alt": "Apartman A-4 — fotografija 4",
       "altEn": "Apartment A-4 — photograph 4",
       "altDe": "Apartment A-4 — Foto 4",
+      "altCs": "Apartmán A-4 — fotografie 4",
       "category": "a-4",
       "illustrative": false
     },
@@ -1010,6 +1076,7 @@
       "alt": "Apartman A-4 — balkon 5",
       "altEn": "Apartment A-4 — photograph 5",
       "altDe": "Apartment A-4 — Foto 5",
+      "altCs": "Apartmán A-4 — fotografie 5",
       "category": "a-4",
       "illustrative": false
     },
@@ -1020,6 +1087,7 @@
       "alt": "Apartman A-4 — balkon 6",
       "altEn": "Apartment A-4 — photograph 6",
       "altDe": "Apartment A-4 — Foto 6",
+      "altCs": "Apartmán A-4 — fotografie 6",
       "category": "a-4",
       "illustrative": false
     },
@@ -1030,6 +1098,7 @@
       "alt": "Apartman A-4 — balkon 7",
       "altEn": "Apartment A-4 — photograph 7",
       "altDe": "Apartment A-4 — Foto 7",
+      "altCs": "Apartmán A-4 — fotografie 7",
       "category": "a-4",
       "illustrative": false
     },
@@ -1040,6 +1109,7 @@
       "alt": "Apartman A-4 — balkon 8",
       "altEn": "Apartment A-4 — photograph 8",
       "altDe": "Apartment A-4 — Foto 8",
+      "altCs": "Apartmán A-4 — fotografie 8",
       "category": "a-4",
       "illustrative": false
     },
@@ -1050,6 +1120,7 @@
       "alt": "Apartman A-4 — balkon 9",
       "altEn": "Apartment A-4 — photograph 9",
       "altDe": "Apartment A-4 — Foto 9",
+      "altCs": "Apartmán A-4 — fotografie 9",
       "category": "a-4",
       "illustrative": false
     },
@@ -1060,6 +1131,7 @@
       "alt": "Apartman A-4 — fotografija 10",
       "altEn": "Apartment A-4 — photograph 10",
       "altDe": "Apartment A-4 — Foto 10",
+      "altCs": "Apartmán A-4 — fotografie 10",
       "category": "a-4",
       "illustrative": false
     },
@@ -1070,6 +1142,7 @@
       "alt": "Apartman A-4 — fotografija 11",
       "altEn": "Apartment A-4 — photograph 11",
       "altDe": "Apartment A-4 — Foto 11",
+      "altCs": "Apartmán A-4 — fotografie 11",
       "category": "a-4",
       "illustrative": false
     },
@@ -1080,6 +1153,7 @@
       "alt": "Apartman A-4 — fotografija 12",
       "altEn": "Apartment A-4 — photograph 12",
       "altDe": "Apartment A-4 — Foto 12",
+      "altCs": "Apartmán A-4 — fotografie 12",
       "category": "a-4",
       "illustrative": false
     },
@@ -1090,6 +1164,7 @@
       "alt": "Apartman A-4 — fotografija 13",
       "altEn": "Apartment A-4 — photograph 13",
       "altDe": "Apartment A-4 — Foto 13",
+      "altCs": "Apartmán A-4 — fotografie 13",
       "category": "a-4",
       "illustrative": false
     },
@@ -1100,6 +1175,7 @@
       "alt": "Apartman A-4 — fotografija 14",
       "altEn": "Apartment A-4 — photograph 14",
       "altDe": "Apartment A-4 — Foto 14",
+      "altCs": "Apartmán A-4 — fotografie 14",
       "category": "a-4",
       "illustrative": false
     },
@@ -1110,6 +1186,7 @@
       "alt": "Apartman A-4 — fotografija 15",
       "altEn": "Apartment A-4 — photograph 15",
       "altDe": "Apartment A-4 — Foto 15",
+      "altCs": "Apartmán A-4 — fotografie 15",
       "category": "a-4",
       "illustrative": false
     },
@@ -1120,6 +1197,7 @@
       "alt": "Apartman A-4 — fotografija 16",
       "altEn": "Apartment A-4 — photograph 16",
       "altDe": "Apartment A-4 — Foto 16",
+      "altCs": "Apartmán A-4 — fotografie 16",
       "category": "a-4",
       "illustrative": false
     },
@@ -1130,6 +1208,7 @@
       "alt": "Apartman A-4 — fotografija 17",
       "altEn": "Apartment A-4 — photograph 17",
       "altDe": "Apartment A-4 — Foto 17",
+      "altCs": "Apartmán A-4 — fotografie 17",
       "category": "a-4",
       "illustrative": false
     },
@@ -1140,6 +1219,7 @@
       "alt": "Apartman A-4 — fotografija 18",
       "altEn": "Apartment A-4 — photograph 18",
       "altDe": "Apartment A-4 — Foto 18",
+      "altCs": "Apartmán A-4 — fotografie 18",
       "category": "a-4",
       "illustrative": false
     },
@@ -1150,6 +1230,7 @@
       "alt": "Apartman A-4 — fotografija 19",
       "altEn": "Apartment A-4 — photograph 19",
       "altDe": "Apartment A-4 — Foto 19",
+      "altCs": "Apartmán A-4 — fotografie 19",
       "category": "a-4",
       "illustrative": false
     },
@@ -1160,6 +1241,7 @@
       "alt": "Apartman A-4 — fotografija 20",
       "altEn": "Apartment A-4 — photograph 20",
       "altDe": "Apartment A-4 — Foto 20",
+      "altCs": "Apartmán A-4 — fotografie 20",
       "category": "a-4",
       "illustrative": false
     },
@@ -1170,6 +1252,7 @@
       "alt": "Apartman A-4 — fotografija 21",
       "altEn": "Apartment A-4 — photograph 21",
       "altDe": "Apartment A-4 — Foto 21",
+      "altCs": "Apartmán A-4 — fotografie 21",
       "category": "a-4",
       "illustrative": false
     },
@@ -1180,6 +1263,7 @@
       "alt": "Apartman A-4 — fotografija 22",
       "altEn": "Apartment A-4 — photograph 22",
       "altDe": "Apartment A-4 — Foto 22",
+      "altCs": "Apartmán A-4 — fotografie 22",
       "category": "a-4",
       "illustrative": false
     },
@@ -1190,6 +1274,7 @@
       "alt": "Apartman A-4 — fotografija 23",
       "altEn": "Apartment A-4 — photograph 23",
       "altDe": "Apartment A-4 — Foto 23",
+      "altCs": "Apartmán A-4 — fotografie 23",
       "category": "a-4",
       "illustrative": false
     },
@@ -1200,6 +1285,7 @@
       "alt": "Apartman A-4 — fotografija 24",
       "altEn": "Apartment A-4 — photograph 24",
       "altDe": "Apartment A-4 — Foto 24",
+      "altCs": "Apartmán A-4 — fotografie 24",
       "category": "a-4",
       "illustrative": false
     },
@@ -1210,6 +1296,7 @@
       "alt": "Apartman A-9 — fotografija 1",
       "altEn": "Apartment A-9 — photograph 1",
       "altDe": "Apartment A-9 — Foto 1",
+      "altCs": "Apartmán A-9 — fotografie 1",
       "category": "a-9",
       "illustrative": false
     },
@@ -1220,6 +1307,7 @@
       "alt": "Apartman A-9 — fotografija 2",
       "altEn": "Apartment A-9 — photograph 2",
       "altDe": "Apartment A-9 — Foto 2",
+      "altCs": "Apartmán A-9 — fotografie 2",
       "category": "a-9",
       "illustrative": false
     },
@@ -1230,6 +1318,7 @@
       "alt": "Apartman A-9 — fotografija 3",
       "altEn": "Apartment A-9 — photograph 3",
       "altDe": "Apartment A-9 — Foto 3",
+      "altCs": "Apartmán A-9 — fotografie 3",
       "category": "a-9",
       "illustrative": false
     },
@@ -1240,6 +1329,7 @@
       "alt": "Apartman A-9 — fotografija 4",
       "altEn": "Apartment A-9 — photograph 4",
       "altDe": "Apartment A-9 — Foto 4",
+      "altCs": "Apartmán A-9 — fotografie 4",
       "category": "a-9",
       "illustrative": false
     },
@@ -1250,6 +1340,7 @@
       "alt": "Apartman A-9 — fotografija 5",
       "altEn": "Apartment A-9 — photograph 5",
       "altDe": "Apartment A-9 — Foto 5",
+      "altCs": "Apartmán A-9 — fotografie 5",
       "category": "a-9",
       "illustrative": false
     },
@@ -1260,6 +1351,7 @@
       "alt": "Apartman A-9 — fotografija 6",
       "altEn": "Apartment A-9 — photograph 6",
       "altDe": "Apartment A-9 — Foto 6",
+      "altCs": "Apartmán A-9 — fotografie 6",
       "category": "a-9",
       "illustrative": false
     },
@@ -1270,6 +1362,7 @@
       "alt": "Apartman A-9 — fotografija 7",
       "altEn": "Apartment A-9 — photograph 7",
       "altDe": "Apartment A-9 — Foto 7",
+      "altCs": "Apartmán A-9 — fotografie 7",
       "category": "a-9",
       "illustrative": false
     },
@@ -1280,6 +1373,7 @@
       "alt": "Apartman A-9 — fotografija 8",
       "altEn": "Apartment A-9 — photograph 8",
       "altDe": "Apartment A-9 — Foto 8",
+      "altCs": "Apartmán A-9 — fotografie 8",
       "category": "a-9",
       "illustrative": false
     },
@@ -1290,6 +1384,7 @@
       "alt": "Apartman A-9 — fotografija 9",
       "altEn": "Apartment A-9 — photograph 9",
       "altDe": "Apartment A-9 — Foto 9",
+      "altCs": "Apartmán A-9 — fotografie 9",
       "category": "a-9",
       "illustrative": false
     },
@@ -1300,6 +1395,7 @@
       "alt": "Apartman A-9 — fotografija 10",
       "altEn": "Apartment A-9 — photograph 10",
       "altDe": "Apartment A-9 — Foto 10",
+      "altCs": "Apartmán A-9 — fotografie 10",
       "category": "a-9",
       "illustrative": false
     },
@@ -1310,6 +1406,7 @@
       "alt": "Apartman A-9 — fotografija 11",
       "altEn": "Apartment A-9 — photograph 11",
       "altDe": "Apartment A-9 — Foto 11",
+      "altCs": "Apartmán A-9 — fotografie 11",
       "category": "a-9",
       "illustrative": false
     },
@@ -1320,6 +1417,7 @@
       "alt": "Apartman A-9 — fotografija 12",
       "altEn": "Apartment A-9 — photograph 12",
       "altDe": "Apartment A-9 — Foto 12",
+      "altCs": "Apartmán A-9 — fotografie 12",
       "category": "a-9",
       "illustrative": false
     },
@@ -1330,6 +1428,7 @@
       "alt": "Apartman A-9 — fotografija 13",
       "altEn": "Apartment A-9 — photograph 13",
       "altDe": "Apartment A-9 — Foto 13",
+      "altCs": "Apartmán A-9 — fotografie 13",
       "category": "a-9",
       "illustrative": false
     },
@@ -1340,6 +1439,7 @@
       "alt": "Apartman A-9 — fotografija 14",
       "altEn": "Apartment A-9 — photograph 14",
       "altDe": "Apartment A-9 — Foto 14",
+      "altCs": "Apartmán A-9 — fotografie 14",
       "category": "a-9",
       "illustrative": false
     },
@@ -1350,6 +1450,7 @@
       "alt": "Apartman A-13 — fotografija 1",
       "altEn": "Apartment A-13 — photograph 1",
       "altDe": "Apartment A-13 — Foto 1",
+      "altCs": "Apartmán A-13 — fotografie 1",
       "category": "a-13",
       "illustrative": false
     },
@@ -1360,6 +1461,7 @@
       "alt": "Apartman A-13 — fotografija 2",
       "altEn": "Apartment A-13 — photograph 2",
       "altDe": "Apartment A-13 — Foto 2",
+      "altCs": "Apartmán A-13 — fotografie 2",
       "category": "a-13",
       "illustrative": false
     },
@@ -1370,6 +1472,7 @@
       "alt": "Apartman A-13 — fotografija 3",
       "altEn": "Apartment A-13 — photograph 3",
       "altDe": "Apartment A-13 — Foto 3",
+      "altCs": "Apartmán A-13 — fotografie 3",
       "category": "a-13",
       "illustrative": false
     },
@@ -1380,6 +1483,7 @@
       "alt": "Apartman A-13 — fotografija 4",
       "altEn": "Apartment A-13 — photograph 4",
       "altDe": "Apartment A-13 — Foto 4",
+      "altCs": "Apartmán A-13 — fotografie 4",
       "category": "a-13",
       "illustrative": false
     },
@@ -1390,6 +1494,7 @@
       "alt": "Apartman A-13 — fotografija 5",
       "altEn": "Apartment A-13 — photograph 5",
       "altDe": "Apartment A-13 — Foto 5",
+      "altCs": "Apartmán A-13 — fotografie 5",
       "category": "a-13",
       "illustrative": false
     },
@@ -1400,6 +1505,7 @@
       "alt": "Apartman A-13 — fotografija 6",
       "altEn": "Apartment A-13 — photograph 6",
       "altDe": "Apartment A-13 — Foto 6",
+      "altCs": "Apartmán A-13 — fotografie 6",
       "category": "a-13",
       "illustrative": false
     },
@@ -1410,6 +1516,7 @@
       "alt": "Apartman A-13 — fotografija 7",
       "altEn": "Apartment A-13 — photograph 7",
       "altDe": "Apartment A-13 — Foto 7",
+      "altCs": "Apartmán A-13 — fotografie 7",
       "category": "a-13",
       "illustrative": false
     },
@@ -1420,6 +1527,7 @@
       "alt": "Apartman A-13 — fotografija 8",
       "altEn": "Apartment A-13 — photograph 8",
       "altDe": "Apartment A-13 — Foto 8",
+      "altCs": "Apartmán A-13 — fotografie 8",
       "category": "a-13",
       "illustrative": false
     },
@@ -1430,6 +1538,7 @@
       "alt": "Apartman A-8 — fotografija 1",
       "altEn": "Apartment A-8 — photograph 1",
       "altDe": "Apartment A-8 — Foto 1",
+      "altCs": "Apartmán A-8 — fotografie 1",
       "category": "a-8",
       "illustrative": false
     },
@@ -1440,6 +1549,7 @@
       "alt": "Apartman A-8 — fotografija 2",
       "altEn": "Apartment A-8 — photograph 2",
       "altDe": "Apartment A-8 — Foto 2",
+      "altCs": "Apartmán A-8 — fotografie 2",
       "category": "a-8",
       "illustrative": false
     },
@@ -1450,6 +1560,7 @@
       "alt": "Apartman A-8 — fotografija 3",
       "altEn": "Apartment A-8 — photograph 3",
       "altDe": "Apartment A-8 — Foto 3",
+      "altCs": "Apartmán A-8 — fotografie 3",
       "category": "a-8",
       "illustrative": false
     },
@@ -1460,6 +1571,7 @@
       "alt": "Apartman A-8 — fotografija 4",
       "altEn": "Apartment A-8 — photograph 4",
       "altDe": "Apartment A-8 — Foto 4",
+      "altCs": "Apartmán A-8 — fotografie 4",
       "category": "a-8",
       "illustrative": false
     },
@@ -1470,6 +1582,7 @@
       "alt": "Apartman A-8 — fotografija 5",
       "altEn": "Apartment A-8 — photograph 5",
       "altDe": "Apartment A-8 — Foto 5",
+      "altCs": "Apartmán A-8 — fotografie 5",
       "category": "a-8",
       "illustrative": false
     },
@@ -1480,6 +1593,7 @@
       "alt": "Apartman A-8 — fotografija 6",
       "altEn": "Apartment A-8 — photograph 6",
       "altDe": "Apartment A-8 — Foto 6",
+      "altCs": "Apartmán A-8 — fotografie 6",
       "category": "a-8",
       "illustrative": false
     },
@@ -1490,6 +1604,7 @@
       "alt": "Apartman A-8 — fotografija 7",
       "altEn": "Apartment A-8 — photograph 7",
       "altDe": "Apartment A-8 — Foto 7",
+      "altCs": "Apartmán A-8 — fotografie 7",
       "category": "a-8",
       "illustrative": false
     },
@@ -1500,6 +1615,7 @@
       "alt": "Apartman A-8 — fotografija 8",
       "altEn": "Apartment A-8 — photograph 8",
       "altDe": "Apartment A-8 — Foto 8",
+      "altCs": "Apartmán A-8 — fotografie 8",
       "category": "a-8",
       "illustrative": false
     },
@@ -1510,6 +1626,7 @@
       "alt": "Apartman A-8 — fotografija 9",
       "altEn": "Apartment A-8 — photograph 9",
       "altDe": "Apartment A-8 — Foto 9",
+      "altCs": "Apartmán A-8 — fotografie 9",
       "category": "a-8",
       "illustrative": false
     },
@@ -1520,6 +1637,7 @@
       "alt": "Apartman A-8 — fotografija 10",
       "altEn": "Apartment A-8 — photograph 10",
       "altDe": "Apartment A-8 — Foto 10",
+      "altCs": "Apartmán A-8 — fotografie 10",
       "category": "a-8",
       "illustrative": false
     },
@@ -1530,6 +1648,7 @@
       "alt": "Apartman A-8 — fotografija 11",
       "altEn": "Apartment A-8 — photograph 11",
       "altDe": "Apartment A-8 — Foto 11",
+      "altCs": "Apartmán A-8 — fotografie 11",
       "category": "a-8",
       "illustrative": false
     },
@@ -1540,6 +1659,7 @@
       "alt": "Apartman A-8 — fotografija 12",
       "altEn": "Apartment A-8 — photograph 12",
       "altDe": "Apartment A-8 — Foto 12",
+      "altCs": "Apartmán A-8 — fotografie 12",
       "category": "a-8",
       "illustrative": false
     },
@@ -1550,6 +1670,7 @@
       "alt": "Apartman A-8 — fotografija 13",
       "altEn": "Apartment A-8 — photograph 13",
       "altDe": "Apartment A-8 — Foto 13",
+      "altCs": "Apartmán A-8 — fotografie 13",
       "category": "a-8",
       "illustrative": false
     },
@@ -1560,6 +1681,7 @@
       "alt": "Apartman A-8 — fotografija 14",
       "altEn": "Apartment A-8 — photograph 14",
       "altDe": "Apartment A-8 — Foto 14",
+      "altCs": "Apartmán A-8 — fotografie 14",
       "category": "a-8",
       "illustrative": false
     },
@@ -1570,6 +1692,7 @@
       "alt": "Apartman A-8 — fotografija 15",
       "altEn": "Apartment A-8 — photograph 15",
       "altDe": "Apartment A-8 — Foto 15",
+      "altCs": "Apartmán A-8 — fotografie 15",
       "category": "a-8",
       "illustrative": false
     },
@@ -1580,6 +1703,7 @@
       "alt": "Apartman A-8 — fotografija 16",
       "altEn": "Apartment A-8 — photograph 16",
       "altDe": "Apartment A-8 — Foto 16",
+      "altCs": "Apartmán A-8 — fotografie 16",
       "category": "a-8",
       "illustrative": false
     },
@@ -1590,6 +1714,7 @@
       "alt": "Apartman A-12 — fotografija 1",
       "altEn": "Apartment A-12 — photograph 1",
       "altDe": "Apartment A-12 — Foto 1",
+      "altCs": "Apartmán A-12 — fotografie 1",
       "category": "a-12",
       "illustrative": false
     },
@@ -1600,6 +1725,7 @@
       "alt": "Apartman A-12 — fotografija 2",
       "altEn": "Apartment A-12 — photograph 2",
       "altDe": "Apartment A-12 — Foto 2",
+      "altCs": "Apartmán A-12 — fotografie 2",
       "category": "a-12",
       "illustrative": false
     },
@@ -1610,13 +1736,14 @@
       "alt": "Apartman A-12 — fotografija 3",
       "altEn": "Apartment A-12 — photograph 3",
       "altDe": "Apartment A-12 — Foto 3",
+      "altCs": "Apartmán A-12 — fotografie 3",
       "category": "a-12",
       "illustrative": false
     }
   ],
   "heroImage": "hero",
-  "introImage": "hero",
-  "bannerImage": "hero",
+  "introImage": "beach",
+  "bannerImage": "sunset",
   "photoCredits": [
     {
       "file": "peljesac-obala.jpg",
@@ -1649,96 +1776,112 @@
       "question": {
         "hr": "Kako rezervirati apartman?",
         "en": "How do I book an apartment?",
-        "de": "Wie buche ich ein Apartment?"
+        "de": "Wie buche ich ein Apartment?",
+        "cs": "Jak si rezervovat apartmán?"
       },
       "answer": {
         "hr": "Odaberite apartman i datume pa pošaljite upit. Domaćin potvrđuje dostupnost, konačnu cijenu i uvjete. Upit i prikaz kalendara nisu potvrda rezervacije.",
         "en": "Choose an apartment and dates, then send an enquiry. The host confirms availability, the final price and conditions. An enquiry or calendar display is not a confirmed reservation.",
-        "de": "Wählen Sie Apartment und Reisedaten und senden Sie eine Anfrage. Der Gastgeber bestätigt Verfügbarkeit, Endpreis und Bedingungen. Anfrage und Kalender sind keine Buchungsbestätigung."
+        "de": "Wählen Sie Apartment und Reisedaten und senden Sie eine Anfrage. Der Gastgeber bestätigt Verfügbarkeit, Endpreis und Bedingungen. Anfrage und Kalender sind keine Buchungsbestätigung.",
+        "cs": "Vyberte apartmán a termín a poté pošlete poptávku. Dostupnost, konečnou cenu a podmínky potvrdí hostitel. Poptávka ani zobrazení v kalendáři nejsou potvrzenou rezervací."
       }
     },
     {
       "question": {
         "hr": "Kada su prijava i odjava?",
         "en": "When are check-in and check-out?",
-        "de": "Wann sind An- und Abreise?"
+        "de": "Wann sind An- und Abreise?",
+        "cs": "Kdy je příjezd a odjezd?"
       },
       "answer": {
         "hr": "Prijava je od 15:00, a odjava do 10:00. Dolazak je moguć bilo kojim danom.",
         "en": "Check-in is from 15:00 and check-out is by 10:00. Arrival is possible on any day.",
-        "de": "Anreise ab 15:00 Uhr, Abreise bis 10:00 Uhr. Anreise ist an jedem Wochentag möglich."
+        "de": "Anreise ab 15:00 Uhr, Abreise bis 10:00 Uhr. Anreise ist an jedem Wochentag möglich.",
+        "cs": "Příjezd je od 15:00 a odjezd do 10:00. Přijet můžete kterýkoli den."
       }
     },
     {
       "question": {
         "hr": "Je li osiguran parking?",
         "en": "Is parking available?",
-        "de": "Gibt es Parkplätze?"
+        "de": "Gibt es Parkplätze?",
+        "cs": "Je k dispozici parkování?"
       },
       "answer": {
         "hr": "Parking za goste nalazi se ispred kuće. Navedite broj vozila u upitu kako bi domaćin potvrdio raspoloživa mjesta.",
         "en": "Guest parking is in front of the house. Include your vehicle count so the host can confirm available spaces.",
-        "de": "Gästeparkplätze befinden sich vor dem Haus. Geben Sie die Fahrzeugzahl an, damit die Gastgeberin die verfügbaren Plätze bestätigen kann."
+        "de": "Gästeparkplätze befinden sich vor dem Haus. Geben Sie die Fahrzeugzahl an, damit die Gastgeberin die verfügbaren Plätze bestätigen kann.",
+        "cs": "Parkování pro hosty je před domem. Uveďte počet vozidel, aby hostitel mohl potvrdit dostupná místa."
       }
     },
     {
       "question": {
         "hr": "Jesu li kućni ljubimci dopušteni?",
         "en": "Are pets allowed?",
-        "de": "Sind Haustiere erlaubt?"
+        "de": "Sind Haustiere erlaubt?",
+        "cs": "Jsou povolena domácí zvířata?"
       },
       "answer": {
         "hr": "Kućni ljubimci su dopušteni uz doplatu 10 € dnevno.",
         "en": "Pets are welcome for an additional €10 per day.",
-        "de": "Haustiere sind gegen einen Aufpreis von 10 € pro Tag erlaubt."
+        "de": "Haustiere sind gegen einen Aufpreis von 10 € pro Tag erlaubt.",
+        "cs": "Domácí zvířata jsou vítána za příplatek 10 € denně."
       }
     },
     {
       "question": {
         "hr": "Mogu li doći s djecom?",
         "en": "Can I stay with children?",
-        "de": "Kann ich mit Kindern anreisen?"
+        "de": "Kann ich mit Kindern anreisen?",
+        "cs": "Mohu přijet s dětmi?"
       },
       "answer": {
         "hr": "U obrascu navedite broj odraslih i djece. Dostupnost dječjeg krevetića, hranilice i ostale opreme potrebno je potvrditi s domaćinom.",
         "en": "Enter the number of adults and children in the form. Cots, high chairs and other equipment must be confirmed with the host.",
-        "de": "Geben Sie die Anzahl der Erwachsenen und Kinder an. Babybett, Hochstuhl und andere Ausstattung müssen bestätigt werden."
+        "de": "Geben Sie die Anzahl der Erwachsenen und Kinder an. Babybett, Hochstuhl und andere Ausstattung müssen bestätigt werden.",
+        "cs": "Ve formuláři uveďte počet dospělých a dětí. Dětské postýlky, jídelní židličky a další vybavení je nutné domluvit s hostitelem."
       }
     },
     {
       "question": {
         "hr": "Kako se plaća i koji su uvjeti otkazivanja?",
         "en": "What are the payment and cancellation terms?",
-        "de": "Welche Zahlungs- und Stornobedingungen gelten?"
+        "de": "Welche Zahlungs- und Stornobedingungen gelten?",
+        "cs": "Jaké jsou platební a storno podmínky?"
       },
       "answer": {
         "hr": "Iznos predujma, način plaćanja i uvjete otkazivanja domaćin će navesti u ponudi prije potvrde rezervacije.",
         "en": "The host will state the deposit, payment method and cancellation terms in the offer before you confirm the booking.",
-        "de": "Anzahlung, Zahlungsweise und Stornobedingungen nennt der Gastgeber im Angebot vor der Buchungsbestätigung."
+        "de": "Anzahlung, Zahlungsweise und Stornobedingungen nennt der Gastgeber im Angebot vor der Buchungsbestätigung.",
+        "cs": "Výši zálohy, způsob platby a storno podmínky uvede hostitel v nabídce před potvrzením rezervace."
       }
     },
     {
       "question": {
         "hr": "Koliko je plaža udaljena?",
         "en": "How far is the beach?",
-        "de": "Wie weit ist der Strand entfernt?"
+        "de": "Wie weit ist der Strand entfernt?",
+        "cs": "Jak daleko je pláž?"
       },
       "answer": {
         "hr": "More je udaljeno 10 m, a plaža 200 m od objekta.",
         "en": "The sea is 10 m away and the beach is 200 m from the property.",
-        "de": "Das Meer ist 10 m und der Strand 200 m von der Unterkunft entfernt."
+        "de": "Das Meer ist 10 m und der Strand 200 m von der Unterkunft entfernt.",
+        "cs": "Moře je vzdálené 10 m a pláž 200 m od ubytování."
       }
     },
     {
       "question": {
         "hr": "Što je uključeno u cijenu?",
         "en": "What is included in the price?",
-        "de": "Was ist im Preis enthalten?"
+        "de": "Was ist im Preis enthalten?",
+        "cs": "Co je zahrnuto v ceně?"
       },
       "answer": {
         "hr": "Uključeni su Wi-Fi, privatni parking, posteljina, ručnici i boravišna pristojba. Za ljubimce se dodatno naplaćuje 10 € dnevno.",
         "en": "Wi-Fi, private parking, bed linen, towels and tourist tax are included. Pets cost an additional €10 per day.",
-        "de": "WLAN, Privatparkplätze, Bettwäsche, Handtücher und Kurtaxe sind inklusive. Haustiere kosten zusätzlich 10 € pro Tag."
+        "de": "WLAN, Privatparkplätze, Bettwäsche, Handtücher und Kurtaxe sind inklusive. Haustiere kosten zusätzlich 10 € pro Tag.",
+        "cs": "Wi-Fi, soukromé parkování, ložní prádlo, ručníky a pobytová taxa jsou zahrnuty. Za domácí zvířata se účtuje příplatek 10 € za den."
       }
     }
   ],
@@ -1747,12 +1890,14 @@
       "title": {
         "hr": "Luka Dubrava i more",
         "en": "Luka Dubrava and the sea",
-        "de": "Luka Dubrava und das Meer"
+        "de": "Luka Dubrava und das Meer",
+        "cs": "Luka Dubrava a moře"
       },
       "description": {
         "hr": "Upoznajte uvalu i šljunčanu plažu Luke Dubrave. Odaberite mjesto za kupanje prema vremenu i uvjetima na moru.",
         "en": "Explore Luka Dubrava bay and its pebble beach. Choose your swimming spot according to the weather and sea conditions.",
-        "de": "Entdecken Sie die Bucht und den Kieselstrand von Luka Dubrava. Wählen Sie Ihren Badeplatz passend zu Wetter und Meeresbedingungen."
+        "de": "Entdecken Sie die Bucht und den Kieselstrand von Luka Dubrava. Wählen Sie Ihren Badeplatz passend zu Wetter und Meeresbedingungen.",
+        "cs": "Poznejte zátoku a oblázkovou pláž Luky Dubravy. Místo ke koupání vybírejte podle počasí a podmínek na moři."
       },
       "category": "beaches",
       "photo": "beach",
@@ -1763,12 +1908,14 @@
       "title": {
         "hr": "Stonske zidine",
         "en": "Walls of Ston",
-        "de": "Stadtmauern von Ston"
+        "de": "Stadtmauern von Ston",
+        "cs": "Stonské hradby"
       },
       "description": {
         "hr": "Isplanirajte izlet do Stona i šetnju zidinama. Radno vrijeme, ulaznice i uvjete obilaska provjerite prije polaska.",
         "en": "Plan a trip to Ston and a walk along its walls. Check opening hours, tickets and visiting conditions before leaving.",
-        "de": "Planen Sie einen Ausflug nach Ston und einen Spaziergang auf den Mauern. Prüfen Sie Öffnungszeiten, Eintritt und Bedingungen vorab."
+        "de": "Planen Sie einen Ausflug nach Ston und einen Spaziergang auf den Mauern. Prüfen Sie Öffnungszeiten, Eintritt und Bedingungen vorab.",
+        "cs": "Naplánujte si výlet do Stonu a procházku po hradbách. Před odjezdem ověřte otevírací dobu, vstupenky a podmínky návštěvy."
       },
       "category": "walks",
       "photo": "sunset",
@@ -1779,12 +1926,14 @@
       "title": {
         "hr": "Prapratno i obala Pelješca",
         "en": "Prapratno and the Pelješac coast",
-        "de": "Prapratno und Pelješacs Küste"
+        "de": "Prapratno und Pelješacs Küste",
+        "cs": "Prapratno a pobřeží Pelješce"
       },
       "description": {
         "hr": "Otkrijte Prapratno i druge uvale Pelješca. Izlet automobilom prilagodite svojim željama i vremenskim uvjetima.",
         "en": "Discover Prapratno and other bays on Pelješac. Plan your drive around your interests and the weather.",
-        "de": "Entdecken Sie Prapratno und weitere Buchten auf Pelješac. Passen Sie den Ausflug mit dem Auto Ihren Wünschen und dem Wetter an."
+        "de": "Entdecken Sie Prapratno und weitere Buchten auf Pelješac. Passen Sie den Ausflug mit dem Auto Ihren Wünschen und dem Wetter an.",
+        "cs": "Objevte Prapratno a další zátoky Pelješce. Výlet autem přizpůsobte svým zájmům a počasí."
       },
       "category": "trips",
       "photo": "beach",
@@ -1795,12 +1944,14 @@
       "title": {
         "hr": "Okusi Pelješca",
         "en": "Flavours of Pelješac",
-        "de": "Die Aromen von Pelješac"
+        "de": "Die Aromen von Pelješac",
+        "cs": "Chutě Pelješce"
       },
       "description": {
         "hr": "Istražite lokalne restorane i ponudu pelješkog kraja. Radno vrijeme i rezervacije provjerite izravno s odabranim restoranom.",
         "en": "Explore local restaurants and the flavours of Pelješac. Check opening hours and reservations directly with your chosen restaurant.",
-        "de": "Entdecken Sie lokale Restaurants und die Küche von Pelješac. Öffnungszeiten und Reservierungen direkt beim Restaurant prüfen."
+        "de": "Entdecken Sie lokale Restaurants und die Küche von Pelješac. Öffnungszeiten und Reservierungen direkt beim Restaurant prüfen.",
+        "cs": "Objevte místní restaurace a chutě Pelješce. Otevírací dobu a rezervaci stolu si ověřte přímo v restauraci."
       },
       "category": "food",
       "photo": "hero",

@@ -21,7 +21,7 @@ export function removeIllustrativePhotos(site){
  const data=structuredClone(site);
  data.photos=data.photos.filter(p=>!isIllustrativePhoto(p));
  const exists=key=>data.photos.some(p=>p.key===key),location=data.photos.find(p=>p.category==='location');
- for(const key of ['heroImage','introImage','bannerImage'])if(!exists(data[key])&&location)data[key]=location.key;
+ for(const [key,fallback]of [['heroImage','hero'],['introImage','beach'],['bannerImage','sunset']])if(!exists(data[key]))data[key]=exists(fallback)?fallback:location?.key;
  data.apartments=data.apartments.map(a=>exists(a.image)?a:{...a,image:data.photos.find(p=>p.category===a.slug)?.key||a.image});
  data.guide=(data.guide||[]).map(g=>exists(g.photo)?g:{...g,photo:data.heroImage});
  return data;
