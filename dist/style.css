@@ -116,3 +116,5 @@ html:is([data-text-size="130"],[data-text-size="150"]) .comparison-grid{grid-tem
 .amenity-label>span{min-width:0;overflow-wrap:anywhere}
 .amenity-icon{display:block;width:1.1em;height:1.1em;flex:0 0 1.1em;margin-top:.25em;color:var(--accent,#0875a4)}
 .planner-amenities dd{flex-shrink:0}
+/* Align values with the first text line rather than the decorative SVG baseline. */
+.planner-amenities>div,.comparison-body dl>div{align-items:flex-start}
