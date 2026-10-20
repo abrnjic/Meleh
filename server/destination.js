@@ -1,6 +1,8 @@
+import {applyPhotoLibrary,photoLibraryRevision} from '../dist/photo-library.js';
 import {clone,validateContent} from '../dist/model.js';
 
 export const destinationRevision='peljesac-2026-10';
+export {photoLibraryRevision};
 export const catalogueRevision='six-apartments-2026-10';
 const legacy=value=>/crikven|kvarner|ljubavna cestica/i.test(JSON.stringify(value));
 
@@ -32,19 +34,20 @@ export function correctedCatalogue(previous,defaults){
 export async function readSiteData(db,defaults){
  const ref=db.collection('site').doc('public'),snapshot=await ref.get();
  if(!snapshot.exists)return {revision:0,data:clone(defaults)};
- if(snapshot.data().destinationRevision===destinationRevision&&snapshot.data().catalogueRevision===catalogueRevision)return snapshot.data();
+ if(snapshot.data().destinationRevision===destinationRevision&&snapshot.data().catalogueRevision===catalogueRevision&&snapshot.data().photoLibraryRevision===photoLibraryRevision)return snapshot.data();
  return db.runTransaction(async tx=>{
   const current=await tx.get(ref);
   if(!current.exists)return {revision:0,data:clone(defaults)};
   const previous=current.data();
-  if(previous.destinationRevision===destinationRevision&&previous.catalogueRevision===catalogueRevision)return previous;
+  if(previous.destinationRevision===destinationRevision&&previous.catalogueRevision===catalogueRevision&&previous.photoLibraryRevision===photoLibraryRevision)return previous;
   let data=previous.destinationRevision===destinationRevision?previous.data:correctedDestination(previous.data,defaults);
   if(previous.catalogueRevision!==catalogueRevision){
    // Preserve the former catalogue privately; do not guess a mapping for historical stays.
    tx.set(db.collection('site').doc('catalogue-before-six-2026-10'),{apartments:previous.data.apartments,photos:previous.data.photos,createdAt:new Date().toISOString()});
    data=correctedCatalogue(data,defaults);
   }
-  const next={...previous,data,revision:(previous.revision||0)+1,destinationRevision,catalogueRevision,updatedAt:new Date().toISOString()};
+  if(previous.photoLibraryRevision!==photoLibraryRevision)data=validateContent(applyPhotoLibrary(data));
+  const next={...previous,data,photoLibraryRevision,revision:(previous.revision||0)+1,destinationRevision,catalogueRevision,updatedAt:new Date().toISOString()};
   tx.set(ref,next);return next;
  });
 }

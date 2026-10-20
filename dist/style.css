@@ -71,3 +71,5 @@ html:is([data-text-size="130"],[data-text-size="150"]) .comparison-grid{grid-tem
 .apartments-grid .apartment-card:last-child{grid-column:auto;max-width:none}
 
 .sample-photo-label{position:absolute;bottom:16px;left:16px;right:auto;max-width:calc(100% - 32px);padding:5px 10px;background:#173f59;color:#fff;font-size:.75rem;line-height:1.4;overflow-wrap:anywhere}.card-title{gap:8px;flex-wrap:wrap;align-items:baseline}.card-title h3{margin:0}.card-title span{font-size:.75rem}
+
+.apartment-photo-section{margin-top:64px;padding-top:40px;border-top:1px solid var(--line)}.apartment-photo-section .gallery-item{min-width:0}.apartment-photo-section .gallery-item img{height:260px}@media(max-width:600px){.apartment-photo-section .gallery-grid{grid-template-columns:minmax(0,1fr)}.apartment-photo-section .gallery-item img{height:auto;aspect-ratio:4/3;object-fit:cover}}

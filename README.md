@@ -85,3 +85,11 @@ Google prijava i Firestore koriste produkcijsku federaciju; prvi ulazak stvarnog
 Potvrđeni katalog ima šest jedinica: A-3, A-4, A-9, A-13, A-8 (2+1) i A-12 (2+1). Migracija `six-apartments-2026-10` jednom zamjenjuje ogledni katalog, privatno čuva njegovu kopiju u `site/catalogue-before-six-2026-10` i ne preusmjerava povijesne termine ili upite na nasumične nove jedinice. Fotografije interijera i dalje su jasno označene kao ogledne. Stari javni URL-ovi vode na novi popis apartmana.
 
 `tests/fixtures/sample-site.json` izolira prijašnji ogledni katalog za provjeru postojećih tijekova; produkcijski katalog provjerava `tests/catalogue.test.mjs`.
+
+## Dodavanje stvarnih fotografija
+
+Izvorne fotografije ostaju u susjednoj mapi `../Fotke`. Mapiranje je izričito navedeno u `config/photo-folders.json`: `APARTMENT A-3` → A-3, `APARTMENT A-4` → A-4, `APARTMENT A-9` → A-9. Neoznačene mape nikada se ne pridružuju automatski.
+
+Nakon dodavanja fotografija u poznate mape pokrenuti `python3 scripts/prepare-photos.py` (Pillow), zatim `npm run build`. Za novi apartman prvo dopuniti mapiranje i odabrati naslovne fotografije u `preferred`. Skripta čuva originale, radi WebP kopije do 1600 px bez EXIF metapodataka te zapisuje biblioteku s revizijom temeljenom na sadržaju. Nema generativne izmjene fotografija.
+
+Objaviti nove datoteke iz `dist/assets`, `dist/photo-library-data.js` i rezultat builda. Nova revizija jednom ažurira odgovarajuće galerije u spremljenom katalogu. Kapaciteti, cijene, zauzeća, dodatno prenesene stvarne fotografije i ručni odabiri postojećih naslovnica ostaju sačuvani pri sljedećim dopunama biblioteke. Stvarne fotografije imaju `illustrative: false`; ostale zadržavaju jasnu oznaku oglednih fotografija. Učitavanje preko administracije također označava fotografiju kao stvarnu.
