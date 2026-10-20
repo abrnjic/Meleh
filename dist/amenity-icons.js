@@ -1,5 +1,12 @@
 // Decorative line icons share the site's 24px SVG grid and inherit text scaling.
 const shapes={
+ checkIn:'<path d="M10 3h10v18H10M2 12h12m-4-4 4 4-4 4"/>',
+ checkOut:'<path d="M14 3H4v18h10m-4-9h12m-4-4 4 4-4 4"/>',
+ pets:'<ellipse cx="12" cy="16" rx="5" ry="4"/><ellipse cx="4.5" cy="10" rx="2" ry="2.5"/><ellipse cx="9" cy="5.5" rx="2" ry="2.5"/><ellipse cx="15" cy="5.5" rx="2" ry="2.5"/><ellipse cx="19.5" cy="10" rx="2" ry="2.5"/>',
+ minNights:'<path d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10ZM17 3v4m-2-2h4"/>',
+ arrivalDay:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 11h18m-14 5 3 3 7-6"/>',
+ touristTax:'<path d="M5 2l3 2 4-2 4 2 3-2v20l-3-2-4 2-4-2-3 2V2Zm9 6a4 4 0 1 0 0 8M7 11h6m-6 3h6"/>',
+ smoking:'<path d="M2 2l20 20M3 14h8m5 0h5v5h-5M6 19H3v-5m16-3V9c0-2-4-2-4-4V3m7 8V8c0-3-3-3-3-5M16 14v1"/>',
  terrace:'<path d="M3 9h18L12 3 3 9Zm9 0v12M5 21h14M4 13v6m16-6v6M2 16h5m10 0h5"/>',
  balcony:'<path d="M6 3h12v9H6zM3 12h18v9H3zM7 12v9m5-9v9m5-9v9M3 17h18"/>',
  parking:'<rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/>',
