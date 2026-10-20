@@ -20,9 +20,9 @@
       "parking": "Besplatan privatni parking ispred kuće"
     },
     "aboutText": {
-      "hr": "Meleh Apartmani nalaze se u Luci Dubravi na Pelješcu, na adresi Luka Dubrava 28. Kuća s tri zvjezdice ima šest klimatiziranih apartmana s terasom i balkonom, opremljenom kuhinjom, vlastitom kupaonicom te prostorom za sjedenje i blagovanje. Gostima su dostupni besplatan Wi-Fi i privatni parking ispred kuće, posteljina, ručnici, okućnica, roštilj i stolni tenis. More je udaljeno 10 m, a plaža 200 m. Kućni ljubimci su dobrodošli uz doplatu 10 € dnevno.",
-      "en": "Meleh Apartments are in Luka Dubrava on Pelješac, at Luka Dubrava 28. The three-star house offers six air-conditioned apartments with a terrace and balcony, equipped kitchen, private bathroom, seating and dining areas. Guests enjoy free Wi-Fi and private parking in front of the house, bed linen, towels, the garden, a barbecue and table tennis. The sea is 10 m away and the beach is 200 m away. Pets are welcome for €10 per day.",
-      "de": "Die Meleh Apartments liegen in Luka Dubrava auf Pelješac, Luka Dubrava 28. Das Haus mit drei Sternen bietet sechs klimatisierte Apartments mit Terrasse und Balkon, ausgestatteter Küche, eigenem Bad sowie Sitz- und Essbereich. WLAN und Privatparkplätze vor dem Haus sind kostenlos. Bettwäsche, Handtücher, Garten, Grill und Tischtennis stehen zur Verfügung. Das Meer ist 10 m, der Strand 200 m entfernt. Haustiere sind für 10 € pro Tag willkommen."
+      "hr": "Meleh Apartmani nalaze se u Luci Dubravi na Pelješcu, na adresi Luka Dubrava 28. Kuća s tri zvjezdice ima šest klimatiziranih apartmana s terasom i balkonom, opremljenom kuhinjom, vlastitom kupaonicom, pogledom na more i vrt te prostorom za sjedenje i blagovanje. Gostima su dostupni besplatan Wi-Fi i privatni parking ispred kuće, posteljina, ručnici, okućnica, roštilj i stolni tenis. More je udaljeno 10 m, a plaža 200 m. Kućni ljubimci su dobrodošli uz doplatu 10 € dnevno.",
+      "en": "Meleh Apartments are in Luka Dubrava on Pelješac, at Luka Dubrava 28. The three-star house offers six air-conditioned apartments with a terrace and balcony, equipped kitchen, private bathroom, sea and garden views, seating and dining areas. Guests enjoy free Wi-Fi and private parking in front of the house, bed linen, towels, the garden, a barbecue and table tennis. The sea is 10 m away and the beach is 200 m away. Pets are welcome for €10 per day.",
+      "de": "Die Meleh Apartments liegen in Luka Dubrava auf Pelješac, Luka Dubrava 28. Das Haus mit drei Sternen bietet sechs klimatisierte Apartments mit Terrasse und Balkon, ausgestatteter Küche, eigenem Bad, Meer- und Gartenblick sowie Sitz- und Essbereich. WLAN und Privatparkplätze vor dem Haus sind kostenlos. Bettwäsche, Handtücher, Garten, Grill und Tischtennis stehen zur Verfügung. Das Meer ist 10 m, der Strand 200 m entfernt. Haustiere sind für 10 € pro Tag willkommen."
     },
     "nearby": [
       {
@@ -238,9 +238,9 @@
       "minNights": 7,
       "petFee": 10,
       "description": {
-        "hr": "Apartman A-3 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
-        "en": "Apartment A-3 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-3 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "hr": "Apartman A-3 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-3 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-3 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
       },
       "amenities": {
         "terrace": true,
@@ -260,7 +260,8 @@
         "parking": true,
         "wifi": true,
         "kitchen": true,
-        "privateBathroom": true
+        "privateBathroom": true,
+        "gardenView": true
       },
       "seasons": [
         {
@@ -309,9 +310,9 @@
       "minNights": 7,
       "petFee": 10,
       "description": {
-        "hr": "Apartman A-8 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
-        "en": "Apartment A-8 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-8 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "hr": "Apartman A-8 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-8 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-8 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
       },
       "amenities": {
         "terrace": true,
@@ -331,7 +332,8 @@
         "parking": true,
         "wifi": true,
         "kitchen": true,
-        "privateBathroom": true
+        "privateBathroom": true,
+        "gardenView": true
       },
       "seasons": [
         {
@@ -380,9 +382,9 @@
       "minNights": 1,
       "petFee": 10,
       "description": {
-        "hr": "Apartman A-12 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
-        "en": "Apartment A-12 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-12 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "hr": "Apartman A-12 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-12 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-12 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
       },
       "amenities": {
         "terrace": true,
@@ -402,7 +404,8 @@
         "parking": true,
         "wifi": true,
         "kitchen": true,
-        "privateBathroom": true
+        "privateBathroom": true,
+        "gardenView": true
       },
       "seasons": [
         {
@@ -451,9 +454,9 @@
       "minNights": 1,
       "petFee": 10,
       "description": {
-        "hr": "Apartman A-4 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
-        "en": "Apartment A-4 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-4 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "hr": "Apartman A-4 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-4 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-4 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
       },
       "amenities": {
         "terrace": true,
@@ -473,7 +476,8 @@
         "parking": true,
         "wifi": true,
         "kitchen": true,
-        "privateBathroom": true
+        "privateBathroom": true,
+        "gardenView": true
       },
       "seasons": [
         {
@@ -522,9 +526,9 @@
       "minNights": 1,
       "petFee": 10,
       "description": {
-        "hr": "Apartman A-9 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
-        "en": "Apartment A-9 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-9 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "hr": "Apartman A-9 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-9 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-9 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
       },
       "amenities": {
         "terrace": true,
@@ -544,7 +548,8 @@
         "parking": true,
         "wifi": true,
         "kitchen": true,
-        "privateBathroom": true
+        "privateBathroom": true,
+        "gardenView": true
       },
       "seasons": [
         {
@@ -593,9 +598,9 @@
       "minNights": 1,
       "petFee": 10,
       "description": {
-        "hr": "Apartman A-13 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
-        "en": "Apartment A-13 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
-        "de": "Apartment A-13 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+        "hr": "Apartman A-13 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more i vrt, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-13 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea and garden views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-13 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meer- und Gartenblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
       },
       "amenities": {
         "terrace": true,
@@ -615,7 +620,8 @@
         "parking": true,
         "wifi": true,
         "kitchen": true,
-        "privateBathroom": true
+        "privateBathroom": true,
+        "gardenView": true
       },
       "seasons": [
         {

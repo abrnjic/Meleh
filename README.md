@@ -97,3 +97,5 @@ Objaviti nove datoteke iz `dist/assets`, `dist/photo-library-data.js` i rezultat
 ## Specifikacija apartmana i cjenik
 
 `config/property-specification.json` sadrži podatke iz dostavljenog dokumenta Adria_Maja_specifikacija_apartmana (1).xlsx, odobrene od vlasnika. Službeni naziv ostaje Meleh Apartmani. Build prenosi podatke u početni sadržaj; migracija `workbook-specification-2026-10` jednom dopunjuje javno spremljeni sadržaj, uz očuvanje fotografija, upita, rezervacija i postojećeg ručno unesenog cjenika. Šest jedinica ima ukupno 36 sezonskih redaka za 2026. i 2027. Izvorni krajnji datumi uključuju posljednje noćenje; aplikacija ih interno sprema kao sljedeći dan (isključiva granica). Cijene izvan navedenih razdoblja ostaju nepoznate. Pravila minimalnog boravka, naknada za ljubimce i oprema čuvaju se u modelu i administraciji.
+
+Dokumentacija je izvor podataka domaćina. Pogled na more i pogled na vrt mogu biti istodobno dostupni; migracija `sea-and-garden-views-2026-10` dopunjuje oba pogleda bez ponovnog uvoza cjenika ili promjene fotografija.

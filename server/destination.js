@@ -7,6 +7,15 @@ export const catalogueRevision='six-apartments-2026-10';
 export const apartmentNamesRevision='short-apartment-names-2026-10';
 export const amenitiesRevision='shared-amenities-2026-10';
 export const specificationRevision='workbook-specification-2026-10';
+export const viewsRevision='sea-and-garden-views-2026-10';
+
+export function correctedViews(previous,defaults){
+ const data=clone(previous),slugs=new Set(defaults.apartments.map(a=>a.slug));
+ const views=description=>Object.fromEntries(Object.entries(description||{}).map(([lang,value])=>[lang,typeof value==='string'?value.replace('pogled na more,','pogled na more i vrt,').replace('sea views,','sea and garden views,').replace('Meerblick,','Meer- und Gartenblick,'):value]));
+ data.apartments=data.apartments.map(a=>slugs.has(a.slug)?{...a,amenities:{...a.amenities,gardenView:true},description:views(a.description)}:a);
+ if(data.aboutText){for(const [lang,before,after]of [['hr','vlastitom kupaonicom te','vlastitom kupaonicom, pogledom na more i vrt te'],['en','private bathroom, seating','private bathroom, sea and garden views, seating'],['de','eigenem Bad sowie','eigenem Bad, Meer- und Gartenblick sowie']])if(typeof data.aboutText[lang]==='string')data.aboutText[lang]=data.aboutText[lang].replace(before,after);}
+ return validateContent(data);
+}
 
 export function correctedSpecification(previous,defaults){
  const data=clone(previous);
@@ -61,12 +70,12 @@ export function correctedCatalogue(previous,defaults){
 export async function readSiteData(db,defaults){
  const ref=db.collection('site').doc('public'),snapshot=await ref.get();
  if(!snapshot.exists)return {revision:0,data:clone(defaults)};
- if(snapshot.data().destinationRevision===destinationRevision&&snapshot.data().catalogueRevision===catalogueRevision&&snapshot.data().photoLibraryRevision===photoLibraryRevision&&snapshot.data().apartmentNamesRevision===apartmentNamesRevision&&snapshot.data().amenitiesRevision===amenitiesRevision&&snapshot.data().specificationRevision===specificationRevision)return snapshot.data();
+ if(snapshot.data().destinationRevision===destinationRevision&&snapshot.data().catalogueRevision===catalogueRevision&&snapshot.data().photoLibraryRevision===photoLibraryRevision&&snapshot.data().apartmentNamesRevision===apartmentNamesRevision&&snapshot.data().amenitiesRevision===amenitiesRevision&&snapshot.data().specificationRevision===specificationRevision&&snapshot.data().viewsRevision===viewsRevision)return snapshot.data();
  return db.runTransaction(async tx=>{
   const current=await tx.get(ref);
   if(!current.exists)return {revision:0,data:clone(defaults)};
   const previous=current.data();
-  if(previous.destinationRevision===destinationRevision&&previous.catalogueRevision===catalogueRevision&&previous.photoLibraryRevision===photoLibraryRevision&&previous.apartmentNamesRevision===apartmentNamesRevision&&previous.amenitiesRevision===amenitiesRevision&&previous.specificationRevision===specificationRevision)return previous;
+  if(previous.destinationRevision===destinationRevision&&previous.catalogueRevision===catalogueRevision&&previous.photoLibraryRevision===photoLibraryRevision&&previous.apartmentNamesRevision===apartmentNamesRevision&&previous.amenitiesRevision===amenitiesRevision&&previous.specificationRevision===specificationRevision&&previous.viewsRevision===viewsRevision)return previous;
   let data=previous.destinationRevision===destinationRevision?previous.data:correctedDestination(previous.data,defaults);
   if(previous.catalogueRevision!==catalogueRevision){
    // Preserve the former catalogue privately; do not guess a mapping for historical stays.
@@ -77,7 +86,8 @@ export async function readSiteData(db,defaults){
   if(previous.apartmentNamesRevision!==apartmentNamesRevision)data=correctedApartmentNames(data);
   if(previous.amenitiesRevision!==amenitiesRevision)data=correctedAmenities(data);
   if(previous.specificationRevision!==specificationRevision)data=correctedSpecification(data,defaults);
-  const next={...previous,data,photoLibraryRevision,apartmentNamesRevision,amenitiesRevision,specificationRevision,revision:(previous.revision||0)+1,destinationRevision,catalogueRevision,updatedAt:new Date().toISOString()};
+  if(previous.viewsRevision!==viewsRevision)data=correctedViews(data,defaults);
+  const next={...previous,data,photoLibraryRevision,apartmentNamesRevision,amenitiesRevision,specificationRevision,viewsRevision,revision:(previous.revision||0)+1,destinationRevision,catalogueRevision,updatedAt:new Date().toISOString()};
   tx.set(ref,next);return next;
  });
 }
