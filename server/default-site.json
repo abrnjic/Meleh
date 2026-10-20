@@ -148,7 +148,7 @@
     },
     {
       "slug": "a-8",
-      "name": "A-8 (2+1)",
+      "name": "A-8",
       "guests": "2 + 1",
       "rooms": 1,
       "baths": null,
@@ -160,9 +160,9 @@
       "detailsConfirmed": true,
       "price": null,
       "description": {
-        "hr": "Apartman A-8 (2+1) ima 30 m² i jednu spavaću sobu. Dostupno je 2 osnovna ležaja i 1 dodatni ležaj.",
-        "en": "Apartment A-8 (2+1) offers 30 m² and 1 bedroom. It has 2 standard beds and 1 extra bed.",
-        "de": "Apartment A-8 (2+1) bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
+        "hr": "Apartman A-8 ima 30 m² i jednu spavaću sobu. Dostupno je 2 osnovna ležaja i 1 dodatni ležaj.",
+        "en": "Apartment A-8 offers 30 m² and 1 bedroom. It has 2 standard beds and 1 extra bed.",
+        "de": "Apartment A-8 bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
       },
       "seasons": [],
       "amenities": {
@@ -177,7 +177,7 @@
     },
     {
       "slug": "a-12",
-      "name": "A-12 (2+1)",
+      "name": "A-12",
       "guests": "2 + 1",
       "rooms": 1,
       "baths": null,
@@ -189,9 +189,9 @@
       "detailsConfirmed": true,
       "price": null,
       "description": {
-        "hr": "Apartman A-12 (2+1) ima 30 m² i jednu spavaću sobu. Dostupno je 2 osnovna ležaja i 1 dodatni ležaj.",
-        "en": "Apartment A-12 (2+1) offers 30 m² and 1 bedroom. It has 2 standard beds and 1 extra bed.",
-        "de": "Apartment A-12 (2+1) bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
+        "hr": "Apartman A-12 ima 30 m² i jednu spavaću sobu. Dostupno je 2 osnovna ležaja i 1 dodatni ležaj.",
+        "en": "Apartment A-12 offers 30 m² and 1 bedroom. It has 2 standard beds and 1 extra bed.",
+        "de": "Apartment A-12 bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
       },
       "seasons": [],
       "amenities": {
@@ -250,9 +250,9 @@
       "key": "a-8-photo",
       "file": "bedroom.jpg",
       "url": null,
-      "alt": "Ogledni interijer — nije fotografija apartmana A-8 (2+1)",
-      "altEn": "Illustrative interior — not a photograph of apartment A-8 (2+1)",
-      "altDe": "Beispielinterieur — kein Foto des Apartments A-8 (2+1)",
+      "alt": "Ogledni interijer — nije fotografija apartmana A-8",
+      "altEn": "Illustrative interior — not a photograph of apartment A-8",
+      "altDe": "Beispielinterieur — kein Foto des Apartments A-8",
       "category": "a-8",
       "illustrative": true
     },
@@ -260,9 +260,9 @@
       "key": "a-12-photo",
       "file": "house.jpg",
       "url": null,
-      "alt": "Ogledni interijer — nije fotografija apartmana A-12 (2+1)",
-      "altEn": "Illustrative interior — not a photograph of apartment A-12 (2+1)",
-      "altDe": "Beispielinterieur — kein Foto des Apartments A-12 (2+1)",
+      "alt": "Ogledni interijer — nije fotografija apartmana A-12",
+      "altEn": "Illustrative interior — not a photograph of apartment A-12",
+      "altDe": "Beispielinterieur — kein Foto des Apartments A-12",
       "category": "a-12",
       "illustrative": true
     },

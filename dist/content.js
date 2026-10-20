@@ -97,7 +97,7 @@ window.SITE = {
   },
   {
     "slug": "a-8",
-    "name": "A-8 (2+1)",
+    "name": "A-8",
     "guests": "2 + 1",
     "rooms": 1,
     "baths": null,
@@ -109,9 +109,9 @@ window.SITE = {
     "price": null,
     "detailsConfirmed": true,
     "description": {
-      "hr": "Apartman A-8 (2+1) ima 30 m² i jednu spavaću sobu. Dostupno je 2 osnovna ležaja i 1 dodatni ležaj.",
-      "en": "Apartment A-8 (2+1) offers 30 m² and 1 bedroom. It has 2 standard beds and 1 extra bed.",
-      "de": "Apartment A-8 (2+1) bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
+      "hr": "Apartman A-8 ima 30 m² i jednu spavaću sobu. Dostupno je 2 osnovna ležaja i 1 dodatni ležaj.",
+      "en": "Apartment A-8 offers 30 m² and 1 bedroom. It has 2 standard beds and 1 extra bed.",
+      "de": "Apartment A-8 bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
     },
     "amenities": {
       "parking": true
@@ -119,7 +119,7 @@ window.SITE = {
   },
   {
     "slug": "a-12",
-    "name": "A-12 (2+1)",
+    "name": "A-12",
     "guests": "2 + 1",
     "rooms": 1,
     "baths": null,
@@ -131,9 +131,9 @@ window.SITE = {
     "price": null,
     "detailsConfirmed": true,
     "description": {
-      "hr": "Apartman A-12 (2+1) ima 30 m² i jednu spavaću sobu. Dostupno je 2 osnovna ležaja i 1 dodatni ležaj.",
-      "en": "Apartment A-12 (2+1) offers 30 m² and 1 bedroom. It has 2 standard beds and 1 extra bed.",
-      "de": "Apartment A-12 (2+1) bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
+      "hr": "Apartman A-12 ima 30 m² i jednu spavaću sobu. Dostupno je 2 osnovna ležaja i 1 dodatni ležaj.",
+      "en": "Apartment A-12 offers 30 m² and 1 bedroom. It has 2 standard beds and 1 extra bed.",
+      "de": "Apartment A-12 bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
     },
     "amenities": {
       "parking": true
@@ -149,8 +149,8 @@ window.SITE = {
     {"key": "a-4-photo", "file": "bedroom.jpg", "category": "a-4", "alt": "Ogledni interijer — nije fotografija apartmana A-4", "altEn": "Illustrative interior — not a photograph of apartment A-4", "altDe": "Beispielinterieur — kein Foto des Apartments A-4"},
     {"key": "a-9-photo", "file": "house.jpg", "category": "a-9", "alt": "Ogledni interijer — nije fotografija apartmana A-9", "altEn": "Illustrative interior — not a photograph of apartment A-9", "altDe": "Beispielinterieur — kein Foto des Apartments A-9"},
     {"key": "a-13-photo", "file": "room.jpg", "category": "a-13", "alt": "Ogledni interijer — nije fotografija apartmana A-13", "altEn": "Illustrative interior — not a photograph of apartment A-13", "altDe": "Beispielinterieur — kein Foto des Apartments A-13"},
-    {"key": "a-8-photo", "file": "bedroom.jpg", "category": "a-8", "alt": "Ogledni interijer — nije fotografija apartmana A-8 (2+1)", "altEn": "Illustrative interior — not a photograph of apartment A-8 (2+1)", "altDe": "Beispielinterieur — kein Foto des Apartments A-8 (2+1)"},
-    {"key": "a-12-photo", "file": "house.jpg", "category": "a-12", "alt": "Ogledni interijer — nije fotografija apartmana A-12 (2+1)", "altEn": "Illustrative interior — not a photograph of apartment A-12 (2+1)", "altDe": "Beispielinterieur — kein Foto des Apartments A-12 (2+1)"},
+    {"key": "a-8-photo", "file": "bedroom.jpg", "category": "a-8", "alt": "Ogledni interijer — nije fotografija apartmana A-8", "altEn": "Illustrative interior — not a photograph of apartment A-8", "altDe": "Beispielinterieur — kein Foto des Apartments A-8"},
+    {"key": "a-12-photo", "file": "house.jpg", "category": "a-12", "alt": "Ogledni interijer — nije fotografija apartmana A-12", "altEn": "Illustrative interior — not a photograph of apartment A-12", "altDe": "Beispielinterieur — kein Foto des Apartments A-12"},
     {key:'detail',file:'detail.jpg',alt:'Topli detalji interijera',category:'house'}
   ]
 };

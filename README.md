@@ -82,7 +82,7 @@ Automatizirani testovi pokrivaju datume i promjene gostiju, preklapanja, cijene 
 
 Google prijava i Firestore koriste produkcijsku federaciju; prvi ulazak stvarnog administratora dovršava se njegovim Google računom. Storage i stvarna dostava e-pošte zahtijevaju naknadnu aktivaciju i provjeru. Test dostave koristi kontrolirani zamjenski HTTP odgovor i ne šalje stvarne poruke.
 
-Potvrđeni katalog ima šest jedinica: A-3, A-4, A-9, A-13, A-8 (2+1) i A-12 (2+1). Migracija `six-apartments-2026-10` jednom zamjenjuje ogledni katalog, privatno čuva njegovu kopiju u `site/catalogue-before-six-2026-10` i ne preusmjerava povijesne termine ili upite na nasumične nove jedinice. Fotografije interijera i dalje su jasno označene kao ogledne. Stari javni URL-ovi vode na novi popis apartmana.
+Potvrđeni katalog ima šest jedinica: A-3, A-4, A-9, A-13, A-8 i A-12. Migracija `six-apartments-2026-10` jednom zamjenjuje ogledni katalog, privatno čuva njegovu kopiju u `site/catalogue-before-six-2026-10` i ne preusmjerava povijesne termine ili upite na nasumične nove jedinice. Fotografije interijera i dalje su jasno označene kao ogledne. Stari javni URL-ovi vode na novi popis apartmana.
 
 `tests/fixtures/sample-site.json` izolira prijašnji ogledni katalog za provjeru postojećih tijekova; produkcijski katalog provjerava `tests/catalogue.test.mjs`.
 
