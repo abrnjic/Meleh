@@ -7,18 +7,150 @@ window.SITE = {
   distances: {beach:null, center:null, shop:null, restaurant:null, airport:null, parking:null},
   reviews: [],
   apartments: [
-    {slug:'maslina',name:'Maslina',guests:'2 + 2',rooms:1,baths:1,area:45,floor:'1',image:'room',tag:'Za lagana jutra',type:'couple',price:null},
-    {slug:'lavanda',name:'Lavanda',guests:'4 + 1',rooms:2,baths:1,area:65,floor:'1',image:'bedroom',tag:'Mjesto za cijelu obitelj',type:'family',price:null},
-    {slug:'more',name:'More',guests:'2',rooms:1,baths:1,area:35,floor:'2',image:'house',tag:'Vaš mali bijeg',type:'couple',price:null}
-  ],
+  {
+    "slug": "a-3",
+    "name": "A-3",
+    "guests": "2 + 1",
+    "rooms": 1,
+    "baths": null,
+    "area": 30,
+    "floor": null,
+    "image": "a-3-photo",
+    "tag": "",
+    "type": "couple",
+    "price": null,
+    "detailsConfirmed": true,
+    "description": {
+      "hr": "Apartman A-3 ima 30 m² i jednu spavaću sobu. Dostupno je 2 osnovna ležaja i 1 dodatni ležaj.",
+      "en": "Apartment A-3 offers 30 m² and 1 bedroom. It has 2 standard beds and 1 extra bed.",
+      "de": "Apartment A-3 bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
+    },
+    "amenities": {
+      "parking": true
+    }
+  },
+  {
+    "slug": "a-4",
+    "name": "A-4",
+    "guests": "4",
+    "rooms": 2,
+    "baths": null,
+    "area": 60,
+    "floor": null,
+    "image": "a-4-photo",
+    "tag": "",
+    "type": "family",
+    "price": null,
+    "detailsConfirmed": true,
+    "description": {
+      "hr": "Apartman A-4 ima 60 m² i dvije spavaće sobe. Dostupno je 4 osnovna ležaja.",
+      "en": "Apartment A-4 offers 60 m² and 2 bedrooms. It has 4 standard beds.",
+      "de": "Apartment A-4 bietet 60 m² und 2 Schlafzimmer. Es verfügt über 4 reguläre Schlafplätze."
+    },
+    "amenities": {
+      "parking": true
+    }
+  },
+  {
+    "slug": "a-9",
+    "name": "A-9",
+    "guests": "4",
+    "rooms": 2,
+    "baths": null,
+    "area": 60,
+    "floor": null,
+    "image": "a-9-photo",
+    "tag": "",
+    "type": "family",
+    "price": null,
+    "detailsConfirmed": true,
+    "description": {
+      "hr": "Apartman A-9 ima 60 m² i dvije spavaće sobe. Dostupno je 4 osnovna ležaja.",
+      "en": "Apartment A-9 offers 60 m² and 2 bedrooms. It has 4 standard beds.",
+      "de": "Apartment A-9 bietet 60 m² und 2 Schlafzimmer. Es verfügt über 4 reguläre Schlafplätze."
+    },
+    "amenities": {
+      "parking": true
+    }
+  },
+  {
+    "slug": "a-13",
+    "name": "A-13",
+    "guests": "4",
+    "rooms": 2,
+    "baths": null,
+    "area": 60,
+    "floor": null,
+    "image": "a-13-photo",
+    "tag": "",
+    "type": "family",
+    "price": null,
+    "detailsConfirmed": true,
+    "description": {
+      "hr": "Apartman A-13 ima 60 m² i dvije spavaće sobe. Dostupno je 4 osnovna ležaja.",
+      "en": "Apartment A-13 offers 60 m² and 2 bedrooms. It has 4 standard beds.",
+      "de": "Apartment A-13 bietet 60 m² und 2 Schlafzimmer. Es verfügt über 4 reguläre Schlafplätze."
+    },
+    "amenities": {
+      "parking": true
+    }
+  },
+  {
+    "slug": "a-8",
+    "name": "A-8 (2+1)",
+    "guests": "2 + 1",
+    "rooms": 1,
+    "baths": null,
+    "area": 30,
+    "floor": null,
+    "image": "a-8-photo",
+    "tag": "",
+    "type": "couple",
+    "price": null,
+    "detailsConfirmed": true,
+    "description": {
+      "hr": "Apartman A-8 (2+1) ima 30 m² i jednu spavaću sobu. Dostupno je 2 osnovna ležaja i 1 dodatni ležaj.",
+      "en": "Apartment A-8 (2+1) offers 30 m² and 1 bedroom. It has 2 standard beds and 1 extra bed.",
+      "de": "Apartment A-8 (2+1) bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
+    },
+    "amenities": {
+      "parking": true
+    }
+  },
+  {
+    "slug": "a-12",
+    "name": "A-12 (2+1)",
+    "guests": "2 + 1",
+    "rooms": 1,
+    "baths": null,
+    "area": 30,
+    "floor": null,
+    "image": "a-12-photo",
+    "tag": "",
+    "type": "couple",
+    "price": null,
+    "detailsConfirmed": true,
+    "description": {
+      "hr": "Apartman A-12 (2+1) ima 30 m² i jednu spavaću sobu. Dostupno je 2 osnovna ležaja i 1 dodatni ležaj.",
+      "en": "Apartment A-12 (2+1) offers 30 m² and 1 bedroom. It has 2 standard beds and 1 extra bed.",
+      "de": "Apartment A-12 (2+1) bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
+    },
+    "amenities": {
+      "parking": true
+    }
+  }
+],
   photoCredits: [{"file": "peljesac-obala.jpg", "title": "Peljesac south coast.jpg", "author": "Yerpo", "source": "https://commons.wikimedia.org/wiki/File:Peljesac_south_coast.jpg", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"}, {"file": "peljesac-prapratno.jpg", "title": "Prapratno, Croatia.JPG", "author": "Neoneo13", "source": "https://commons.wikimedia.org/wiki/File:Prapratno,_Croatia.JPG", "license": "Public domain", "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"}, {"file": "peljesac-ston.jpg", "title": "View of Ston, Croatia.jpg", "author": "Bernard Gagnon", "source": "https://commons.wikimedia.org/wiki/File:View_of_Ston,_Croatia.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"}],
   photos: [
     {"key": "hero", "file": "peljesac-obala.jpg", "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Peljesac_south_coast.jpg", "alt": "Južna obala Pelješca", "altEn": "South coast of Pelješac", "altDe": "Südküste von Pelješac", "category": "location"},
-    {key:'room',file:'room.jpg',alt:'Prozračan dnevni boravak u neutralnim tonovima',category:'maslina'},
-    {key:'bedroom',file:'bedroom.jpg',alt:'Spavaća soba u toplim tonovima',category:'lavanda'},
-    {key:'house',file:'house.jpg',alt:'Ogledni suvremeni interijer s blagovaonicom',category:'more'},
     {"key": "beach", "file": "peljesac-prapratno.jpg", "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Prapratno%2C_Croatia.JPG", "alt": "Uvala Prapratno na Pelješcu", "altEn": "Prapratno bay on Pelješac", "altDe": "Bucht Prapratno auf Pelješac", "category": "location"},
     {"key": "sunset", "file": "peljesac-ston.jpg", "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/View_of_Ston%2C_Croatia.jpg/1920px-View_of_Ston%2C_Croatia.jpg", "alt": "Pogled na Ston na Pelješcu", "altEn": "View of Ston on Pelješac", "altDe": "Blick auf Ston auf Pelješac", "category": "location"},
+    {"key": "a-3-photo", "file": "room.jpg", "category": "a-3", "alt": "Ogledni interijer — nije fotografija apartmana A-3", "altEn": "Illustrative interior — not a photograph of apartment A-3", "altDe": "Beispielinterieur — kein Foto des Apartments A-3"},
+    {"key": "a-4-photo", "file": "bedroom.jpg", "category": "a-4", "alt": "Ogledni interijer — nije fotografija apartmana A-4", "altEn": "Illustrative interior — not a photograph of apartment A-4", "altDe": "Beispielinterieur — kein Foto des Apartments A-4"},
+    {"key": "a-9-photo", "file": "house.jpg", "category": "a-9", "alt": "Ogledni interijer — nije fotografija apartmana A-9", "altEn": "Illustrative interior — not a photograph of apartment A-9", "altDe": "Beispielinterieur — kein Foto des Apartments A-9"},
+    {"key": "a-13-photo", "file": "room.jpg", "category": "a-13", "alt": "Ogledni interijer — nije fotografija apartmana A-13", "altEn": "Illustrative interior — not a photograph of apartment A-13", "altDe": "Beispielinterieur — kein Foto des Apartments A-13"},
+    {"key": "a-8-photo", "file": "bedroom.jpg", "category": "a-8", "alt": "Ogledni interijer — nije fotografija apartmana A-8 (2+1)", "altEn": "Illustrative interior — not a photograph of apartment A-8 (2+1)", "altDe": "Beispielinterieur — kein Foto des Apartments A-8 (2+1)"},
+    {"key": "a-12-photo", "file": "house.jpg", "category": "a-12", "alt": "Ogledni interijer — nije fotografija apartmana A-12 (2+1)", "altEn": "Illustrative interior — not a photograph of apartment A-12 (2+1)", "altDe": "Beispielinterieur — kein Foto des Apartments A-12 (2+1)"},
     {key:'detail',file:'detail.jpg',alt:'Topli detalji interijera',category:'house'}
   ]
 };

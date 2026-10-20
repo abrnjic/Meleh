@@ -10,11 +10,11 @@ export function inquiryReply(i,site){
  const total=q?.meetsMinimum?new Intl.NumberFormat({hr:'hr-HR',en:'en-GB',de:'de-DE'}[l],{style:'currency',currency:'EUR'}).format(q.total):null;
  return [`${w[0]} ${i.name},`,'',w[1],`${w[2]}: ${a?.name||w[3]}`,`${w[4]}: ${i.arrival}`,`${w[5]}: ${i.departure}`,`${w[6]}: ${i.adults}`,`${w[7]}: ${i.children||0}`,'',...(total?[`${w[8]}: ${total}`,w[9]]:[w[10]]),'',w[11],'',`${w[12]},`,site.name].join('\n');
 }
-export function demoInquiries(){return [
+export function demoInquiries(apartments){return [
  {id:'00000000-0000-4000-8000-000000000001',name:'Ogledna gošća Ana',email:'ana@example.test',apartment:'maslina',arrival:'2027-07-01',departure:'2027-07-08',adults:2,children:1,message:'OGLEDNI UPIT: zanima nas boravak s djetetom. Ima li apartman terasu?',language:'hr',status:'new',internalNote:'',workflowRevision:0,createdAt:'2026-10-20T09:00:00Z'},
  {id:'00000000-0000-4000-8000-000000000002',name:'Demo guest Alex',email:'alex@example.test',apartment:'lavanda',arrival:'2027-08-10',departure:'2027-08-17',adults:4,children:0,message:'DEMO ENQUIRY: we would like information about parking.',language:'en',status:'offered',internalNote:'Ogledna bilješka: poslati detalje parkiranja nakon potvrde domaćina.',workflowRevision:0,createdAt:'2026-10-19T09:00:00Z'},
  {id:'00000000-0000-4000-8000-000000000003',name:'Beispielgast Mia',email:'mia@example.test',apartment:'more',arrival:'2027-06-12',departure:'2027-06-16',adults:2,children:0,message:'BEISPIELANFRAGE: wir möchten im Juni anreisen.',language:'de',status:'replied',internalNote:'',workflowRevision:0,createdAt:'2026-10-18T09:00:00Z'}
- ];}
+ ].map((row,i)=>({...row,apartment:apartments?.[i]?.slug||row.apartment}));}
 export function createInquiryInbox({site,esc,getRows,isDemo,save,refresh,retry}){
  let filters={search:'',status:'',apartment:'',arrivalFrom:'',arrivalTo:''};
  const edits=new Map();

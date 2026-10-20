@@ -66,3 +66,8 @@ html:is([data-text-size="130"],[data-text-size="150"]) .comparison-grid{grid-tem
 .distance-actions{margin-top:auto;padding-top:12px;display:flex;flex-direction:column;gap:8px;width:100%}
 .distance-actions a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 4px;color:#076b95;font-size:.9375rem;font-weight:600;line-height:1.5;text-decoration:underline;text-underline-offset:4px;border-radius:4px;overflow-wrap:anywhere}
 .distance-actions a:hover{background:#d6edf9;color:#064c6b}.distance-actions a:focus-visible{outline:3px solid #087fae;outline-offset:3px}
+
+/* Keep all six units in balanced rows at every breakpoint. */
+.apartments-grid .apartment-card:last-child{grid-column:auto;max-width:none}
+
+.sample-photo-label{position:absolute;bottom:16px;left:16px;right:auto;max-width:calc(100% - 32px);padding:5px 10px;background:#173f59;color:#fff;font-size:.75rem;line-height:1.4;overflow-wrap:anywhere}.card-title{gap:8px;flex-wrap:wrap;align-items:baseline}.card-title h3{margin:0}.card-title span{font-size:.75rem}

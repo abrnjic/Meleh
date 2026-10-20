@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {calendarUrl,parseCalendar,exportCalendar,addFeed,feedOverview,syncFeeds,combinedAvailability,createCalendarExport,readCalendarExport} from '../server/calendars.js';
-import {memoryDb} from './memory-db.mjs';import site from '../server/default-site.json' with {type:'json'};
+import {memoryDb} from './memory-db.mjs';import site from './fixtures/sample-site.json' with {type:'json'};
 const calendar=body=>'BEGIN:VCALENDAR\r\nVERSION:2.0\r\n'+body+'\r\nEND:VCALENDAR\r\n';
 const event='BEGIN:VEVENT\r\nDTSTART;VALUE=DATE:20270701\r\nDTEND;VALUE=DATE:20270708\r\nSUMMARY:PRIVATE GUEST\r\nEND:VEVENT';
 const feed={apartment:'more',provider:'Airbnb',url:'https://www.airbnb.com/calendar/ical/example.ics?s=PRIVATE',periods:[{apartment:'more',arrival:'2027-08-01',departure:'2027-08-08'}],state:'ready',lastSuccess:new Date().toISOString()};

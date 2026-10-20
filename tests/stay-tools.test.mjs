@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {whatsappNumber,validateContent,clone} from '../dist/model.js';
 import {whatsappHref,enquiryText,stayIssue,createStayTools} from '../dist/stay-tools.js';
-import base from '../server/default-site.json' with {type:'json'};
+import base from './fixtures/sample-site.json' with {type:'json'};
 test('WhatsApp links require an international number and safely encode the complete message',()=>{
  assert.equal(whatsappNumber('+385 (99) 123-4567'),'385991234567');
  assert.equal(whatsappNumber('00385 99 1234567'),'385991234567');

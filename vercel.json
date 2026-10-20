@@ -29,5 +29,22 @@
       "path": "/api/calendar-background",
       "schedule": "*/15 * * * *"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/apartmani/maslina",
+      "destination": "/apartmani",
+      "permanent": true
+    },
+    {
+      "source": "/apartmani/lavanda",
+      "destination": "/apartmani",
+      "permanent": true
+    },
+    {
+      "source": "/apartmani/more",
+      "destination": "/apartmani",
+      "permanent": true
+    }
   ]
 }

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {clone,validateInquiryUpdate} from '../dist/model.js';
 import {filterInquiries,inquiryReply,demoInquiries} from '../dist/inquiry-inbox.js';
 import {updateInquiry} from '../server/inquiries.js';
-import base from '../server/default-site.json' with {type:'json'};
+import base from './fixtures/sample-site.json' with {type:'json'};
 const id='12345678-1234-1234-1234-123456789012';
 test('inbox combines text, status, apartment and arrival filters without changing records',()=>{
  const rows=demoInquiries(),copy=clone(rows);assert.equal(filterInquiries(rows,{search:'ANA@EXAMPLE'},base.apartments).length,1);
