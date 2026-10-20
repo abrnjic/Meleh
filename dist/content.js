@@ -26,7 +26,10 @@ window.SITE = {
       "de": "Apartment A-3 bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
     },
     "amenities": {
-      "parking": true
+      "parking": true,
+      "terraceOrBalcony": true,
+      "kitchen": true,
+      "wifi": true
     }
   },
   {
@@ -48,7 +51,10 @@ window.SITE = {
       "de": "Apartment A-4 bietet 60 m² und 2 Schlafzimmer. Es verfügt über 4 reguläre Schlafplätze."
     },
     "amenities": {
-      "parking": true
+      "parking": true,
+      "terraceOrBalcony": true,
+      "kitchen": true,
+      "wifi": true
     }
   },
   {
@@ -70,7 +76,10 @@ window.SITE = {
       "de": "Apartment A-9 bietet 60 m² und 2 Schlafzimmer. Es verfügt über 4 reguläre Schlafplätze."
     },
     "amenities": {
-      "parking": true
+      "parking": true,
+      "terraceOrBalcony": true,
+      "kitchen": true,
+      "wifi": true
     }
   },
   {
@@ -92,7 +101,10 @@ window.SITE = {
       "de": "Apartment A-13 bietet 60 m² und 2 Schlafzimmer. Es verfügt über 4 reguläre Schlafplätze."
     },
     "amenities": {
-      "parking": true
+      "parking": true,
+      "terraceOrBalcony": true,
+      "kitchen": true,
+      "wifi": true
     }
   },
   {
@@ -114,7 +126,10 @@ window.SITE = {
       "de": "Apartment A-8 bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
     },
     "amenities": {
-      "parking": true
+      "parking": true,
+      "terraceOrBalcony": true,
+      "kitchen": true,
+      "wifi": true
     }
   },
   {
@@ -136,7 +151,10 @@ window.SITE = {
       "de": "Apartment A-12 bietet 30 m² und 1 Schlafzimmer. Es verfügt über 2 reguläre Schlafplätze und 1 Zusatzbett."
     },
     "amenities": {
-      "parking": true
+      "parking": true,
+      "terraceOrBalcony": true,
+      "kitchen": true,
+      "wifi": true
     }
   }
 ],

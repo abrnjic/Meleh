@@ -1,5 +1,5 @@
 import {capacity,interval,nights,addDays,overlaps,quote} from './model.js';
-export const AMENITIES={terrace:['Terasa','Terrace','Terrasse'],balcony:['Balkon','Balcony','Balkon'],parking:['Parking','Parking','Parkplatz'],wifi:['Wi-Fi','Wi-Fi','WLAN'],aircon:['Klima','Air conditioning','Klimaanlage'],kitchen:['Kuhinja','Kitchen','Küche'],stepFree:['Ulaz bez stepenica','Step-free entrance','Stufenloser Eingang']};
+export const AMENITIES={terraceOrBalcony:['Terasa ili balkon','Terrace or balcony','Terrasse oder Balkon'],parking:['Parking','Parking','Parkplatz'],wifi:['Wi-Fi','Wi-Fi','WLAN'],aircon:['Klima','Air conditioning','Klimaanlage'],kitchen:['Kuhinja','Kitchen','Küche']};
 export function amenityState(value){return value===true?true:value===false?false:null}
 export function matchingApartments(apartments,{adults=2,children=0,rooms=0,wishes=[]}={}){
  const total=Number(adults)+Number(children);if(!Number.isInteger(Number(adults))||!Number.isInteger(Number(children))||!Number.isInteger(total)||Number(adults)<1||Number(children)<0||total>40)return [];

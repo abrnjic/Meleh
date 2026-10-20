@@ -5,6 +5,13 @@ export const destinationRevision='peljesac-2026-10';
 export {photoLibraryRevision};
 export const catalogueRevision='six-apartments-2026-10';
 export const apartmentNamesRevision='short-apartment-names-2026-10';
+export const amenitiesRevision='shared-amenities-2026-10';
+
+export function correctedAmenities(previous){
+ const data=clone(previous),slugs=new Set(['a-3','a-4','a-9','a-13','a-8','a-12']);
+ data.apartments=data.apartments.map(a=>slugs.has(a.slug)?{...a,amenities:{...a.amenities,terraceOrBalcony:true,kitchen:true,wifi:true,parking:true}}:a);
+ return validateContent(data);
+}
 
 export function correctedApartmentNames(previous){
  const clean=value=>typeof value==='string'?value.replace(/\bA-(8|12)\s*\(2\s*\+\s*1\)/g,'A-$1'):Array.isArray(value)?value.map(clean):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).map(([key,item])=>[key,clean(item)])):value;
@@ -40,12 +47,12 @@ export function correctedCatalogue(previous,defaults){
 export async function readSiteData(db,defaults){
  const ref=db.collection('site').doc('public'),snapshot=await ref.get();
  if(!snapshot.exists)return {revision:0,data:clone(defaults)};
- if(snapshot.data().destinationRevision===destinationRevision&&snapshot.data().catalogueRevision===catalogueRevision&&snapshot.data().photoLibraryRevision===photoLibraryRevision&&snapshot.data().apartmentNamesRevision===apartmentNamesRevision)return snapshot.data();
+ if(snapshot.data().destinationRevision===destinationRevision&&snapshot.data().catalogueRevision===catalogueRevision&&snapshot.data().photoLibraryRevision===photoLibraryRevision&&snapshot.data().apartmentNamesRevision===apartmentNamesRevision&&snapshot.data().amenitiesRevision===amenitiesRevision)return snapshot.data();
  return db.runTransaction(async tx=>{
   const current=await tx.get(ref);
   if(!current.exists)return {revision:0,data:clone(defaults)};
   const previous=current.data();
-  if(previous.destinationRevision===destinationRevision&&previous.catalogueRevision===catalogueRevision&&previous.photoLibraryRevision===photoLibraryRevision&&previous.apartmentNamesRevision===apartmentNamesRevision)return previous;
+  if(previous.destinationRevision===destinationRevision&&previous.catalogueRevision===catalogueRevision&&previous.photoLibraryRevision===photoLibraryRevision&&previous.apartmentNamesRevision===apartmentNamesRevision&&previous.amenitiesRevision===amenitiesRevision)return previous;
   let data=previous.destinationRevision===destinationRevision?previous.data:correctedDestination(previous.data,defaults);
   if(previous.catalogueRevision!==catalogueRevision){
    // Preserve the former catalogue privately; do not guess a mapping for historical stays.
@@ -54,7 +61,8 @@ export async function readSiteData(db,defaults){
   }
   if(previous.photoLibraryRevision!==photoLibraryRevision)data=validateContent(applyPhotoLibrary(data));
   if(previous.apartmentNamesRevision!==apartmentNamesRevision)data=correctedApartmentNames(data);
-  const next={...previous,data,photoLibraryRevision,apartmentNamesRevision,revision:(previous.revision||0)+1,destinationRevision,catalogueRevision,updatedAt:new Date().toISOString()};
+  if(previous.amenitiesRevision!==amenitiesRevision)data=correctedAmenities(data);
+  const next={...previous,data,photoLibraryRevision,apartmentNamesRevision,amenitiesRevision,revision:(previous.revision||0)+1,destinationRevision,catalogueRevision,updatedAt:new Date().toISOString()};
   tx.set(ref,next);return next;
  });
 }

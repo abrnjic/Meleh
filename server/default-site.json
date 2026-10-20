@@ -52,11 +52,11 @@
       "amenities": {
         "terrace": null,
         "balcony": null,
+        "terraceOrBalcony": true,
         "parking": true,
-        "wifi": null,
+        "wifi": true,
         "aircon": null,
-        "kitchen": null,
-        "stepFree": null
+        "kitchen": true
       }
     },
     {
@@ -81,11 +81,11 @@
       "amenities": {
         "terrace": null,
         "balcony": null,
+        "terraceOrBalcony": true,
         "parking": true,
-        "wifi": null,
+        "wifi": true,
         "aircon": null,
-        "kitchen": null,
-        "stepFree": null
+        "kitchen": true
       }
     },
     {
@@ -110,11 +110,11 @@
       "amenities": {
         "terrace": null,
         "balcony": null,
+        "terraceOrBalcony": true,
         "parking": true,
-        "wifi": null,
+        "wifi": true,
         "aircon": null,
-        "kitchen": null,
-        "stepFree": null
+        "kitchen": true
       }
     },
     {
@@ -139,11 +139,11 @@
       "amenities": {
         "terrace": null,
         "balcony": null,
+        "terraceOrBalcony": true,
         "parking": true,
-        "wifi": null,
+        "wifi": true,
         "aircon": null,
-        "kitchen": null,
-        "stepFree": null
+        "kitchen": true
       }
     },
     {
@@ -168,11 +168,11 @@
       "amenities": {
         "terrace": null,
         "balcony": null,
+        "terraceOrBalcony": true,
         "parking": true,
-        "wifi": null,
+        "wifi": true,
         "aircon": null,
-        "kitchen": null,
-        "stepFree": null
+        "kitchen": true
       }
     },
     {
@@ -197,11 +197,11 @@
       "amenities": {
         "terrace": null,
         "balcony": null,
+        "terraceOrBalcony": true,
         "parking": true,
-        "wifi": null,
+        "wifi": true,
         "aircon": null,
-        "kitchen": null,
-        "stepFree": null
+        "kitchen": true
       }
     }
   ],
