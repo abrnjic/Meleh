@@ -1,9 +1,9 @@
 {
   "name": "Meleh Apartmani",
-  "location": null,
-  "address": null,
+  "location": "Luka Dubrava · Pelješac · Hrvatska",
+  "address": "Luka Dubrava 28, 20248 Dubrava, Pelješac, Hrvatska",
   "email": null,
-  "phone": null,
+  "phone": "+385 91 888 0575",
   "whatsapp": null,
   "viber": null,
   "checkIn": null,
@@ -11,15 +11,15 @@
   "pets": null,
   "smoking": null,
   "quietHours": null,
-  "mapsUrl": null,
+  "mapsUrl": "https://goo.gl/maps/8DoVQCfixUfhY4me8",
   "instagram": null,
   "facebook": null,
   "mapEmbed": null,
   "demo": true,
   "aboutText": {
-    "hr": "",
-    "en": "",
-    "de": ""
+    "hr": "Dobro došli u Luku Dubravu na Pelješcu. Apartmani se nalaze na adresi Luka Dubrava 28, a vaša je domaćica Marija Prpić. Za dogovor o boravku javite nam se telefonom.",
+    "en": "Welcome to Luka Dubrava on the Pelješac peninsula. The apartments are at Luka Dubrava 28, and your host is Marija Prpić. Please call us to arrange your stay.",
+    "de": "Willkommen in Luka Dubrava auf der Halbinsel Pelješac. Die Apartments liegen in Luka Dubrava 28. Ihre Gastgeberin ist Marija Prpić. Für Ihren Aufenthalt erreichen Sie uns telefonisch."
   },
   "distances": {
     "beach": null,
@@ -106,11 +106,11 @@
   "photos": [
     {
       "key": "hero",
-      "file": "crikvenica-plaza.jpg",
-      "url": null,
-      "alt": "Borovi i more u večernjem svjetlu na plaži u Crikvenici",
-      "altEn": "Pine trees by the sea in the evening light in Crikvenica",
-      "altDe": "Pinien am Meer im Abendlicht in Crikvenica",
+      "file": "peljesac-obala.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Peljesac_south_coast.jpg",
+      "alt": "Južna obala Pelješca",
+      "altEn": "South coast of Pelješac",
+      "altDe": "Südküste von Pelješac",
       "category": "location"
     },
     {
@@ -142,20 +142,20 @@
     },
     {
       "key": "beach",
-      "file": "crikvenica-obala.jpg",
-      "url": null,
-      "alt": "Šljunčana plaža Balustrada u Crikvenici",
-      "altEn": "Balustrada pebble beach in Crikvenica",
-      "altDe": "Kieselstrand Balustrada in Crikvenica",
+      "file": "peljesac-prapratno.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Prapratno%2C_Croatia.JPG",
+      "alt": "Uvala Prapratno na Pelješcu",
+      "altEn": "Prapratno bay on Pelješac",
+      "altDe": "Bucht Prapratno auf Pelješac",
       "category": "location"
     },
     {
       "key": "sunset",
-      "file": "crikvenica-more.jpg",
-      "url": null,
-      "alt": "Zalazak sunca na plaži Crni Molo u Crikvenici",
-      "altEn": "Sunset at Crni Molo beach in Crikvenica",
-      "altDe": "Sonnenuntergang am Strand Crni Molo in Crikvenica",
+      "file": "peljesac-ston.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/View_of_Ston%2C_Croatia.jpg/1920px-View_of_Ston%2C_Croatia.jpg",
+      "alt": "Pogled na Ston na Pelješcu",
+      "altEn": "View of Ston on Pelješac",
+      "altDe": "Blick auf Ston auf Pelješac",
       "category": "location"
     },
     {
@@ -173,28 +173,28 @@
   "bannerImage": "sunset",
   "photoCredits": [
     {
-      "file": "crikvenica-plaza.jpg",
-      "title": "Beach - Crikvenica (8)",
-      "author": "Elekes Andor",
-      "source": "https://commons.wikimedia.org/wiki/File:Beach_-_Crikvenica_(8).jpg",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
-    },
-    {
-      "file": "crikvenica-obala.jpg",
-      "title": "Crikvenica, beach",
-      "author": "Zoran Kurelić Rabko",
-      "source": "https://commons.wikimedia.org/wiki/File:Crikvenica,_beach_-_panoramio.jpg",
+      "file": "peljesac-obala.jpg",
+      "title": "Peljesac south coast.jpg",
+      "author": "Yerpo",
+      "source": "https://commons.wikimedia.org/wiki/File:Peljesac_south_coast.jpg",
       "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
     },
     {
-      "file": "crikvenica-more.jpg",
-      "title": "Beach - Crikvenica (9)",
-      "author": "Elekes Andor",
-      "source": "https://commons.wikimedia.org/wiki/File:Beach_-_Crikvenica_(9).jpg",
+      "file": "peljesac-prapratno.jpg",
+      "title": "Prapratno, Croatia.JPG",
+      "author": "Neoneo13",
+      "source": "https://commons.wikimedia.org/wiki/File:Prapratno,_Croatia.JPG",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+    },
+    {
+      "file": "peljesac-ston.jpg",
+      "title": "View of Ston, Croatia.jpg",
+      "author": "Bernard Gagnon",
+      "source": "https://commons.wikimedia.org/wiki/File:View_of_Ston,_Croatia.jpg",
       "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
     }
   ],
   "reviews": [],
@@ -230,9 +230,9 @@
         "de": "Gibt es Parkplätze?"
       },
       "answer": {
-        "hr": "Podatke o parkingu i broju mjesta dodat ćemo naknadno. Navedite broj vozila u upitu kako bi domaćin mogao potvrditi mogućnosti.",
-        "en": "Parking details and the number of spaces will be added later. Include your vehicle count so the host can confirm the options.",
-        "de": "Angaben zu Parkplätzen folgen später. Geben Sie die Fahrzeugzahl an, damit der Gastgeber die Möglichkeiten bestätigen kann."
+        "hr": "Parking za goste nalazi se ispred kuće. Navedite broj vozila u upitu kako bi domaćin potvrdio raspoloživa mjesta.",
+        "en": "Guest parking is in front of the house. Include your vehicle count so the host can confirm available spaces.",
+        "de": "Gästeparkplätze befinden sich vor dem Haus. Geben Sie die Fahrzeugzahl an, damit die Gastgeberin die verfügbaren Plätze bestätigen kann."
       }
     },
     {
@@ -275,67 +275,67 @@
   "guide": [
     {
       "title": {
-        "hr": "Plaže i more",
-        "en": "Beaches and the sea",
-        "de": "Strände und Meer"
+        "hr": "Luka Dubrava i more",
+        "en": "Luka Dubrava and the sea",
+        "de": "Luka Dubrava und das Meer"
       },
       "description": {
-        "hr": "Upoznajte plaže Crikveničke rivijere i odaberite svoj kutak uz more. Detalje o sadržajima provjerite u službenom vodiču.",
-        "en": "Explore the beaches of the Crikvenica Riviera and find your spot by the sea. Check facilities in the official guide.",
-        "de": "Entdecken Sie die Strände der Riviera von Crikvenica. Informationen zur Ausstattung finden Sie im offiziellen Reiseführer."
+        "hr": "Upoznajte uvalu i šljunčanu plažu Luke Dubrave. Odaberite mjesto za kupanje prema vremenu i uvjetima na moru.",
+        "en": "Explore Luka Dubrava bay and its pebble beach. Choose your swimming spot according to the weather and sea conditions.",
+        "de": "Entdecken Sie die Bucht und den Kieselstrand von Luka Dubrava. Wählen Sie Ihren Badeplatz passend zu Wetter und Meeresbedingungen."
       },
       "category": "beaches",
       "photo": "beach",
-      "url": "https://www.new.crikvenica-vinodol.com/en",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Crikvenica+beaches"
+      "url": "https://www.ston.hr/?u=luka-dubrava%2Fdeg%2Fst%2F53%2F53",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Pla%C5%BEa%20Luka%20Dubrava%20Pelje%C5%A1ac"
     },
     {
       "title": {
-        "hr": "Ljubavna cestica",
-        "en": "The Love Path",
-        "de": "Der Liebespfad"
+        "hr": "Stonske zidine",
+        "en": "Walls of Ston",
+        "de": "Stadtmauern von Ston"
       },
       "description": {
-        "hr": "Za predah od plaže istražite Ljubavnu cesticu, šetnicu kroz zelenilo crikveničkog zaleđa. Opis staze potražite kod turističke zajednice.",
-        "en": "Take a break from the beach on the Love Path through the greenery behind Crikvenica. Find trail details at the tourist board.",
-        "de": "Erkunden Sie den Liebespfad durch das grüne Hinterland von Crikvenica. Details zum Weg bietet der Tourismusverband."
+        "hr": "Isplanirajte izlet do Stona i šetnju zidinama. Radno vrijeme, ulaznice i uvjete obilaska provjerite prije polaska.",
+        "en": "Plan a trip to Ston and a walk along its walls. Check opening hours, tickets and visiting conditions before leaving.",
+        "de": "Planen Sie einen Ausflug nach Ston und einen Spaziergang auf den Mauern. Prüfen Sie Öffnungszeiten, Eintritt und Bedingungen vorab."
       },
       "category": "walks",
-      "photo": "hero",
-      "url": "https://www.new.crikvenica-vinodol.com/en/love-path",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Ljubavna+cestica+Crikvenica"
+      "photo": "sunset",
+      "url": "https://www.ston.hr/?u=stonske-zidine%2Ffrg%2Fst%2F58%2F59",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Stonske%20zidine"
     },
     {
       "title": {
-        "hr": "Mjesta na rivijeri",
-        "en": "Places along the Riviera",
-        "de": "Orte an der Riviera"
+        "hr": "Prapratno i obala Pelješca",
+        "en": "Prapratno and the Pelješac coast",
+        "de": "Prapratno und Pelješacs Küste"
       },
       "description": {
-        "hr": "Crikvenica, Dramalj, Jadranovo i Selce nude različite prizore obale. Posjet spojite s opuštenom šetnjom i kavom uz more.",
-        "en": "Crikvenica, Dramalj, Jadranovo and Selce offer different views of the coast. Combine a visit with a relaxed walk and coffee by the sea.",
-        "de": "Crikvenica, Dramalj, Jadranovo und Selce zeigen verschiedene Seiten der Küste. Verbinden Sie den Besuch mit Spaziergang und Kaffee am Meer."
+        "hr": "Otkrijte Prapratno i druge uvale Pelješca. Izlet automobilom prilagodite svojim željama i vremenskim uvjetima.",
+        "en": "Discover Prapratno and other bays on Pelješac. Plan your drive around your interests and the weather.",
+        "de": "Entdecken Sie Prapratno und weitere Buchten auf Pelješac. Passen Sie den Ausflug mit dem Auto Ihren Wünschen und dem Wetter an."
       },
       "category": "trips",
-      "photo": "sunset",
-      "url": "https://new.crikvenica-vinodol.com/en/places-riviera",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Selce+Croatia"
+      "photo": "beach",
+      "url": "https://www.ston.hr/",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Prapratno%20Pelje%C5%A1ac"
     },
     {
       "title": {
-        "hr": "Okusi Kvarnera",
-        "en": "Flavours of Kvarner",
-        "de": "Die Aromen des Kvarners"
+        "hr": "Okusi Pelješca",
+        "en": "Flavours of Pelješac",
+        "de": "Die Aromen von Pelješac"
       },
       "description": {
-        "hr": "Za izbor restorana i lokalnih specijaliteta krenite od aktualnih preporuka turističke zajednice. Osobne preporuke domaćina dodat ćemo kasnije.",
-        "en": "Start with the tourist board’s current recommendations for restaurants and local food. Personal host recommendations will follow.",
-        "de": "Entdecken Sie Restaurants und lokale Küche mit den aktuellen Empfehlungen des Tourismusverbands. Persönliche Tipps der Gastgeber folgen."
+        "hr": "Istražite lokalne restorane i ponudu pelješkog kraja. Radno vrijeme i rezervacije provjerite izravno s odabranim restoranom.",
+        "en": "Explore local restaurants and the flavours of Pelješac. Check opening hours and reservations directly with your chosen restaurant.",
+        "de": "Entdecken Sie lokale Restaurants und die Küche von Pelješac. Öffnungszeiten und Reservierungen direkt beim Restaurant prüfen."
       },
       "category": "food",
-      "photo": "sunset",
-      "url": "https://www.new.crikvenica-vinodol.com/en",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=restaurants+Crikvenica"
+      "photo": "hero",
+      "url": "https://www.ston.hr/",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Restorani%20Luka%20Dubrava%20Pelje%C5%A1ac"
     }
   ]
 }

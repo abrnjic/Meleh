@@ -22,7 +22,7 @@ Lokalni frontend i API: `http://127.0.0.1:4174`. Varijabla `PORT` može promijen
 ## Što je dostupno
 
 - Responzivna stranica s HR/EN/DE prijevodima, isključivo svijetlom temom te galerijom.
-- `/vodic/`: filtrirani vodič kroz Crikvenicu s poveznicama na službene turističke izvore i karte.
+- `/vodic/`: filtrirani vodič kroz Pelješac s poveznicama na službene turističke izvore i karte.
 - `/faq/`: česta pitanja; nepotvrđeni uvjeti objekta ne predstavljaju se kao stvarni podaci.
 - `/dostupnost/` i stranice apartmana: kalendar zauzetosti, odabir mjeseca i datuma, sezonski cjenik i izračun cijene.
 - `/admin/`: Google prijava ovlaštenog administratora putem Firebasea te odvojeni, jasno označeni lokalni ogledni panel.
@@ -52,11 +52,16 @@ Prije pravog primanja upita dovršite podatke vlasnika, privatnost, uvjete rezer
 
 ## Fotografije
 
-Prizori destinacije prikazuju Crikvenicu. Autori, izvori, licence i prilagodbe navedeni su na javnoj stranici `/fotografije/` i u `SITE.photoCredits`.
+Potvrđena lokacija: Luka Dubrava 28, 20248 Dubrava, Pelješac. Točna karta i telefon preuzeti su iz korisnikove datoteke osnovnih podataka. Naziv Meleh, Google administratori i kalendari ostaju isti; ogledni kapaciteti i interijeri nisu potvrđena ponuda.
 
-- `crikvenica-plaza.jpg`: Elekes Andor, Beach - Crikvenica (8), CC BY-SA 4.0.
-- `crikvenica-obala.jpg`: Zoran Kurelić Rabko, Crikvenica, beach - panoramio, CC BY-SA 3.0.
-- `crikvenica-more.jpg`: Elekes Andor, Beach - Crikvenica (9), CC BY-SA 4.0.
+Fotografije destinacije učitavaju se sa statičke domene Wikimedia Commons. Prikazuju širu destinaciju, ne samu kuću. Izvori i licence nalaze se na `/fotografije/`:
+
+- Peljesac south coast.jpg — Yerpo, CC BY-SA 3.0.
+- Prapratno, Croatia.JPG — Neoneo13, javno dobro.
+- View of Ston, Croatia.jpg — Bernard Gagnon, CC BY-SA 4.0.
+
+`server/destination.js` jednom usklađuje ranije spremljeni javni sadržaj s potvrđenom destinacijom. Transakcija povećava reviziju sadržaja i čuva apartmane, zauzeća, upite i korisničke kontakte. Sljedeća administratorska spremanja zadržavaju oznaku migracije, pa kasnije izmjene ne prepisujemo.
+
 
 Fotografije su smanjene i u pojedinim prikazima koriste CSS izrez i zatamnjenje; prilagođeni prikazi dostupni su pod istom licencom. Fotografije interijera s Unsplasha su ilustrativne i ne prikazuju apartmane Meleh. Nove fotografije prolaze provjeru formata, prilagodbu veličine i, u javnom načinu, autentikaciju prije spremanja u Firebase Storage.
 
