@@ -84,3 +84,7 @@ html:is([data-text-size="130"],[data-text-size="150"]) .comparison-grid{grid-tem
  .guide-card>div{grid-row:span 4;grid-template-rows:subgrid;row-gap:0}
  .guide-card h3{min-height:0}
 }
+
+/* Keep wide seasonal price tables inside their own horizontal scroll area. */
+.availability-layout>div{min-width:0}
+.table-scroll{max-width:100%;overscroll-behavior-x:contain}

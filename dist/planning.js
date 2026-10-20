@@ -1,11 +1,11 @@
 import {capacity,interval,nights,addDays,overlaps,quote} from './model.js';
-export const AMENITIES={terraceOrBalcony:['Terasa ili balkon','Terrace or balcony','Terrasse oder Balkon'],parking:['Parking','Parking','Parkplatz'],wifi:['Wi-Fi','Wi-Fi','WLAN'],aircon:['Klima','Air conditioning','Klimaanlage'],kitchen:['Kuhinja','Kitchen','Küche']};
+export const AMENITIES={terrace:['Terasa','Terrace','Terrasse'],balcony:['Balkon','Balcony','Balkon'],parking:['Parking','Parking','Parkplatz'],wifi:['Wi-Fi','Wi-Fi','WLAN'],aircon:['Klima','Air conditioning','Klimaanlage'],kitchen:['Kuhinja','Kitchen','Küche'],tv:['TV/SAT','TV/SAT','TV/SAT'],fridge:['Hladnjak','Fridge','Kühlschrank'],washingMachine:['Perilica rublja','Washing machine','Waschmaschine'],microwave:['Mikrovalna','Microwave','Mikrowelle'],kettle:['Kuhalo za vodu','Kettle','Wasserkocher'],stove:['Štednjak','Stove','Herd'],freezer:['Ledenica','Freezer','Gefrierschrank'],grill:['Gril','Grill','Grill'],dishwasher:['Perilica posuđa','Dishwasher','Geschirrspüler'],seaView:['Pogled na more','Sea view','Meerblick'],privateBathroom:['Vlastita kupaonica','Private bathroom','Eigenes Bad']};
 export function amenityState(value){return value===true?true:value===false?false:null}
 export function matchingApartments(apartments,{adults=2,children=0,rooms=0,wishes=[]}={}){
  const total=Number(adults)+Number(children);if(!Number.isInteger(Number(adults))||!Number.isInteger(Number(children))||!Number.isInteger(total)||Number(adults)<1||Number(children)<0||total>40)return [];
- return apartments.filter(a=>capacity(a)>=total&&a.rooms>=Number(rooms)&&wishes.every(k=>Object.hasOwn(AMENITIES,k)&&a.amenities?.[k]===true)).sort((a,b)=>capacity(a)-capacity(b)||a.area-b.area);
+ return apartments.filter(a=>capacity(a)>=total&&a.rooms>=Number(rooms)&&wishes.every(k=>(Object.hasOwn(AMENITIES,k)||k==='terraceOrBalcony')&&a.amenities?.[k]===true)).sort((a,b)=>capacity(a)-capacity(b)||a.area-b.area);
 }
-export function openForStay(a,periods,arrival,departure){return interval(arrival,departure)&&!periods.some(p=>p.apartment===a.slug&&overlaps(p,{arrival,departure}))&&quote(a,arrival,departure)?.meetsMinimum!==false}
+export function openForStay(a,periods,arrival,departure){return interval(arrival,departure)&&nights(arrival,departure)>=(a.minNights||1)&&!periods.some(p=>p.apartment===a.slug&&overlaps(p,{arrival,departure}))&&quote(a,arrival,departure)?.meetsMinimum!==false}
 export function alternativeStays(apartments,periods,{arrival,departure,adults=2,children=0,wishes=[],rooms=0,apartment='',today='0000-01-01'}={}){
  if(!interval(arrival,departure))return [];
  const eligible=matchingApartments(apartments,{adults,children,wishes,rooms}),length=nights(arrival,departure),result=[];

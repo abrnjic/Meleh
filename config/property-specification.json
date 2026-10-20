@@ -1,0 +1,660 @@
+{
+  "site": {
+    "name": "Meleh Apartmani",
+    "checkIn": "15:00",
+    "checkOut": "10:00",
+    "pets": "Da · 10 € / dan",
+    "categoryStars": 3,
+    "touristTaxIncluded": true,
+    "arrivalDays": {
+      "hr": "Dolazak je moguć bilo kojim danom.",
+      "en": "Arrival is possible on any day.",
+      "de": "Anreise ist an jedem Wochentag möglich."
+    },
+    "distances": {
+      "beach": "200 m",
+      "center": null,
+      "shop": "3 km",
+      "restaurant": "300 m",
+      "airport": null,
+      "parking": "Besplatan privatni parking ispred kuće"
+    },
+    "aboutText": {
+      "hr": "Meleh Apartmani nalaze se u Luci Dubravi na Pelješcu, na adresi Luka Dubrava 28. Kuća s tri zvjezdice ima šest klimatiziranih apartmana s terasom i balkonom, opremljenom kuhinjom, vlastitom kupaonicom te prostorom za sjedenje i blagovanje. Gostima su dostupni besplatan Wi-Fi i privatni parking ispred kuće, posteljina, ručnici, okućnica, roštilj i stolni tenis. More je udaljeno 10 m, a plaža 200 m. Kućni ljubimci su dobrodošli uz doplatu 10 € dnevno.",
+      "en": "Meleh Apartments are in Luka Dubrava on Pelješac, at Luka Dubrava 28. The three-star house offers six air-conditioned apartments with a terrace and balcony, equipped kitchen, private bathroom, seating and dining areas. Guests enjoy free Wi-Fi and private parking in front of the house, bed linen, towels, the garden, a barbecue and table tennis. The sea is 10 m away and the beach is 200 m away. Pets are welcome for €10 per day.",
+      "de": "Die Meleh Apartments liegen in Luka Dubrava auf Pelješac, Luka Dubrava 28. Das Haus mit drei Sternen bietet sechs klimatisierte Apartments mit Terrasse und Balkon, ausgestatteter Küche, eigenem Bad sowie Sitz- und Essbereich. WLAN und Privatparkplätze vor dem Haus sind kostenlos. Bettwäsche, Handtücher, Garten, Grill und Tischtennis stehen zur Verfügung. Das Meer ist 10 m, der Strand 200 m entfernt. Haustiere sind für 10 € pro Tag willkommen."
+    },
+    "nearby": [
+      {
+        "label": {
+          "hr": "More",
+          "en": "Sea",
+          "de": "Meer"
+        },
+        "distance": "10 m"
+      },
+      {
+        "label": {
+          "hr": "Plaža",
+          "en": "Beach",
+          "de": "Strand"
+        },
+        "distance": "200 m"
+      },
+      {
+        "label": {
+          "hr": "Restoran",
+          "en": "Restaurant",
+          "de": "Restaurant"
+        },
+        "distance": "300 m"
+      },
+      {
+        "label": {
+          "hr": "Market",
+          "en": "Grocery shop",
+          "de": "Lebensmittelgeschäft"
+        },
+        "distance": "3 km"
+      },
+      {
+        "label": {
+          "hr": "Pošta",
+          "en": "Post office",
+          "de": "Post"
+        },
+        "distance": "3 km"
+      },
+      {
+        "label": {
+          "hr": "Liječnik",
+          "en": "Doctor",
+          "de": "Arzt"
+        },
+        "distance": "3 km"
+      },
+      {
+        "label": {
+          "hr": "Bankomat",
+          "en": "ATM",
+          "de": "Geldautomat"
+        },
+        "distance": "3 km"
+      },
+      {
+        "label": {
+          "hr": "Ljekarna",
+          "en": "Pharmacy",
+          "de": "Apotheke"
+        },
+        "distance": "3 km"
+      },
+      {
+        "label": {
+          "hr": "Autobusno stajalište",
+          "en": "Bus stop",
+          "de": "Bushaltestelle"
+        },
+        "distance": "3 km"
+      },
+      {
+        "label": {
+          "hr": "Benzinska postaja",
+          "en": "Petrol station",
+          "de": "Tankstelle"
+        },
+        "distance": "10 km"
+      }
+    ],
+    "propertyFacts": [
+      {
+        "label": {
+          "hr": "Kategorija",
+          "en": "Category",
+          "de": "Kategorie"
+        },
+        "value": {
+          "hr": "3 zvjezdice",
+          "en": "3 stars",
+          "de": "3 Sterne"
+        }
+      },
+      {
+        "label": {
+          "hr": "Smještaj",
+          "en": "Accommodation",
+          "de": "Unterkunft"
+        },
+        "value": {
+          "hr": "6 apartmana",
+          "en": "6 apartments",
+          "de": "6 Apartments"
+        }
+      },
+      {
+        "label": {
+          "hr": "Ukupno soba u objektu",
+          "en": "Total rooms in the property",
+          "de": "Zimmer insgesamt im Haus"
+        },
+        "value": {
+          "hr": "15",
+          "en": "15",
+          "de": "15"
+        }
+      },
+      {
+        "label": {
+          "hr": "Parking i internet",
+          "en": "Parking and internet",
+          "de": "Parkplätze und Internet"
+        },
+        "value": {
+          "hr": "Besplatan privatni parking i Wi-Fi",
+          "en": "Free private parking and Wi-Fi",
+          "de": "Kostenlose Privatparkplätze und WLAN"
+        }
+      },
+      {
+        "label": {
+          "hr": "Uključeno",
+          "en": "Included",
+          "de": "Inklusive"
+        },
+        "value": {
+          "hr": "Posteljina, ručnici i boravišna pristojba",
+          "en": "Bed linen, towels and tourist tax",
+          "de": "Bettwäsche, Handtücher und Kurtaxe"
+        }
+      },
+      {
+        "label": {
+          "hr": "Zajednički sadržaji",
+          "en": "Shared facilities",
+          "de": "Gemeinschaftliche Ausstattung"
+        },
+        "value": {
+          "hr": "Okućnica, roštilj i stolni tenis",
+          "en": "Garden, barbecue and table tennis",
+          "de": "Garten, Grill und Tischtennis"
+        }
+      },
+      {
+        "label": {
+          "hr": "Za nautičare",
+          "en": "For boaters",
+          "de": "Für Bootsfahrer"
+        },
+        "value": {
+          "hr": "Mogućnost veza za čamac",
+          "en": "Boat mooring available",
+          "de": "Bootsliegeplatz möglich"
+        }
+      },
+      {
+        "label": {
+          "hr": "Plaže",
+          "en": "Beaches",
+          "de": "Strände"
+        },
+        "value": {
+          "hr": "Šljunčana i betonska plaža",
+          "en": "Pebble and concrete beaches",
+          "de": "Kies- und Betonstrände"
+        }
+      },
+      {
+        "label": {
+          "hr": "Aktivnosti u okolici",
+          "en": "Activities nearby",
+          "de": "Aktivitäten in der Umgebung"
+        },
+        "value": {
+          "hr": "Ronjenje i snorkeling",
+          "en": "Diving and snorkelling",
+          "de": "Tauchen und Schnorcheln"
+        }
+      },
+      {
+        "label": {
+          "hr": "Sadržaji koji nisu dostupni",
+          "en": "Facilities not available",
+          "de": "Nicht verfügbare Ausstattung"
+        },
+        "value": {
+          "hr": "Garaža, bazen, whirlpool, tenisko igralište i polupansion",
+          "en": "Garage, pool, whirlpool, tennis court and half board",
+          "de": "Garage, Pool, Whirlpool, Tennisplatz und Halbpension"
+        }
+      }
+    ]
+  },
+  "apartments": {
+    "a-3": {
+      "name": "A-3",
+      "guests": "2 + 1",
+      "rooms": 1,
+      "area": 30,
+      "minNights": 7,
+      "petFee": 10,
+      "description": {
+        "hr": "Apartman A-3 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-3 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-3 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+      },
+      "amenities": {
+        "terrace": true,
+        "balcony": true,
+        "aircon": true,
+        "tv": true,
+        "fridge": true,
+        "washingMachine": false,
+        "microwave": false,
+        "kettle": true,
+        "stove": true,
+        "freezer": true,
+        "grill": true,
+        "dishwasher": false,
+        "seaView": true,
+        "terraceOrBalcony": true,
+        "parking": true,
+        "wifi": true,
+        "kitchen": true,
+        "privateBathroom": true
+      },
+      "seasons": [
+        {
+          "to": "2026-07-01",
+          "nightly": 70,
+          "minNights": 7,
+          "from": "2026-06-01"
+        },
+        {
+          "to": "2026-09-01",
+          "nightly": 80,
+          "minNights": 7,
+          "from": "2026-07-01"
+        },
+        {
+          "to": "2026-10-01",
+          "nightly": 70,
+          "minNights": 7,
+          "from": "2026-09-01"
+        },
+        {
+          "to": "2027-07-01",
+          "nightly": 70,
+          "minNights": 7,
+          "from": "2027-06-01"
+        },
+        {
+          "to": "2027-09-01",
+          "nightly": 80,
+          "minNights": 7,
+          "from": "2027-07-01"
+        },
+        {
+          "to": "2027-10-01",
+          "nightly": 70,
+          "minNights": 7,
+          "from": "2027-09-01"
+        }
+      ]
+    },
+    "a-8": {
+      "name": "A-8",
+      "guests": "2 + 1",
+      "rooms": 1,
+      "area": 30,
+      "minNights": 7,
+      "petFee": 10,
+      "description": {
+        "hr": "Apartman A-8 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-8 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-8 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+      },
+      "amenities": {
+        "terrace": true,
+        "balcony": true,
+        "aircon": true,
+        "tv": true,
+        "fridge": true,
+        "washingMachine": false,
+        "microwave": false,
+        "kettle": true,
+        "stove": true,
+        "freezer": true,
+        "grill": true,
+        "dishwasher": false,
+        "seaView": true,
+        "terraceOrBalcony": true,
+        "parking": true,
+        "wifi": true,
+        "kitchen": true,
+        "privateBathroom": true
+      },
+      "seasons": [
+        {
+          "to": "2026-07-01",
+          "nightly": 70,
+          "minNights": 7,
+          "from": "2026-06-01"
+        },
+        {
+          "to": "2026-09-01",
+          "nightly": 80,
+          "minNights": 7,
+          "from": "2026-07-01"
+        },
+        {
+          "to": "2026-10-01",
+          "nightly": 70,
+          "minNights": 7,
+          "from": "2026-09-01"
+        },
+        {
+          "to": "2027-07-01",
+          "nightly": 70,
+          "minNights": 7,
+          "from": "2027-06-01"
+        },
+        {
+          "to": "2027-09-01",
+          "nightly": 80,
+          "minNights": 7,
+          "from": "2027-07-01"
+        },
+        {
+          "to": "2027-10-01",
+          "nightly": 70,
+          "minNights": 7,
+          "from": "2027-09-01"
+        }
+      ]
+    },
+    "a-12": {
+      "name": "A-12",
+      "guests": "2 + 1",
+      "rooms": 1,
+      "area": 30,
+      "minNights": 1,
+      "petFee": 10,
+      "description": {
+        "hr": "Apartman A-12 ima 30 m² i jednu spavaću sobu. Na raspolaganju su 2 osnovna ležaja i 1 dodatni ležaj. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-12 offers 30 m², 1 bedroom and 2 standard beds plus 1 extra bed. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-12 bietet 30 m², 1 Schlafzimmer und 2 reguläre Schlafplätze sowie 1 Zusatzbett. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+      },
+      "amenities": {
+        "terrace": true,
+        "balcony": true,
+        "aircon": true,
+        "tv": true,
+        "fridge": true,
+        "washingMachine": false,
+        "microwave": false,
+        "kettle": true,
+        "stove": true,
+        "freezer": true,
+        "grill": true,
+        "dishwasher": false,
+        "seaView": true,
+        "terraceOrBalcony": true,
+        "parking": true,
+        "wifi": true,
+        "kitchen": true,
+        "privateBathroom": true
+      },
+      "seasons": [
+        {
+          "to": "2026-07-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2026-06-01"
+        },
+        {
+          "to": "2026-09-01",
+          "nightly": 80,
+          "minNights": 1,
+          "from": "2026-07-01"
+        },
+        {
+          "to": "2026-10-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2026-09-01"
+        },
+        {
+          "to": "2027-07-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2027-06-01"
+        },
+        {
+          "to": "2027-09-01",
+          "nightly": 80,
+          "minNights": 1,
+          "from": "2027-07-01"
+        },
+        {
+          "to": "2027-10-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2027-09-01"
+        }
+      ]
+    },
+    "a-4": {
+      "name": "A-4",
+      "guests": "4",
+      "rooms": 2,
+      "area": 60,
+      "minNights": 1,
+      "petFee": 10,
+      "description": {
+        "hr": "Apartman A-4 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-4 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-4 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+      },
+      "amenities": {
+        "terrace": true,
+        "balcony": true,
+        "aircon": true,
+        "tv": true,
+        "fridge": true,
+        "washingMachine": false,
+        "microwave": true,
+        "kettle": true,
+        "stove": true,
+        "freezer": true,
+        "grill": true,
+        "dishwasher": true,
+        "seaView": true,
+        "terraceOrBalcony": true,
+        "parking": true,
+        "wifi": true,
+        "kitchen": true,
+        "privateBathroom": true
+      },
+      "seasons": [
+        {
+          "to": "2026-07-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2026-06-01"
+        },
+        {
+          "to": "2026-09-01",
+          "nightly": 110,
+          "minNights": 1,
+          "from": "2026-07-01"
+        },
+        {
+          "to": "2026-10-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2026-09-01"
+        },
+        {
+          "to": "2027-07-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2027-06-01"
+        },
+        {
+          "to": "2027-09-01",
+          "nightly": 110,
+          "minNights": 1,
+          "from": "2027-07-01"
+        },
+        {
+          "to": "2027-10-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2027-09-01"
+        }
+      ]
+    },
+    "a-9": {
+      "name": "A-9",
+      "guests": "4",
+      "rooms": 2,
+      "area": 60,
+      "minNights": 1,
+      "petFee": 10,
+      "description": {
+        "hr": "Apartman A-9 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-9 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-9 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+      },
+      "amenities": {
+        "terrace": true,
+        "balcony": true,
+        "aircon": true,
+        "tv": true,
+        "fridge": true,
+        "washingMachine": false,
+        "microwave": true,
+        "kettle": true,
+        "stove": true,
+        "freezer": true,
+        "grill": true,
+        "dishwasher": true,
+        "seaView": true,
+        "terraceOrBalcony": true,
+        "parking": true,
+        "wifi": true,
+        "kitchen": true,
+        "privateBathroom": true
+      },
+      "seasons": [
+        {
+          "to": "2026-07-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2026-06-01"
+        },
+        {
+          "to": "2026-09-01",
+          "nightly": 110,
+          "minNights": 1,
+          "from": "2026-07-01"
+        },
+        {
+          "to": "2026-10-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2026-09-01"
+        },
+        {
+          "to": "2027-07-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2027-06-01"
+        },
+        {
+          "to": "2027-09-01",
+          "nightly": 110,
+          "minNights": 1,
+          "from": "2027-07-01"
+        },
+        {
+          "to": "2027-10-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2027-09-01"
+        }
+      ]
+    },
+    "a-13": {
+      "name": "A-13",
+      "guests": "4",
+      "rooms": 2,
+      "area": 60,
+      "minNights": 1,
+      "petFee": 10,
+      "description": {
+        "hr": "Apartman A-13 ima 60 m² i dvije spavaće sobe. Na raspolaganju su 4 osnovna ležaja. Apartman ima terasu i balkon, pogled na more, klimatizaciju, opremljenu kuhinju, vlastitu kupaonicu i TV/SAT. Wi-Fi i privatni parking su besplatni.",
+        "en": "Apartment A-13 offers 60 m², 2 bedrooms and 4 standard beds. Enjoy a terrace and balcony, sea views, air conditioning, an equipped kitchen, a private bathroom and TV/SAT. Wi-Fi and private parking are free.",
+        "de": "Apartment A-13 bietet 60 m², 2 Schlafzimmer und 4 reguläre Schlafplätze. Zur Ausstattung gehören Terrasse und Balkon, Meerblick, Klimaanlage, eine ausgestattete Küche, ein eigenes Bad und TV/SAT. WLAN und Privatparkplätze sind kostenlos."
+      },
+      "amenities": {
+        "terrace": true,
+        "balcony": true,
+        "aircon": true,
+        "tv": true,
+        "fridge": true,
+        "washingMachine": false,
+        "microwave": false,
+        "kettle": true,
+        "stove": true,
+        "freezer": true,
+        "grill": true,
+        "dishwasher": false,
+        "seaView": true,
+        "terraceOrBalcony": true,
+        "parking": true,
+        "wifi": true,
+        "kitchen": true,
+        "privateBathroom": true
+      },
+      "seasons": [
+        {
+          "to": "2026-07-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2026-06-01"
+        },
+        {
+          "to": "2026-09-01",
+          "nightly": 110,
+          "minNights": 1,
+          "from": "2026-07-01"
+        },
+        {
+          "to": "2026-10-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2026-09-01"
+        },
+        {
+          "to": "2027-07-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2027-06-01"
+        },
+        {
+          "to": "2027-09-01",
+          "nightly": 110,
+          "minNights": 1,
+          "from": "2027-07-01"
+        },
+        {
+          "to": "2027-10-01",
+          "nightly": 70,
+          "minNights": 1,
+          "from": "2027-09-01"
+        }
+      ]
+    }
+  }
+}

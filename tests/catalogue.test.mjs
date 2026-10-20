@@ -36,11 +36,11 @@ test('short apartment names migrate once without changing capacities, photos or 
 
 
 test('shared amenities migrate once without claiming both a terrace and balcony or step-free access',async()=>{
- const {photoLibraryRevision,apartmentNamesRevision,amenitiesRevision}=await import('../server/destination.js');
+ const {photoLibraryRevision,apartmentNamesRevision,amenitiesRevision,specificationRevision}=await import('../server/destination.js');
  const before=clone(defaults);
  for(const a of before.apartments)a.amenities={terrace:null,balcony:null,parking:true,wifi:null,kitchen:null,aircon:null,stepFree:true};
  before.apartments[0].area=31;
- const db=memoryDb({'site/public':{revision:7,destinationRevision,catalogueRevision,photoLibraryRevision,apartmentNamesRevision,data:before},'site/calendar':{bookings:[{id:'keep'}]}});
+ const db=memoryDb({'site/public':{revision:7,destinationRevision,catalogueRevision,photoLibraryRevision,apartmentNamesRevision,specificationRevision,data:before},'site/calendar':{bookings:[{id:'keep'}]}});
  const result=await readSiteData(db,defaults);
  assert.equal(result.revision,8);assert.equal(result.amenitiesRevision,amenitiesRevision);
  for(const a of result.data.apartments){for(const k of ['terraceOrBalcony','kitchen','wifi','parking'])assert.equal(a.amenities[k],true);assert.equal(a.amenities.terrace,null);assert.equal(a.amenities.balcony,null);assert.equal(a.amenities.aircon,null);assert.ok(!Object.hasOwn(a.amenities,'stepFree'));}
