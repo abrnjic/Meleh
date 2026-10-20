@@ -88,3 +88,25 @@ html:is([data-text-size="130"],[data-text-size="150"]) .comparison-grid{grid-tem
 /* Keep wide seasonal price tables inside their own horizontal scroll area. */
 .availability-layout>div{min-width:0}
 .table-scroll{max-width:100%;overscroll-behavior-x:contain}
+/* Share card content rows so longer translations keep actions aligned. */
+.apartments-grid>.apartment-card{min-width:0;display:flex;flex-direction:column}
+.apartment-card>.card-body{min-width:0;flex:1;display:flex;flex-direction:column;align-items:start}
+.apartment-card>.card-body>p{flex:1}
+.apartment-card>.card-body>.text-link{align-self:start;max-width:100%;white-space:normal}
+@supports(grid-template-rows:subgrid){
+ .apartments-grid>.apartment-card{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:0}
+ .apartment-card>.card-body{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:0;align-items:start}
+ .apartment-card>.card-body>.text-link{justify-self:start}
+}
+/* Let labels and values wrap within the property facts, including large text. */
+.rule-list>div{min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px}
+.rule-list>div>*{min-width:0;overflow-wrap:anywhere}
+.rule-list>div>span{text-align:right}
+@media(max-width:600px){
+ .rule-list>div{grid-template-columns:minmax(0,1fr);gap:2px}
+ .rule-list>div>span{text-align:left}
+}
+/* Keep translated footer links within narrow screens at enlarged text sizes. */
+.footer-grid>div,.footer-links{min-width:0;overflow-wrap:anywhere}
+@media(max-width:600px){.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:360px){html:is([data-text-size="130"],[data-text-size="150"]) .footer-grid{grid-template-columns:minmax(0,1fr)}}
