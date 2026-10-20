@@ -227,7 +227,9 @@
           "de": "Garage, Pool, Whirlpool, Tennisplatz und Halbpension"
         }
       }
-    ]
+    ],
+    "smoking": "Pušenje nije dopušteno u apartmanu. Dopušteno je na balkonu ili terasi.",
+    "quietHours": null
   },
   "apartments": {
     "a-3": {
