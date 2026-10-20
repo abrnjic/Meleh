@@ -1,5 +1,22 @@
 // Decorative line icons share the site's 24px SVG grid and inherit text scaling.
 const shapes={
+ category:'<path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6Z"/>',
+ house:'<path d="m2 11 10-8 10 8M5 9v12h14V9M9 21v-7h6v7"/>',
+ rooms:'<path d="M3 20V6m18 14V9M3 14h18M7 14V9h8a6 6 0 0 1 6 5M3 18h18"/>',
+ included:'<circle cx="12" cy="12" r="9"/><path d="m7 12 3 3 7-7"/>',
+ anchor:'<circle cx="12" cy="5" r="3"/><path d="M12 8v14M3 13v3a9 9 0 0 0 18 0v-3M1 15l2-2 2 2m14 0 2-2 2 2M8 11h8"/>',
+ beach:'<path d="M3 11a9 9 0 0 1 18 0H3Zm9-9v19m-6 0h12M8 11c0-5 1-8 4-9 3 1 4 4 4 9"/>',
+ diving:'<rect x="2" y="8" width="8" height="7" rx="2"/><rect x="14" y="8" width="8" height="7" rx="2"/><path d="M10 11h4M5 8V5m14 10v4a2 2 0 0 0 4 0V3"/>',
+ unavailable:'<circle cx="12" cy="12" r="9"/><path d="M7 12h10"/>',
+ groceries:'<path d="M2 3h3l3 13h11l3-10H6M9 20h.01M18 20h.01"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/>',
+ post:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="m2 6 10 7L22 6"/>',
+ doctor:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 7v10m-5-5h10"/>',
+ atm:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20m-16 6h4m5 0h3"/>',
+ pharmacy:'<path d="m8 4-4 4a6 6 0 0 0 8 8l4-4a6 6 0 0 0-8-8Zm-2 2 8 8M7 21h14m-2-2 2 2-2 2"/>',
+ bus:'<rect x="4" y="2" width="16" height="18" rx="3"/><path d="M4 12h16M8 20v2m8-2v2M8 16h.01m8 0h.01M8 5h8"/>',
+ fuel:'<path d="M3 21h12M5 21V3h8v18M5 10h8m0 3h3v5a2 2 0 0 0 4 0V7l-3-3m3 3-3 3"/>',
+ info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.01"/>',
+
  checkIn:'<path d="M10 3h10v18H10M2 12h12m-4-4 4 4-4 4"/>',
  checkOut:'<path d="M14 3H4v18h10m-4-9h12m-4-4 4 4-4 4"/>',
  pets:'<ellipse cx="12" cy="16" rx="5" ry="4"/><ellipse cx="4.5" cy="10" rx="2" ry="2.5"/><ellipse cx="9" cy="5.5" rx="2" ry="2.5"/><ellipse cx="15" cy="5.5" rx="2" ry="2.5"/><ellipse cx="19.5" cy="10" rx="2" ry="2.5"/>',
