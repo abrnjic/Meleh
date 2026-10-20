@@ -110,3 +110,9 @@ html:is([data-text-size="130"],[data-text-size="150"]) .comparison-grid{grid-tem
 .footer-grid>div,.footer-links{min-width:0;overflow-wrap:anywhere}
 @media(max-width:600px){.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:360px){html:is([data-text-size="130"],[data-text-size="150"]) .footer-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Small decorative amenity icons scale with the guest's chosen text size. */
+.amenity-label{display:flex;align-items:flex-start;gap:.55em;min-width:0}
+.amenity-label>span{min-width:0;overflow-wrap:anywhere}
+.amenity-icon{display:block;width:1.1em;height:1.1em;flex:0 0 1.1em;margin-top:.25em;color:var(--accent,#0875a4)}
+.planner-amenities dd{flex-shrink:0}
