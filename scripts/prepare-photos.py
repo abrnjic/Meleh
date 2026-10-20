@@ -11,7 +11,7 @@ records=[];covers={};orig_bytes=0;web_bytes=0
 for unit in config['apartments']:
  folder=source/unit['folder']
  if not folder.is_dir():raise SystemExit('Missing mapped folder: '+unit['folder'])
- files=sorted(p for p in folder.rglob('*') if p.suffix.lower() in {'.jpg','.jpeg','.png','.webp'})
+ files=sorted(p for p in (folder.rglob('*') if unit.get('recursive',True) else folder.glob('*')) if p.suffix.lower() in {'.jpg','.jpeg','.png','.webp'})
  priorities={name:i for i,name in enumerate(unit.get('preferred',[]))}
  files.sort(key=lambda p:(priorities.get(p.relative_to(folder).as_posix(),999),p.relative_to(folder).as_posix()))
  for n,p in enumerate(files,1):

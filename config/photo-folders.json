@@ -1,8 +1,61 @@
 {
   "sourceRoot": "../Fotke",
   "apartments": [
-    {"slug":"a-3","folder":"APARTMENT A-3","preferred":["16.jpg","11.jpg","04.jpg"]},
-    {"slug":"a-4","folder":"APARTMENT A-4","preferred":["Balkon/_JST8645.jpg","_JST8731-HDR.jpg","Soba 1/_JST8717.jpg","Soba 2/_JST8663.jpg"]},
-    {"slug":"a-9","folder":"APARTMENT A-9","preferred":["IMG_20260602_161119.jpg","_JST8821-HDR.jpg","_JST8816-HDR.jpg"]}
+    {
+      "slug": "a-3",
+      "folder": "APARTMENT A-3",
+      "preferred": [
+        "16.jpg",
+        "11.jpg",
+        "04.jpg"
+      ]
+    },
+    {
+      "slug": "a-4",
+      "folder": "APARTMENT A-4",
+      "preferred": [
+        "Balkon/_JST8645.jpg",
+        "_JST8731-HDR.jpg",
+        "Soba 1/_JST8717.jpg",
+        "Soba 2/_JST8663.jpg"
+      ]
+    },
+    {
+      "slug": "a-9",
+      "folder": "APARTMENT A-9",
+      "preferred": [
+        "IMG_20260602_161119.jpg",
+        "_JST8821-HDR.jpg",
+        "_JST8816-HDR.jpg"
+      ]
+    },
+    {
+      "slug": "a-13",
+      "folder": "APARTMENT A-13",
+      "preferred": [
+        "ap13-14.jpg",
+        "ap13-11.jpg",
+        "ap13-13.jpg"
+      ]
+    },
+    {
+      "slug": "a-8",
+      "folder": "APARTMENT A-8",
+      "preferred": [
+        "_JST8805.jpg",
+        "_JST8810.jpg",
+        "IMG_20260602_160647.jpg"
+      ]
+    },
+    {
+      "slug": "a-12",
+      "folder": "APARTMENT A-12",
+      "recursive": false,
+      "preferred": [
+        "ap12-10 (1).jpg",
+        "ap12-11.jpg",
+        "ap12-12.jpg"
+      ]
+    }
   ]
 }

@@ -82,13 +82,13 @@ Automatizirani testovi pokrivaju datume i promjene gostiju, preklapanja, cijene 
 
 Google prijava i Firestore koriste produkcijsku federaciju; prvi ulazak stvarnog administratora dovršava se njegovim Google računom. Storage i stvarna dostava e-pošte zahtijevaju naknadnu aktivaciju i provjeru. Test dostave koristi kontrolirani zamjenski HTTP odgovor i ne šalje stvarne poruke.
 
-Potvrđeni katalog ima šest jedinica: A-3, A-4, A-9, A-13, A-8 i A-12. Migracija `six-apartments-2026-10` jednom zamjenjuje ogledni katalog, privatno čuva njegovu kopiju u `site/catalogue-before-six-2026-10` i ne preusmjerava povijesne termine ili upite na nasumične nove jedinice. Fotografije interijera i dalje su jasno označene kao ogledne. Stari javni URL-ovi vode na novi popis apartmana.
+Potvrđeni katalog ima šest jedinica: A-3, A-4, A-9, A-13, A-8 i A-12. Migracija `six-apartments-2026-10` jednom zamjenjuje ogledni katalog, privatno čuva njegovu kopiju u `site/catalogue-before-six-2026-10` i ne preusmjerava povijesne termine ili upite na nasumične nove jedinice. Svih šest apartmana ima vlastite fotografije. Stari javni URL-ovi vode na novi popis apartmana.
 
 `tests/fixtures/sample-site.json` izolira prijašnji ogledni katalog za provjeru postojećih tijekova; produkcijski katalog provjerava `tests/catalogue.test.mjs`.
 
 ## Dodavanje stvarnih fotografija
 
-Izvorne fotografije ostaju u susjednoj mapi `../Fotke`. Mapiranje je izričito navedeno u `config/photo-folders.json`: `APARTMENT A-3` → A-3, `APARTMENT A-4` → A-4, `APARTMENT A-9` → A-9. Neoznačene mape nikada se ne pridružuju automatski.
+Izvorne fotografije ostaju u susjednoj mapi `../Fotke`. Mapiranje je izričito navedeno u `config/photo-folders.json`: `APARTMENT A-3` → A-3, `APARTMENT A-4` → A-4, `APARTMENT A-9` → A-9, `APARTMENT A-13` → A-13, `APARTMENT A-8` → A-8 i `APARTMENT A-12` → A-12. Za A-12 koristi se samo korijenska mapa (`recursive: false`), jer `Uvecane` sadrži kopije istih triju fotografija. Neoznačene mape nikada se ne pridružuju automatski.
 
 Nakon dodavanja fotografija u poznate mape pokrenuti `python3 scripts/prepare-photos.py` (Pillow), zatim `npm run build`. Za novi apartman prvo dopuniti mapiranje i odabrati naslovne fotografije u `preferred`. Skripta čuva originale, radi WebP kopije do 1600 px bez EXIF metapodataka te zapisuje biblioteku s revizijom temeljenom na sadržaju. Nema generativne izmjene fotografija.
 

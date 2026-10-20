@@ -4,13 +4,13 @@ import {clone,validateContent} from '../dist/model.js';
 import {applyPhotoLibrary,apartmentPhotographs,isIllustrativePhoto,photoLibraryRevision} from '../dist/photo-library.js';
 import {readSiteData,destinationRevision,catalogueRevision} from '../server/destination.js';
 import {memoryDb} from './memory-db.mjs';
-test('real photographs are isolated to the three explicitly identified apartments',async()=>{
+test('real photographs are isolated to the six explicitly identified apartments',async()=>{
  const site=validateContent(applyPhotoLibrary(defaults));
- for(const [slug,count]of [['a-3',21],['a-4',24],['a-9',14],['a-13',0],['a-8',0],['a-12',0]]){const rows=apartmentPhotographs(site,slug);assert.equal(rows.length,count);const a=site.apartments.find(a=>a.slug===slug);assert.equal(isIllustrativePhoto(site.photos.find(p=>p.key===a.image)),count===0);for(const p of rows){assert.ok(p.file.startsWith(slug+'-'));const bytes=await fs.readFile(new URL('../dist/assets/'+p.file,import.meta.url));assert.equal(bytes.subarray(0,4).toString(),'RIFF');assert.equal(bytes.subarray(8,12).toString(),'WEBP');}}
+ for(const [slug,count]of [['a-3',21],['a-4',24],['a-9',14],['a-13',8],['a-8',16],['a-12',3]]){const rows=apartmentPhotographs(site,slug);assert.equal(rows.length,count);const a=site.apartments.find(a=>a.slug===slug);assert.equal(isIllustrativePhoto(site.photos.find(p=>p.key===a.image)),count===0);for(const p of rows){assert.ok(p.file.startsWith(slug+'-'));const bytes=await fs.readFile(new URL('../dist/assets/'+p.file,import.meta.url));assert.equal(bytes.subarray(0,4).toString(),'RIFF');assert.equal(bytes.subarray(8,12).toString(),'WEBP');}}
  assert.equal(new Set(site.photos.map(p=>p.key)).size,site.photos.length);
 });
 test('photo provenance survives administrator validation and older examples remain marked illustrative',()=>{
- const site=validateContent(defaults);assert.equal(isIllustrativePhoto(site.photos.find(p=>p.category==='a-3')),false);assert.equal(isIllustrativePhoto(site.photos.find(p=>p.category==='a-13')),true);assert.equal(isIllustrativePhoto({category:'a-8'}),true);assert.equal(isIllustrativePhoto({category:'location'}),false);
+ const site=validateContent(defaults);assert.equal(isIllustrativePhoto(site.photos.find(p=>p.category==='a-3')),false);assert.equal(isIllustrativePhoto(site.photos.find(p=>p.category==='a-13')),false);assert.equal(isIllustrativePhoto({category:'a-8'}),true);assert.equal(isIllustrativePhoto({category:'location'}),false);
 });
 test('photo migration preserves apartment data and later host cover selections',async()=>{
  const before=clone(defaults);before.apartments[0].area=31;before.apartments[1].seasons=[{from:'2027-06-01',to:'2027-09-01',nightly:80,minNights:3}];

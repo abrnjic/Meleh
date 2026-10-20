@@ -1,9 +1,12 @@
 export default {
-  "revision": "photos-be62f39955bc1a4e",
+  "revision": "photos-c7594d0849ff3ce1",
   "covers": {
     "a-3": "a-3-98915000f613",
     "a-4": "a-4-c1a72524b01b",
-    "a-9": "a-9-06695b26dca1"
+    "a-9": "a-9-06695b26dca1",
+    "a-13": "a-13-e7016ce0d726",
+    "a-8": "a-8-cc24985f21a0",
+    "a-12": "a-12-7ebe99afd88a"
   },
   "photos": [
     {
@@ -595,6 +598,276 @@ export default {
       "alt": "Apartman A-9 — fotografija 14",
       "altEn": "Apartment A-9 — photograph 14",
       "altDe": "Apartment A-9 — Foto 14"
+    },
+    {
+      "key": "a-13-e7016ce0d726",
+      "file": "a-13-e7016ce0d726.webp",
+      "url": null,
+      "category": "a-13",
+      "illustrative": false,
+      "alt": "Apartman A-13 — fotografija 1",
+      "altEn": "Apartment A-13 — photograph 1",
+      "altDe": "Apartment A-13 — Foto 1"
+    },
+    {
+      "key": "a-13-3ab60536ec16",
+      "file": "a-13-3ab60536ec16.webp",
+      "url": null,
+      "category": "a-13",
+      "illustrative": false,
+      "alt": "Apartman A-13 — fotografija 2",
+      "altEn": "Apartment A-13 — photograph 2",
+      "altDe": "Apartment A-13 — Foto 2"
+    },
+    {
+      "key": "a-13-c9afa46c8b87",
+      "file": "a-13-c9afa46c8b87.webp",
+      "url": null,
+      "category": "a-13",
+      "illustrative": false,
+      "alt": "Apartman A-13 — fotografija 3",
+      "altEn": "Apartment A-13 — photograph 3",
+      "altDe": "Apartment A-13 — Foto 3"
+    },
+    {
+      "key": "a-13-034448027d26",
+      "file": "a-13-034448027d26.webp",
+      "url": null,
+      "category": "a-13",
+      "illustrative": false,
+      "alt": "Apartman A-13 — fotografija 4",
+      "altEn": "Apartment A-13 — photograph 4",
+      "altDe": "Apartment A-13 — Foto 4"
+    },
+    {
+      "key": "a-13-a3eadfc78e4d",
+      "file": "a-13-a3eadfc78e4d.webp",
+      "url": null,
+      "category": "a-13",
+      "illustrative": false,
+      "alt": "Apartman A-13 — fotografija 5",
+      "altEn": "Apartment A-13 — photograph 5",
+      "altDe": "Apartment A-13 — Foto 5"
+    },
+    {
+      "key": "a-13-0946b9d4fbf1",
+      "file": "a-13-0946b9d4fbf1.webp",
+      "url": null,
+      "category": "a-13",
+      "illustrative": false,
+      "alt": "Apartman A-13 — fotografija 6",
+      "altEn": "Apartment A-13 — photograph 6",
+      "altDe": "Apartment A-13 — Foto 6"
+    },
+    {
+      "key": "a-13-e071ddbca951",
+      "file": "a-13-e071ddbca951.webp",
+      "url": null,
+      "category": "a-13",
+      "illustrative": false,
+      "alt": "Apartman A-13 — fotografija 7",
+      "altEn": "Apartment A-13 — photograph 7",
+      "altDe": "Apartment A-13 — Foto 7"
+    },
+    {
+      "key": "a-13-b6b006e676b3",
+      "file": "a-13-b6b006e676b3.webp",
+      "url": null,
+      "category": "a-13",
+      "illustrative": false,
+      "alt": "Apartman A-13 — fotografija 8",
+      "altEn": "Apartment A-13 — photograph 8",
+      "altDe": "Apartment A-13 — Foto 8"
+    },
+    {
+      "key": "a-8-cc24985f21a0",
+      "file": "a-8-cc24985f21a0.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 1",
+      "altEn": "Apartment A-8 — photograph 1",
+      "altDe": "Apartment A-8 — Foto 1"
+    },
+    {
+      "key": "a-8-8e02993f397e",
+      "file": "a-8-8e02993f397e.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 2",
+      "altEn": "Apartment A-8 — photograph 2",
+      "altDe": "Apartment A-8 — Foto 2"
+    },
+    {
+      "key": "a-8-1745e2f8244f",
+      "file": "a-8-1745e2f8244f.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 3",
+      "altEn": "Apartment A-8 — photograph 3",
+      "altDe": "Apartment A-8 — Foto 3"
+    },
+    {
+      "key": "a-8-72b3323e48c4",
+      "file": "a-8-72b3323e48c4.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 4",
+      "altEn": "Apartment A-8 — photograph 4",
+      "altDe": "Apartment A-8 — Foto 4"
+    },
+    {
+      "key": "a-8-f9368beca9bb",
+      "file": "a-8-f9368beca9bb.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 5",
+      "altEn": "Apartment A-8 — photograph 5",
+      "altDe": "Apartment A-8 — Foto 5"
+    },
+    {
+      "key": "a-8-a265f56035b5",
+      "file": "a-8-a265f56035b5.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 6",
+      "altEn": "Apartment A-8 — photograph 6",
+      "altDe": "Apartment A-8 — Foto 6"
+    },
+    {
+      "key": "a-8-3d9fdd05448c",
+      "file": "a-8-3d9fdd05448c.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 7",
+      "altEn": "Apartment A-8 — photograph 7",
+      "altDe": "Apartment A-8 — Foto 7"
+    },
+    {
+      "key": "a-8-8b7003313dcf",
+      "file": "a-8-8b7003313dcf.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 8",
+      "altEn": "Apartment A-8 — photograph 8",
+      "altDe": "Apartment A-8 — Foto 8"
+    },
+    {
+      "key": "a-8-a38093994a0f",
+      "file": "a-8-a38093994a0f.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 9",
+      "altEn": "Apartment A-8 — photograph 9",
+      "altDe": "Apartment A-8 — Foto 9"
+    },
+    {
+      "key": "a-8-5e39bfac7fef",
+      "file": "a-8-5e39bfac7fef.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 10",
+      "altEn": "Apartment A-8 — photograph 10",
+      "altDe": "Apartment A-8 — Foto 10"
+    },
+    {
+      "key": "a-8-6da8d20deb0b",
+      "file": "a-8-6da8d20deb0b.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 11",
+      "altEn": "Apartment A-8 — photograph 11",
+      "altDe": "Apartment A-8 — Foto 11"
+    },
+    {
+      "key": "a-8-fbf7afcf72e5",
+      "file": "a-8-fbf7afcf72e5.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 12",
+      "altEn": "Apartment A-8 — photograph 12",
+      "altDe": "Apartment A-8 — Foto 12"
+    },
+    {
+      "key": "a-8-3af0fff92a4a",
+      "file": "a-8-3af0fff92a4a.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 13",
+      "altEn": "Apartment A-8 — photograph 13",
+      "altDe": "Apartment A-8 — Foto 13"
+    },
+    {
+      "key": "a-8-5e729cd47897",
+      "file": "a-8-5e729cd47897.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 14",
+      "altEn": "Apartment A-8 — photograph 14",
+      "altDe": "Apartment A-8 — Foto 14"
+    },
+    {
+      "key": "a-8-83b3dc6f8fc2",
+      "file": "a-8-83b3dc6f8fc2.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 15",
+      "altEn": "Apartment A-8 — photograph 15",
+      "altDe": "Apartment A-8 — Foto 15"
+    },
+    {
+      "key": "a-8-a1fbf7003d26",
+      "file": "a-8-a1fbf7003d26.webp",
+      "url": null,
+      "category": "a-8",
+      "illustrative": false,
+      "alt": "Apartman A-8 — fotografija 16",
+      "altEn": "Apartment A-8 — photograph 16",
+      "altDe": "Apartment A-8 — Foto 16"
+    },
+    {
+      "key": "a-12-7ebe99afd88a",
+      "file": "a-12-7ebe99afd88a.webp",
+      "url": null,
+      "category": "a-12",
+      "illustrative": false,
+      "alt": "Apartman A-12 — fotografija 1",
+      "altEn": "Apartment A-12 — photograph 1",
+      "altDe": "Apartment A-12 — Foto 1"
+    },
+    {
+      "key": "a-12-a7aff4803fa2",
+      "file": "a-12-a7aff4803fa2.webp",
+      "url": null,
+      "category": "a-12",
+      "illustrative": false,
+      "alt": "Apartman A-12 — fotografija 2",
+      "altEn": "Apartment A-12 — photograph 2",
+      "altDe": "Apartment A-12 — Foto 2"
+    },
+    {
+      "key": "a-12-21e72e2afe0f",
+      "file": "a-12-21e72e2afe0f.webp",
+      "url": null,
+      "category": "a-12",
+      "illustrative": false,
+      "alt": "Apartman A-12 — fotografija 3",
+      "altEn": "Apartment A-12 — photograph 3",
+      "altDe": "Apartment A-12 — Foto 3"
     }
   ]
 };
