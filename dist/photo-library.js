@@ -1,7 +1,7 @@
 import library from './photo-library-data.js';
 
 export const photoLibraryRevision=library.revision;
-export const isIllustrativePhoto=photo=>photo?.illustrative!==false&&photo?.category!=='location';
+export const isIllustrativePhoto=photo=>photo?.illustrative===true||(photo?.illustrative!==false&&photo?.category!=='location');
 export function apartmentPhotographs(site,slug){return site.photos.filter(p=>p.category===slug&&!isIllustrativePhoto(p));}
 export function applyPhotoLibrary(site){
  const data=structuredClone(site),slugs=new Set(data.apartments.map(a=>a.slug));

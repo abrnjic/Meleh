@@ -10,7 +10,7 @@ test('real photographs are isolated to the six explicitly identified apartments'
  assert.equal(new Set(site.photos.map(p=>p.key)).size,site.photos.length);
 });
 test('photo provenance survives administrator validation and older examples remain marked illustrative',()=>{
- const site=validateContent(defaults);assert.equal(isIllustrativePhoto(site.photos.find(p=>p.category==='a-3')),false);assert.equal(isIllustrativePhoto(site.photos.find(p=>p.category==='a-13')),false);assert.equal(isIllustrativePhoto({category:'a-8'}),true);assert.equal(isIllustrativePhoto({category:'location'}),false);
+ const site=validateContent(defaults);assert.equal(isIllustrativePhoto(site.photos.find(p=>p.category==='a-3')),false);assert.equal(isIllustrativePhoto(site.photos.find(p=>p.category==='a-13')),false);assert.equal(isIllustrativePhoto({category:'a-8'}),true);assert.equal(isIllustrativePhoto({category:'location'}),false);assert.equal(isIllustrativePhoto({category:'location',illustrative:true}),true);
 });
 test('photo migration preserves apartment data and later host cover selections',async()=>{
  const before=clone(defaults);before.apartments[0].area=31;before.apartments[1].seasons=[{from:'2027-06-01',to:'2027-09-01',nightly:80,minNights:3}];
@@ -27,6 +27,7 @@ test('production photo cleanup removes examples, repairs their references and pr
  const {apartmentNamesRevision,amenitiesRevision,specificationRevision,viewsRevision,productionPhotoRevision}=await import('../server/destination.js');
  const before=clone(defaults),original=before.apartments[0].image;
  before.photos.push({key:'old-example',file:'detail.jpg',category:'house',illustrative:true,alt:'Old sample'});
+ before.photos.push({key:'old-location-example',file:'sample-location.jpg',category:'location',illustrative:true,alt:'Old location sample'});
  before.apartments[0].image='old-example';before.guide[0].photo='old-example';before.apartments[0].seasons[0].nightly=75;
  const db=memoryDb({'site/public':{revision:10,destinationRevision,catalogueRevision,photoLibraryRevision,apartmentNamesRevision,amenitiesRevision,specificationRevision,viewsRevision,data:before}});
  const result=await readSiteData(db,defaults);assert.equal(result.revision,11);assert.equal(result.productionPhotoRevision,productionPhotoRevision);assert.ok(result.data.photos.every(p=>!isIllustrativePhoto(p)));assert.equal(result.data.photos.filter(p=>p.category!=='location').length,86);assert.equal(result.data.apartments[0].image,original);assert.equal(result.data.guide[0].photo,result.data.heroImage);assert.equal(result.data.apartments[0].seasons[0].nightly,75);assert.equal((await readSiteData(db,defaults)).revision,11);
