@@ -762,6 +762,127 @@
   ],
   "photos": [
     {
+      "key": "house-35578d3b7577",
+      "file": "house-35578d3b7577.webp",
+      "url": null,
+      "alt": "Kuća i okućnica — 1",
+      "altEn": "House and garden — 1",
+      "altDe": "Haus und Garten — 1",
+      "altCs": "Dům a zahrada — 1",
+      "category": "house",
+      "illustrative": false
+    },
+    {
+      "key": "house-c9e79c13ce9d",
+      "file": "house-c9e79c13ce9d.webp",
+      "url": null,
+      "alt": "Kuća i okućnica — 2",
+      "altEn": "House and garden — 2",
+      "altDe": "Haus und Garten — 2",
+      "altCs": "Dům a zahrada — 2",
+      "category": "house",
+      "illustrative": false
+    },
+    {
+      "key": "house-5101b616002e",
+      "file": "house-5101b616002e.webp",
+      "url": null,
+      "alt": "Kuća i okućnica — 3",
+      "altEn": "House and garden — 3",
+      "altDe": "Haus und Garten — 3",
+      "altCs": "Dům a zahrada — 3",
+      "category": "house",
+      "illustrative": false
+    },
+    {
+      "key": "house-f8953816210c",
+      "file": "house-f8953816210c.webp",
+      "url": null,
+      "alt": "Kuća i okućnica — 4",
+      "altEn": "House and garden — 4",
+      "altDe": "Haus und Garten — 4",
+      "altCs": "Dům a zahrada — 4",
+      "category": "house",
+      "illustrative": false
+    },
+    {
+      "key": "house-7ff46566bec0",
+      "file": "house-7ff46566bec0.webp",
+      "url": null,
+      "alt": "Kuća i okućnica — 5",
+      "altEn": "House and garden — 5",
+      "altDe": "Haus und Garten — 5",
+      "altCs": "Dům a zahrada — 5",
+      "category": "house",
+      "illustrative": false
+    },
+    {
+      "key": "location-e6fb78ef7be5",
+      "file": "location-e6fb78ef7be5.webp",
+      "url": null,
+      "alt": "Plaža i obala uz kuću — 1",
+      "altEn": "Beach and waterfront by the house — 1",
+      "altDe": "Strand und Ufer am Haus — 1",
+      "altCs": "Pláž a pobřeží u domu — 1",
+      "category": "location",
+      "illustrative": false
+    },
+    {
+      "key": "location-f54b4c83d472",
+      "file": "location-f54b4c83d472.webp",
+      "url": null,
+      "alt": "Plaža i obala uz kuću — 2",
+      "altEn": "Beach and waterfront by the house — 2",
+      "altDe": "Strand und Ufer am Haus — 2",
+      "altCs": "Pláž a pobřeží u domu — 2",
+      "category": "location",
+      "illustrative": false
+    },
+    {
+      "key": "location-e246153ca161",
+      "file": "location-e246153ca161.webp",
+      "url": null,
+      "alt": "Plaža i obala uz kuću — 3",
+      "altEn": "Beach and waterfront by the house — 3",
+      "altDe": "Strand und Ufer am Haus — 3",
+      "altCs": "Pláž a pobřeží u domu — 3",
+      "category": "location",
+      "illustrative": false
+    },
+    {
+      "key": "location-ac968ea2ba6e",
+      "file": "location-ac968ea2ba6e.webp",
+      "url": null,
+      "alt": "Plaža i obala uz kuću — 4",
+      "altEn": "Beach and waterfront by the house — 4",
+      "altDe": "Strand und Ufer am Haus — 4",
+      "altCs": "Pláž a pobřeží u domu — 4",
+      "category": "location",
+      "illustrative": false
+    },
+    {
+      "key": "location-92b986948f98",
+      "file": "location-92b986948f98.webp",
+      "url": null,
+      "alt": "Plaža i obala uz kuću — 5",
+      "altEn": "Beach and waterfront by the house — 5",
+      "altDe": "Strand und Ufer am Haus — 5",
+      "altCs": "Pláž a pobřeží u domu — 5",
+      "category": "location",
+      "illustrative": false
+    },
+    {
+      "key": "location-c5b237527706",
+      "file": "location-c5b237527706.webp",
+      "url": null,
+      "alt": "Plaža i obala uz kuću — 6",
+      "altEn": "Beach and waterfront by the house — 6",
+      "altDe": "Strand und Ufer am Haus — 6",
+      "altCs": "Pláž a pobřeží u domu — 6",
+      "category": "location",
+      "illustrative": false
+    },
+    {
       "key": "hero",
       "file": "peljesac-obala.jpg",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Peljesac_south_coast.jpg",
@@ -1741,9 +1862,9 @@
       "illustrative": false
     }
   ],
-  "heroImage": "hero",
-  "introImage": "beach",
-  "bannerImage": "sunset",
+  "heroImage": "location-92b986948f98",
+  "introImage": "house-7ff46566bec0",
+  "bannerImage": "location-f54b4c83d472",
   "photoCredits": [
     {
       "file": "peljesac-obala.jpg",
@@ -1900,7 +2021,7 @@
         "cs": "Poznejte zátoku a oblázkovou pláž Luky Dubravy. Místo ke koupání vybírejte podle počasí a podmínek na moři."
       },
       "category": "beaches",
-      "photo": "beach",
+      "photo": "location-e246153ca161",
       "url": "https://www.ston.hr/?u=luka-dubrava%2Fdeg%2Fst%2F53%2F53",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Pla%C5%BEa%20Luka%20Dubrava%20Pelje%C5%A1ac"
     },

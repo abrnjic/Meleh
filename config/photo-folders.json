@@ -57,5 +57,50 @@
         "ap12-12.jpg"
       ]
     }
-  ]
+  ],
+  "collections": [
+    {
+      "slug": "house",
+      "folder": "Okucnica i plaza",
+      "files": [
+        "25.jpg",
+        "26.jpg",
+        "27.jpg",
+        "28.jpg",
+        "29.jpg"
+      ],
+      "labels": [
+        "Kuća i okućnica",
+        "House and garden",
+        "Haus und Garten",
+        "Dům a zahrada"
+      ]
+    },
+    {
+      "slug": "location",
+      "folder": "Okucnica i plaza",
+      "files": [
+        "72.jpg",
+        "73.jpg",
+        "74.jpg",
+        "75.jpg",
+        "76.jpg",
+        "77.jpg"
+      ],
+      "labels": [
+        "Plaža i obala uz kuću",
+        "Beach and waterfront by the house",
+        "Strand und Ufer am Haus",
+        "Pláž a pobřeží u domu"
+      ]
+    }
+  ],
+  "siteImages": {
+    "heroImage": "Okucnica i plaza/76.jpg",
+    "introImage": "Okucnica i plaza/29.jpg",
+    "bannerImage": "Okucnica i plaza/73.jpg"
+  },
+  "guideImages": {
+    "Luka Dubrava i more": "Okucnica i plaza/74.jpg"
+  }
 }

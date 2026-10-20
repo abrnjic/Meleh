@@ -100,6 +100,8 @@ Objaviti nove datoteke iz `dist/assets`, `dist/photo-library-data.js` i rezultat
 
 Dokumentacija je izvor podataka domaćina. Pogled na more i pogled na vrt mogu biti istodobno dostupni; migracija `sea-and-garden-views-2026-10` dopunjuje oba pogleda bez ponovnog uvoza cjenika ili promjene fotografija.
 
-Produkcijske fotografije: migracija `real-photos-only-2026-10` uklanja preostale ogledne fotografije i popravlja naslovnice ili vodiče koji su ih referencirali. Javna biblioteka sadrži 86 fotografija apartmana i tri prizora destinacije. Stare ogledne datoteke interijera nisu dio objave.
+Produkcijske fotografije: migracija `real-photos-only-2026-10` uklanja preostale ogledne fotografije i popravlja naslovnice ili vodiče koji su ih referencirali. Javna biblioteka sadrži 86 fotografija apartmana, 11 fotografija kuće, okućnice i plaže te tri prizora destinacije. Stare ogledne datoteke interijera nisu dio objave.
 
 Čeština koristi oznaku `cs` i format `cs-CZ`. `dist/czech-data.js` sadrži prijevode javnih tekstova, a `dist/i18n.js` podržane jezike i dinamičke natpise. Lokalizirani sadržaj i opisi fotografija čuvaju češki prijevod; administracija omogućuje njegovo uređivanje. Upiti, predlošci odgovora i privatni vodič podržavaju češki. Migracija `czech-2026-10` jednom dopunjuje postojeći sadržaj bez promjene cijena, fotografija ili rezervacija.
+
+Fotografije kuće i plaže iz mape `Fotke/Okucnica i plaza` razvrstane su u `config/photo-folders.json`. Skripta `scripts/prepare-photos.py` izrađuje WebP kopije i odabrane naslovne fotografije; originale ne mijenja. Promjena revizije biblioteke dodaje fotografije i zamjenjuje stare regionalne naslovne prizore, čuvajući naknadne odabire domaćina.

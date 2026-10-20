@@ -7,13 +7,15 @@ export function applyPhotoLibrary(site){
  const data=structuredClone(site),slugs=new Set(data.apartments.map(a=>a.slug));
  const covered=new Set(Object.keys(library.covers).filter(slug=>slugs.has(slug)));
  // Retain real host uploads alongside managed files when more folder photos arrive.
- const imported=new Set(library.photos.map(p=>p.key));
- data.photos=[...data.photos.filter(p=>!covered.has(p.category)||(!imported.has(p.key)&&!isIllustrativePhoto(p)&&!/^a-\d+-[a-f0-9]{12}$/.test(p.key))),...structuredClone(library.photos.filter(p=>covered.has(p.category)))];
+ const imported=new Set(library.photos.map(p=>p.key)),shared=library.photos.filter(p=>['house','location'].includes(p.category));
+ data.photos=[...structuredClone(shared),...data.photos.filter(p=>!imported.has(p.key)&&!/^((a-\d+)|house|location)-[a-f0-9]{12}$/.test(p.key)&&(!covered.has(p.category)||!isIllustrativePhoto(p))),...structuredClone(library.photos.filter(p=>covered.has(p.category)))];
  data.apartments=data.apartments.map(a=>{
   if(!covered.has(a.slug))return a;
   const existing=data.photos.find(p=>p.key===a.image);
   return existing&&!isIllustrativePhoto(existing)?a:{...a,image:library.covers[a.slug]};
  });
+ for(const [field,key]of Object.entries(library.siteImages||{}))if(!data[field]||['hero','beach','sunset'].includes(data[field]))data[field]=key;
+ data.guide=(data.guide||[]).map(g=>library.guideImages?.[g.title?.hr]&&g.photo==='beach'?{...g,photo:library.guideImages[g.title.hr]}:g);
  return removeIllustrativePhotos(data);
 }
 

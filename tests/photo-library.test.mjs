@@ -30,6 +30,14 @@ test('production photo cleanup removes examples, repairs their references and pr
  before.photos.push({key:'old-location-example',file:'sample-location.jpg',category:'location',illustrative:true,alt:'Old location sample'});
  before.apartments[0].image='old-example';before.guide[0].photo='old-example';before.apartments[0].seasons[0].nightly=75;
  const db=memoryDb({'site/public':{revision:10,destinationRevision,catalogueRevision,photoLibraryRevision,apartmentNamesRevision,amenitiesRevision,specificationRevision,viewsRevision,data:before}});
- const result=await readSiteData(db,defaults);assert.equal(result.revision,11);assert.equal(result.productionPhotoRevision,productionPhotoRevision);assert.ok(result.data.photos.every(p=>!isIllustrativePhoto(p)));assert.equal(result.data.photos.filter(p=>p.category!=='location').length,86);assert.equal(result.data.apartments[0].image,original);assert.equal(result.data.guide[0].photo,result.data.heroImage);assert.equal(result.data.apartments[0].seasons[0].nightly,75);assert.equal((await readSiteData(db,defaults)).revision,11);
+ const result=await readSiteData(db,defaults);assert.equal(result.revision,11);assert.equal(result.productionPhotoRevision,productionPhotoRevision);assert.ok(result.data.photos.every(p=>!isIllustrativePhoto(p)));assert.equal(result.data.photos.filter(p=>p.category.startsWith('a-')).length,86);assert.equal(result.data.apartments[0].image,original);assert.equal(result.data.guide[0].photo,result.data.heroImage);assert.equal(result.data.apartments[0].seasons[0].nightly,75);assert.equal((await readSiteData(db,defaults)).revision,11);
  for(const name of ['room.jpg','bedroom.jpg','house.jpg','detail.jpg'])await assert.rejects(fs.access(new URL('../dist/assets/'+name,import.meta.url)));
+});
+
+test('outdoor library imports once, uses real house and beach covers and preserves host selections',()=>{
+ const before=clone(defaults);before.photos=before.photos.filter(p=>!(/^(house|location)-[a-f0-9]{12}$/.test(p.key)));before.heroImage='hero';before.introImage='beach';before.bannerImage='sunset';
+ const migrated=applyPhotoLibrary(before);assert.equal(migrated.photos.filter(p=>p.category==='house').length,5);assert.equal(migrated.photos.filter(p=>/^location-[a-f0-9]{12}$/.test(p.key)).length,6);assert.match(migrated.heroImage,/^location-/);assert.match(migrated.introImage,/^house-/);assert.match(migrated.bannerImage,/^location-/);
+ assert.equal(applyPhotoLibrary(migrated).photos.length,migrated.photos.length);
+ migrated.heroImage=migrated.photos.find(p=>p.category==='a-3').key;assert.equal(applyPhotoLibrary(migrated).heroImage,migrated.heroImage);
+ for(const p of migrated.photos.filter(p=>/^(house|location)-/.test(p.key))){assert.equal(p.illustrative,false);assert.ok(p.altCs);}
 });

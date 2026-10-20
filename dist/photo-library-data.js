@@ -1,5 +1,5 @@
 export default {
-  "revision": "photos-c7594d0849ff3ce1",
+  "revision": "photos-48cf67e300761e3a",
   "covers": {
     "a-3": "a-3-98915000f613",
     "a-4": "a-4-c1a72524b01b",
@@ -8,7 +8,136 @@ export default {
     "a-8": "a-8-cc24985f21a0",
     "a-12": "a-12-7ebe99afd88a"
   },
+  "siteImages": {
+    "introImage": "house-7ff46566bec0",
+    "bannerImage": "location-f54b4c83d472",
+    "heroImage": "location-92b986948f98"
+  },
+  "guideImages": {
+    "Luka Dubrava i more": "location-e246153ca161"
+  },
   "photos": [
+    {
+      "key": "house-35578d3b7577",
+      "file": "house-35578d3b7577.webp",
+      "url": null,
+      "category": "house",
+      "illustrative": false,
+      "alt": "Kuća i okućnica — 1",
+      "altEn": "House and garden — 1",
+      "altDe": "Haus und Garten — 1",
+      "altCs": "Dům a zahrada — 1"
+    },
+    {
+      "key": "house-c9e79c13ce9d",
+      "file": "house-c9e79c13ce9d.webp",
+      "url": null,
+      "category": "house",
+      "illustrative": false,
+      "alt": "Kuća i okućnica — 2",
+      "altEn": "House and garden — 2",
+      "altDe": "Haus und Garten — 2",
+      "altCs": "Dům a zahrada — 2"
+    },
+    {
+      "key": "house-5101b616002e",
+      "file": "house-5101b616002e.webp",
+      "url": null,
+      "category": "house",
+      "illustrative": false,
+      "alt": "Kuća i okućnica — 3",
+      "altEn": "House and garden — 3",
+      "altDe": "Haus und Garten — 3",
+      "altCs": "Dům a zahrada — 3"
+    },
+    {
+      "key": "house-f8953816210c",
+      "file": "house-f8953816210c.webp",
+      "url": null,
+      "category": "house",
+      "illustrative": false,
+      "alt": "Kuća i okućnica — 4",
+      "altEn": "House and garden — 4",
+      "altDe": "Haus und Garten — 4",
+      "altCs": "Dům a zahrada — 4"
+    },
+    {
+      "key": "house-7ff46566bec0",
+      "file": "house-7ff46566bec0.webp",
+      "url": null,
+      "category": "house",
+      "illustrative": false,
+      "alt": "Kuća i okućnica — 5",
+      "altEn": "House and garden — 5",
+      "altDe": "Haus und Garten — 5",
+      "altCs": "Dům a zahrada — 5"
+    },
+    {
+      "key": "location-e6fb78ef7be5",
+      "file": "location-e6fb78ef7be5.webp",
+      "url": null,
+      "category": "location",
+      "illustrative": false,
+      "alt": "Plaža i obala uz kuću — 1",
+      "altEn": "Beach and waterfront by the house — 1",
+      "altDe": "Strand und Ufer am Haus — 1",
+      "altCs": "Pláž a pobřeží u domu — 1"
+    },
+    {
+      "key": "location-f54b4c83d472",
+      "file": "location-f54b4c83d472.webp",
+      "url": null,
+      "category": "location",
+      "illustrative": false,
+      "alt": "Plaža i obala uz kuću — 2",
+      "altEn": "Beach and waterfront by the house — 2",
+      "altDe": "Strand und Ufer am Haus — 2",
+      "altCs": "Pláž a pobřeží u domu — 2"
+    },
+    {
+      "key": "location-e246153ca161",
+      "file": "location-e246153ca161.webp",
+      "url": null,
+      "category": "location",
+      "illustrative": false,
+      "alt": "Plaža i obala uz kuću — 3",
+      "altEn": "Beach and waterfront by the house — 3",
+      "altDe": "Strand und Ufer am Haus — 3",
+      "altCs": "Pláž a pobřeží u domu — 3"
+    },
+    {
+      "key": "location-ac968ea2ba6e",
+      "file": "location-ac968ea2ba6e.webp",
+      "url": null,
+      "category": "location",
+      "illustrative": false,
+      "alt": "Plaža i obala uz kuću — 4",
+      "altEn": "Beach and waterfront by the house — 4",
+      "altDe": "Strand und Ufer am Haus — 4",
+      "altCs": "Pláž a pobřeží u domu — 4"
+    },
+    {
+      "key": "location-92b986948f98",
+      "file": "location-92b986948f98.webp",
+      "url": null,
+      "category": "location",
+      "illustrative": false,
+      "alt": "Plaža i obala uz kuću — 5",
+      "altEn": "Beach and waterfront by the house — 5",
+      "altDe": "Strand und Ufer am Haus — 5",
+      "altCs": "Pláž a pobřeží u domu — 5"
+    },
+    {
+      "key": "location-c5b237527706",
+      "file": "location-c5b237527706.webp",
+      "url": null,
+      "category": "location",
+      "illustrative": false,
+      "alt": "Plaža i obala uz kuću — 6",
+      "altEn": "Beach and waterfront by the house — 6",
+      "altDe": "Strand und Ufer am Haus — 6",
+      "altCs": "Pláž a pobřeží u domu — 6"
+    },
     {
       "key": "a-3-98915000f613",
       "file": "a-3-98915000f613.webp",
