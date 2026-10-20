@@ -14,5 +14,15 @@ export function applyPhotoLibrary(site){
   const existing=data.photos.find(p=>p.key===a.image);
   return existing&&!isIllustrativePhoto(existing)?a:{...a,image:library.covers[a.slug]};
  });
+ return removeIllustrativePhotos(data);
+}
+
+export function removeIllustrativePhotos(site){
+ const data=structuredClone(site);
+ data.photos=data.photos.filter(p=>!isIllustrativePhoto(p));
+ const exists=key=>data.photos.some(p=>p.key===key),location=data.photos.find(p=>p.category==='location');
+ for(const key of ['heroImage','introImage','bannerImage'])if(!exists(data[key])&&location)data[key]=location.key;
+ data.apartments=data.apartments.map(a=>exists(a.image)?a:{...a,image:data.photos.find(p=>p.category===a.slug)?.key||a.image});
+ data.guide=(data.guide||[]).map(g=>exists(g.photo)?g:{...g,photo:data.heroImage});
  return data;
 }

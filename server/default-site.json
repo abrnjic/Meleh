@@ -754,16 +754,6 @@
       "illustrative": false
     },
     {
-      "key": "detail",
-      "file": "detail.jpg",
-      "url": null,
-      "alt": "Topli detalji interijera",
-      "altEn": "",
-      "altDe": "",
-      "category": "house",
-      "illustrative": true
-    },
-    {
       "key": "a-3-98915000f613",
       "file": "a-3-98915000f613.webp",
       "url": null,
@@ -1625,8 +1615,8 @@
     }
   ],
   "heroImage": "hero",
-  "introImage": "beach",
-  "bannerImage": "sunset",
+  "introImage": "hero",
+  "bannerImage": "hero",
   "photoCredits": [
     {
       "file": "peljesac-obala.jpg",

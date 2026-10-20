@@ -163,13 +163,6 @@ window.SITE = {
     {"key": "hero", "file": "peljesac-obala.jpg", "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Peljesac_south_coast.jpg", "alt": "Južna obala Pelješca", "altEn": "South coast of Pelješac", "altDe": "Südküste von Pelješac", "category": "location"},
     {"key": "beach", "file": "peljesac-prapratno.jpg", "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Prapratno%2C_Croatia.JPG", "alt": "Uvala Prapratno na Pelješcu", "altEn": "Prapratno bay on Pelješac", "altDe": "Bucht Prapratno auf Pelješac", "category": "location"},
     {"key": "sunset", "file": "peljesac-ston.jpg", "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/View_of_Ston%2C_Croatia.jpg/1920px-View_of_Ston%2C_Croatia.jpg", "alt": "Pogled na Ston na Pelješcu", "altEn": "View of Ston on Pelješac", "altDe": "Blick auf Ston auf Pelješac", "category": "location"},
-    {"key": "a-3-photo", "file": "room.jpg", "category": "a-3", "alt": "Ogledni interijer — nije fotografija apartmana A-3", "altEn": "Illustrative interior — not a photograph of apartment A-3", "altDe": "Beispielinterieur — kein Foto des Apartments A-3"},
-    {"key": "a-4-photo", "file": "bedroom.jpg", "category": "a-4", "alt": "Ogledni interijer — nije fotografija apartmana A-4", "altEn": "Illustrative interior — not a photograph of apartment A-4", "altDe": "Beispielinterieur — kein Foto des Apartments A-4"},
-    {"key": "a-9-photo", "file": "house.jpg", "category": "a-9", "alt": "Ogledni interijer — nije fotografija apartmana A-9", "altEn": "Illustrative interior — not a photograph of apartment A-9", "altDe": "Beispielinterieur — kein Foto des Apartments A-9"},
-    {"key": "a-13-photo", "file": "room.jpg", "category": "a-13", "alt": "Ogledni interijer — nije fotografija apartmana A-13", "altEn": "Illustrative interior — not a photograph of apartment A-13", "altDe": "Beispielinterieur — kein Foto des Apartments A-13"},
-    {"key": "a-8-photo", "file": "bedroom.jpg", "category": "a-8", "alt": "Ogledni interijer — nije fotografija apartmana A-8", "altEn": "Illustrative interior — not a photograph of apartment A-8", "altDe": "Beispielinterieur — kein Foto des Apartments A-8"},
-    {"key": "a-12-photo", "file": "house.jpg", "category": "a-12", "alt": "Ogledni interijer — nije fotografija apartmana A-12", "altEn": "Illustrative interior — not a photograph of apartment A-12", "altDe": "Beispielinterieur — kein Foto des Apartments A-12"},
-    {key:'detail',file:'detail.jpg',alt:'Topli detalji interijera',category:'house'}
   ]
 };
 
