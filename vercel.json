@@ -45,6 +45,11 @@
       "source": "/apartmani/more",
       "destination": "/apartmani",
       "permanent": true
+    },
+    {
+      "source": "/fotografije",
+      "destination": "/galerija",
+      "permanent": true
     }
   ]
 }
