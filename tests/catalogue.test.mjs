@@ -49,3 +49,13 @@ test('shared amenities migrate once without claiming both a terrace and balcony 
  db.data.get('site/public').data.apartments[0].amenities.wifi=false;
  const again=await readSiteData(db,defaults);assert.equal(again.revision,8);assert.equal(again.data.apartments[0].amenities.wifi,false);
 });
+
+
+test('apartment names use the same canonical form when older content or admin drafts are loaded',()=>{
+ const site=clone(defaults);
+ const variants=['Apartman A-3','Apartment A-4','A9','a - 13','A-8 (2+1)','Apartman A12 (2 + 1)'];
+ site.apartments.forEach((a,i)=>{a.name=variants[i]});
+ const normalized=validateContent(site);
+ assert.deepEqual(normalized.apartments.map(a=>a.name),['A-3','A-4','A-9','A-13','A-8','A-12']);
+ assert.deepEqual(normalized.apartments.map(a=>a.guests),defaults.apartments.map(a=>a.guests));
+});
