@@ -41,6 +41,7 @@ Predložak je u [.env.example](.env.example). Vrijednosti spremati u `.env.local
 
 | Varijabla | Namjena i uvjeti |
 | --- | --- |
+| `PORT` | Opcionalni port lokalnog razvojnog poslužitelja; zadano `4174` |
 | `ADMIN_EMAIL` | Primarni dopušteni administratorski Google račun |
 | `ADMIN_EMAILS` | Dodatni dopušteni računi, odvojeni zarezima |
 | `FIREBASE_PROJECT_ID` | Zamjena javno konfiguriranog Firebase projekta |
@@ -55,7 +56,7 @@ Predložak je u [.env.example](.env.example). Vrijednosti spremati u `.env.local
 | `MAIL_FROM` | Pošiljatelj na verificiranoj domeni |
 | `INQUIRY_TO` | Privatna adresa za primitak upita |
 | `INQUIRY_RATE_LIMIT_SALT` | Nasumična tajna od najmanje 32 znaka za zaštitu identifikatora ograničenja upita |
-| `CRON_SECRET` | Nasumična tajna od najmanje 32 znaka za pozadinski zadatak kalendara; dodaje se zasebno jer nije u predlošku |
+| `CRON_SECRET` | Nasumična tajna od najmanje 32 znaka za pozadinski zadatak kalendara |
 
 `VERCEL_ENV` postavlja Vercel. Ne postavljati ga lokalno radi zaobilaženja ograničenja federacije. OIDC tokene pribavlja runtime; ne upisuju se u `.env` datoteke.
 
