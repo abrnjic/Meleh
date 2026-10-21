@@ -188,3 +188,16 @@ html:is([data-text-size="130"],[data-text-size="150"]) .album-grid{grid-template
 .seo-price-scroll{max-width:100%;overflow-x:auto}
 .seo-price-scroll th,.seo-price-scroll td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}
 @media(max-width:600px){.seo-preview,.seo-global,.seo-snippet{padding:14px}}
+
+/* Keep all five content rows aligned across each visible row of location cards. */
+.distances{grid-auto-rows:auto;column-gap:12px;row-gap:16px}
+.distances .distance,.distances .distance:last-child{display:grid;grid-template-rows:subgrid;grid-row:span 5;gap:8px;align-items:start;justify-items:center}
+.distances .distance>svg{margin:0;width:28px;height:28px}
+.distances .distance>h3,.distances .distance>p,.distances .distance>.distance-detail{width:100%;min-width:0;margin:0}
+.distances .distance-actions{align-self:stretch;margin:0;padding-top:12px;width:100%;height:100%}
+.distance-actions a{height:100%;width:100%;gap:.35em;text-align:center;align-items:flex-start;text-decoration:none}
+.distance-link-label{min-width:0;overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:4px}
+.distance-arrow{flex:none;white-space:nowrap;text-decoration:none;line-height:1.5}
+html:is([data-text-size="130"],[data-text-size="150"]) .distances{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:850px){html:is([data-text-size="130"],[data-text-size="150"]) .distances{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){html:is([data-text-size="130"],[data-text-size="150"]) .distances{grid-template-columns:minmax(0,1fr)}}
