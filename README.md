@@ -1,119 +1,172 @@
 # Meleh Apartmani
 
-Glavni repozitorij: https://github.com/abrnjic/Meleh. Hosting: **Vercel**, [produkcijska stranica](https://meleh.vercel.app). Baza podataka, prijava i fotografije: **Firebase**. Slanje e-pošte: **Resend**, nakon naknadnog povezivanja i potvrde pošiljatelja.
+Višejezična web-stranica za predstavljanje i upravljanje smještajem **Meleh Apartmani** u Luci Dubravi na poluotoku Pelješcu. Projekt povezuje pregled šest apartmana, izračun cijene boravka, dostupnost i upite gostiju s administracijom sadržaja, rezervacija i SEO postavki.
 
-## Pokretanje i provjera
+[Radna web-stranica](https://meleh.vercel.app) · [Administracija](https://meleh.vercel.app/admin) · [Tehnička konfiguracija](SETUP.md)
 
-Potrebni su Node.js 24 i npm.
+> Domena `meleh.vercel.app` trenutačna je radna adresa. Prije konačnog lansiranja potrebno je povezati stvarnu produkcijsku domenu te uskladiti SEO, Google prijavu i verifikaciju vlasništva.
+
+## Funkcionalnosti
+
+### Za goste
+
+- Hrvatski, engleski, njemački i češki jezik.
+- Responzivan prikaz za mobitele, tablete i računala, uz prilagodbu veličine teksta.
+- Katalog apartmana **A-3, A-4, A-9, A-13, A-8 i A-12**, s opisima, opremom, pravilima i fotografijama.
+- Pretraživanje prema datumima, broju gostiju i željenim sadržajima te usporedba apartmana.
+- Sezonski cjenici, izračun cijene boravka, kalendar zauzetosti i prijedlozi alternativnih termina.
+- Kontaktni obrazac i WhatsApp upit s pripremljenim podacima o boravku.
+- Galerija organizirana u albume apartmana, kuće i okućnice te lokacije i plaža.
+- Vodič kroz Pelješac, plan dana i česta pitanja.
+- Privatni digitalni vodič za potvrđene boravke, dostupan putem vremenski ograničene poveznice.
+
+### Za administratore
+
+- Google prijava uz provjeru ovlaštenih računa na poslužitelju.
+- Uređivanje podataka objekta i apartmana, prijevoda, cijena, fotografija, sadržaja vodiča i čestih pitanja.
+- Upravljanje zauzećima i iCal kalendarima, uz prikaz posljednje sinkronizacije.
+- Pregled upita sa statusima **Novi**, **Ponuda poslana**, **Potvrđeno** i **Otkazano**, privatnim bilješkama i predlošcima ponude.
+- Upravljanje privatnim vodičima za goste te izvoz i uvoz kopije sadržaja.
+- Uređivanje SEO podataka po stranici i jeziku, s pregledom izgleda rezultata pretraživanja.
+
+## Tehnologije
+
+| Sloj | Tehnologija |
+| --- | --- |
+| Korisničko sučelje | HTML, CSS i JavaScript ES moduli |
+| Poslužiteljski dio | Node.js 24 i Vercel Functions |
+| Prijava | Firebase Authentication — Google |
+| Baza podataka | Cloud Firestore |
+| Pohrana prenesenih fotografija | Firebase Storage, uz zasebnu konfiguraciju |
+| E-pošta | Resend, uz aktivaciju i verifikaciju pošiljatelja |
+| Hosting i raspored sinkronizacije | Vercel i Vercel Cron |
+| Provjere | Ugrađeni Node.js test runner i HTTP smoke provjere |
+
+## Lokalno pokretanje
+
+Potrebni su **Node.js 24** i npm.
 
 ```sh
+git clone https://github.com/abrnjic/Meleh.git
+cd Meleh
 npm ci --ignore-scripts
+cp .env.example .env.local
 npm run build
 npm run dev
-npm test
-npm run test:runtime
-npm run smoke -- https://meleh.vercel.app
 ```
 
-Lokalni frontend i API: `http://127.0.0.1:4174`. Varijabla `PORT` može promijeniti port. Dev skripta čita `.env.local`; nikada je ne dodavati u Git.
+Aplikacija i lokalni API dostupni su na `http://127.0.0.1:4174`. Port se može promijeniti varijablom `PORT`. Razvojni poslužitelj učitava konfiguraciju iz `.env.local`.
 
-`npm run build` provjerava zadani sadržaj, izrađuje ulazne HTML stranice i serversku kopiju zadanog sadržaja. Vercel koristi `vercel.json`, instalira ovisnosti, pokreće build i poslužuje `dist` zajedno s API-jem. Nove apartmane iz administracije podržava rewrite `/apartmani/:slug`. Završne kose crte uklanjaju se kako API funkcije ne bi bile preusmjerene na nepostojeću putanju s kosom crtom.
+Javni sadržaj može se pregledavati lokalno; Google prijava, spremanje u bazu, prijenos fotografija i dostava e-pošte ovise o konfiguraciji odgovarajućih servisa.
 
-## Što je dostupno
+### Dostupne naredbe
 
-- Responzivna stranica s HR/EN/DE prijevodima, isključivo svijetlom temom te galerijom.
-- `/vodic/`: filtrirani vodič kroz Pelješac s poveznicama na službene turističke izvore i karte.
-- `/faq/`: česta pitanja; nepotvrđeni uvjeti objekta ne predstavljaju se kao stvarni podaci.
-- `/dostupnost/` i stranice apartmana: kalendar zauzetosti, odabir mjeseca i datuma, sezonski cjenik i izračun cijene.
-- `/admin/`: Google prijava ovlaštenog administratora putem Firebasea te odvojeni, jasno označeni lokalni ogledni panel.
-- Panel uređuje podatke objekta, priču domaćina, apartmane i opise na tri jezika, cijene po sezonama, naslovne fotografije, galeriju, zauzeća, vodič i FAQ. Podržava izvoz i uvoz kopije sadržaja.
-- Mobilna traka prikazuje upit i kalendar dok nema kontakata; stvarni telefon i WhatsApp pojavljuju se nakon unosa brojeva.
-- Serverski tok upita: validacija → provjera termina i ograničenje učestalosti → Firestore zapis → zasebna e-poruka domaćinu i potvrda gostu. Neuspješna dostava vidi se u panelu i može se ponoviti.
+| Naredba | Namjena |
+| --- | --- |
+| `npm run dev` | Lokalni razvojni poslužitelj s API-jem |
+| `npm run build` | Validacija sadržaja i priprema datoteka za objavu |
+| `npm test` | Automatizirani testovi |
+| `npm run test:runtime` | Testovi uz dodatnu provjeru kompatibilnosti modula |
+| `npm run smoke -- https://meleh.vercel.app` | Osnovna HTTP provjera objavljene aplikacije |
 
-## Ogledni panel bez servisa
+Smoke provjera ne stvara rezervacije ni korisničke račune i ne šalje e-poruke.
 
-Na `/admin/` odaberite **Otvori ogledni panel**. To ne daje pristup javnoj administraciji. Promjene se spremaju samo u lokalnu pohranu ovog preglednika, pod ključem `meleh-editor-preview-v1`, i utječu samo na lokalni pregled. Nakon osvježavanja ponovno otvorite ogledni panel kako biste učitali spremljeni pregled. Gumb za vraćanje početnog sadržaja uklanja ovu kopiju. Izvoz kopije ne uključuje osobne podatke upita.
+## Konfiguracija servisa
 
-Javna Firebase konfiguracija projekta `meleh-ce687` ugrađena je u aplikaciju. Serverski Firebase pristup koristi produkcijsku Vercel OIDC federaciju, bez servisnog privatnog ključa. Google prijava omogućuje se kada `/api/config` potvrdi stvarni pristup bazi i provjeri korisnika. Slanje e-pošte i Storage čekaju naknadnu aktivaciju; upit se može pripremiti/kopirati/preuzeti, a kalendar bez unesenih podataka navodi da dostupnost nije potvrđena. Ne prikazujemo lažnu potvrdu slanja ni sigurno slobodne termine.
+Predložak varijabli nalazi se u [.env.example](.env.example), a detaljne upute u [SETUP.md](SETUP.md). Tajne vrijednosti postavljaju se lokalno u `.env.local`, odnosno u postavkama okruženja na Vercelu.
 
-## Povezivanje Firebasea i e-pošte
+| Skupina | Konfiguracija |
+| --- | --- |
+| Administratori | `ADMIN_EMAIL` i `ADMIN_EMAILS` određuju dopuštene Google račune |
+| Firebase | Projekt, spremnik i serverske vjerodajnice ili federacija identiteta |
+| E-pošta | `RESEND_API_KEY`, `MAIL_FROM`, `INQUIRY_TO` i postavke ograničenja učestalosti upita |
+| Pozadinska sinkronizacija | `CRON_SECRET` štiti zakazani poziv sinkronizacije |
 
-Detaljni koraci su u [SETUP.md](SETUP.md). `.env.example` sadrži samo nazive varijabli, bez stvarnih vrijednosti. Administratorski email lokalno je predviđen u privatnoj varijabli `ADMIN_EMAIL`; nije javni kontakt `SITE.email` niti se objavljuje u frontend.
+Postojeća Vercel konfiguracija za serverski pristup Firebaseu koristi **OIDC i Google Workload Identity Federation**, bez dugotrajnog privatnog ključa servisnog računa. Podržana je i alternativna konfiguracija servisnim računom.
 
-Za administratorski pristup API provjerava potpis, opoziv i trajanje Firebase ID tokena, Google pružatelja prijave, potvrđen email i točno podudaranje s privatnim `ADMIN_EMAIL`. Firebase web SDK koristi isključivo memorijsku pohranu; obnavlja ID token i briše sesiju pri odjavi. Osvježavanje stranice zahtijeva novu prijavu. Firestore i Storage pravila onemogućuju izravni klijentski pristup; podaci prolaze kroz zaštićeni API. Nemojte koristiti e-mail podudaranje samo u klijentu kao zaštitu.
+Dostava upita e-poštom zahtijeva aktivan Resend i verificiranog pošiljatelja. Prijenos novih fotografija kroz administraciju zahtijeva konfiguriran Storage. Sam unos varijabli nije zamjena za provjeru rada servisa.
 
-## Stvarni sadržaj kasnije
+**Ne dodavati `.env.local`, privatne ključeve, pristupne tokene ili privatne iCal poveznice u Git.** Javna Firebase konfiguracija služi inicijalizaciji web SDK-a; ovlasti za podatke provjerava poslužiteljski API.
 
-Početne podatke možete urediti u `dist/content.js`, a nakon povezivanja u administratorskom panelu. Nazivi apartmana, površine, kapaciteti i interijeri i dalje su ogledni. Adresa, kontakt, točne udaljenosti i pravila čekaju unos. Cijene nisu izmišljene: bez unesenih sezona prikazuje se „cijena na upit”.
+## Sadržaj i fotografije
 
-Gostu se objavljuju samo datumi zauzetosti, bez privatnih bilježaka. Intervali su od dolaska do odlaska, uz slobodan dan odlaska za promjenu gostiju. Preklapajuća zauzeća i sezone odbijaju se. Brisanje ili promjena oznake apartmana s postojećim zauzećima odbija se dok se termini ne urede.
+Podaci o objektu, opremi i sezonskim cijenama temelje se na dokumentaciji domaćina. Službeni naziv projekta i objekta ostaje **Meleh Apartmani**. Normalizirana specifikacija nalazi se u [config/property-specification.json](config/property-specification.json).
 
-Prije pravog primanja upita dovršite podatke vlasnika, privatnost, uvjete rezervacije, kontakt i potvrđene cijene. U panelu isključite oznaku ogledne verzije tek kad sadržaj bude spreman. Serversko slanje upita dodatno je blokirano dok je `demo` uključen.
+Administracija služi za daljnje uređivanje objavljenog sadržaja. Spremanje koristi revizije i transakcije, a migracije početnih podataka čuvaju naknadne administratorske izmjene.
 
-## Fotografije
+### Priprema fotografija iz lokalnih mapa
 
-Potvrđena lokacija: Luka Dubrava 28, 20248 Dubrava, Pelješac. Točna karta i telefon preuzeti su iz korisnikove datoteke osnovnih podataka. Naziv Meleh, Google administratori i kalendari ostaju isti; ogledni kapaciteti i interijeri nisu potvrđena ponuda.
+Izvorne fotografije nalaze se izvan repozitorija, u susjednoj mapi `../Fotke`. Pridruživanje apartmanima i kolekcijama određuje [config/photo-folders.json](config/photo-folders.json); neoznačene mape ne pridružuju se automatski.
 
-Fotografije destinacije učitavaju se sa statičke domene Wikimedia Commons. Prikazuju širu destinaciju, ne samu kuću. Izvori i licence nalaze se na `/fotografije/`:
+Za obradu je potreban Python 3 s bibliotekom Pillow:
 
-- Peljesac south coast.jpg — Yerpo, CC BY-SA 3.0.
-- Prapratno, Croatia.JPG — Neoneo13, javno dobro.
-- View of Ston, Croatia.jpg — Bernard Gagnon, CC BY-SA 4.0.
+```sh
+python3 scripts/prepare-photos.py
+npm run build
+```
 
-`server/destination.js` jednom usklađuje ranije spremljeni javni sadržaj s potvrđenom destinacijom. Transakcija povećava reviziju sadržaja i čuva apartmane, zauzeća, upite i korisničke kontakte. Sljedeća administratorska spremanja zadržavaju oznaku migracije, pa kasnije izmjene ne prepisujemo.
+Skripta čuva originale i izrađuje optimizirane WebP datoteke do 1600 px, bez EXIF metapodataka. Nakon pripreme potrebno je uključiti izmijenjene datoteke iz `dist/assets`, biblioteku `dist/photo-library-data.js` i povezane rezultate builda u objavu.
 
+Fotografije apartmana, kuće, okućnice i plaže dostavio je domaćin. Izvori i licence dodatnih fotografija šire destinacije navedeni su u uvjetima korištenja na stranici `/uvjeti`.
 
-Fotografije su smanjene i u pojedinim prikazima koriste CSS izrez i zatamnjenje; prilagođeni prikazi dostupni su pod istom licencom. Fotografije interijera s Unsplasha su ilustrativne i ne prikazuju apartmane Meleh. Nove fotografije prolaze provjeru formata, prilagodbu veličine i, u javnom načinu, autentikaciju prije spremanja u Firebase Storage.
+## Dostupnost i sinkronizacija kalendara
 
-## Struktura
+Zauzeće se računa od datuma dolaska do datuma odlaska; dan odlaska dostupan je za sljedeći dolazak. Model provjerava preklapanja, kapacitet i pravila minimalnog boravka. Za razdoblja bez unesenog cjenika aplikacija ne pretpostavlja cijenu.
 
-- `dist/app.js`, `dist/style.css`: javna stranica, postojeći sadržaj i stilovi.
-- `dist/features.js`: vodič, FAQ, kalendar, cijene, mobilni kontakti i panel.
-- `dist/model.js`: zajednička validacija i izračuni u pregledniku i na serveru.
-- `dist/theme.js`: prelazak ranije spremljenih postavki na isključivo svijetli izgled.
-- `api/index.js`: zajednički Vercel Functions API ulaz.
-- `server/firebase.js`, `server/mail.js`: administratorska provjera, pohrana i dostava e-pošte.
-- `server/default-site.json`: zadani sadržaj generiran buildom.
-- `tests/`: datumi, cijene, kapacitet, neispravan sadržaj, zaštita API-ja i djelomične greške e-pošte.
+Podržani su iCal uvoz i izvoz te automatska pozadinska sinkronizacija svakih **15 minuta**, prema rasporedu u `vercel.json`. Za stvarno povezivanje vanjskih kalendara potrebno je unijeti njihove iCal poveznice u administraciji. Ažuriranja nisu trenutačna; prikazuje se vrijeme posljednje sinkronizacije.
 
-## Provjera i ograničenja
+## SEO i produkcijska domena
 
-Automatizirani testovi pokrivaju datume i promjene gostiju, preklapanja, cijene preko sezona, kapacitete, opasan sadržaj i URL-ove, neprijavljeni pristup, privole te neuspješnu i ponovljenu dostavu poruka. U pregledniku je provjeren tok oglednog uređivanja → spremanje cjenika i zauzeća → prikaz gostu i izračun cijene.
+Administratorski odjeljak **SEO i tražilice** omogućuje uređivanje naslova, metaopisa, slike za dijeljenje i postavke indeksiranja za svaki podržani jezik. Globalne postavke uključuju primarnu domenu, zadane vrijednosti i kodove za verifikaciju Googlea i Binga.
 
-Google prijava i Firestore koriste produkcijsku federaciju; prvi ulazak stvarnog administratora dovršava se njegovim Google računom. Storage i stvarna dostava e-pošte zahtijevaju naknadnu aktivaciju i provjeru. Test dostave koristi kontrolirani zamjenski HTTP odgovor i ne šalje stvarne poruke.
+Poslužitelj isporučuje aktualne metapodatke u početnom HTML-u. Promjene spremljene kroz administraciju primjenjuju se bez nove objave koda. Implementirani su:
 
-Potvrđeni katalog ima šest jedinica: A-3, A-4, A-9, A-13, A-8 i A-12. Migracija `six-apartments-2026-10` jednom zamjenjuje ogledni katalog, privatno čuva njegovu kopiju u `site/catalogue-before-six-2026-10` i ne preusmjerava povijesne termine ili upite na nasumične nove jedinice. Svih šest apartmana ima vlastite fotografije. Stari javni URL-ovi vode na novi popis apartmana.
+- kanonske poveznice i jezične alternative `hreflang`;
+- Open Graph i Twitter metapodaci;
+- strukturirani podaci JSON-LD za objekt, stranice, apartmane i česta pitanja;
+- dinamički `sitemap.xml` i `robots.txt`;
+- isključivanje administracije i privatnih vodiča iz indeksiranja.
 
-`tests/fixtures/sample-site.json` izolira prijašnji ogledni katalog za provjeru postojećih tijekova; produkcijski katalog provjerava `tests/catalogue.test.mjs`.
+Pri prelasku na konačnu domenu potrebno je:
 
-## Dodavanje stvarnih fotografija
+1. Povezati domenu s Vercel projektom i provjeriti HTTPS.
+2. Dodati domenu među dopuštene domene Firebase Google prijave.
+3. U SEO postavkama unijeti stvarnu produkcijsku HTTPS adresu.
+4. Verificirati vlasništvo te domene u Google Search Consoleu i, prema potrebi, Bing Webmaster Toolsu.
+5. Poslati sitemap s konačne domene i provjeriti preusmjeravanja i kanonske poveznice.
 
-Izvorne fotografije ostaju u susjednoj mapi `../Fotke`. Mapiranje je izričito navedeno u `config/photo-folders.json`: `APARTMENT A-3` → A-3, `APARTMENT A-4` → A-4, `APARTMENT A-9` → A-9, `APARTMENT A-13` → A-13, `APARTMENT A-8` → A-8 i `APARTMENT A-12` → A-12. Za A-12 koristi se samo korijenska mapa (`recursive: false`), jer `Uvecane` sadrži kopije istih triju fotografija. Neoznačene mape nikada se ne pridružuju automatski.
+Verifikacija radne Vercel adrese ne zamjenjuje verifikaciju buduće produkcijske domene.
 
-Nakon dodavanja fotografija u poznate mape pokrenuti `python3 scripts/prepare-photos.py` (Pillow), zatim `npm run build`. Za novi apartman prvo dopuniti mapiranje i odabrati naslovne fotografije u `preferred`. Skripta čuva originale, radi WebP kopije do 1600 px bez EXIF metapodataka te zapisuje biblioteku s revizijom temeljenom na sadržaju. Nema generativne izmjene fotografija.
+## Sigurnost i privatnost
 
-Objaviti nove datoteke iz `dist/assets`, `dist/photo-library-data.js` i rezultat builda. Nova revizija jednom ažurira odgovarajuće galerije u spremljenom katalogu. Kapaciteti, cijene, zauzeća, dodatno prenesene stvarne fotografije i ručni odabiri postojećih naslovnica ostaju sačuvani pri sljedećim dopunama biblioteke. Stvarne fotografije imaju `illustrative: false`; ostale zadržavaju jasnu oznaku oglednih fotografija. Učitavanje preko administracije također označava fotografiju kao stvarnu.
+API provjerava valjanost i opoziv Firebase ID tokena, Google pružatelja prijave, potvrđenu adresu e-pošte i pripadnost administratorskom popisu. Provjera u korisničkom sučelju nije jedina zaštita.
 
-## Specifikacija apartmana i cjenik
+Firestore i Storage pravila ograničavaju izravan klijentski pristup. Administratorski podaci prolaze kroz zaštićeni API. Javna dostupnost ne otkriva osobne podatke gostiju ni privatne bilješke. Privatni vodiči koriste poveznice koje se mogu opozvati i kojima se može ograničiti trajanje.
 
-`config/property-specification.json` sadrži podatke iz dostavljenog dokumenta Adria_Maja_specifikacija_apartmana (1).xlsx, odobrene od vlasnika. Službeni naziv ostaje Meleh Apartmani. Build prenosi podatke u početni sadržaj; migracija `workbook-specification-2026-10` jednom dopunjuje javno spremljeni sadržaj, uz očuvanje fotografija, upita, rezervacija i postojećeg ručno unesenog cjenika. Šest jedinica ima ukupno 36 sezonskih redaka za 2026. i 2027. Izvorni krajnji datumi uključuju posljednje noćenje; aplikacija ih interno sprema kao sljedeći dan (isključiva granica). Cijene izvan navedenih razdoblja ostaju nepoznate. Pravila minimalnog boravka, naknada za ljubimce i oprema čuvaju se u modelu i administraciji.
+## Struktura repozitorija
 
-Dokumentacija je izvor podataka domaćina. Pogled na more i pogled na vrt mogu biti istodobno dostupni; migracija `sea-and-garden-views-2026-10` dopunjuje oba pogleda bez ponovnog uvoza cjenika ili promjene fotografija.
+```text
+api/                  Ulazna točka Vercel API-ja
+config/               Specifikacija objekta i mapiranje fotografija
+dist/                 Frontend, stilovi, sadržaj i optimizirani mediji
+scripts/              Razvoj, build, priprema fotografija i smoke provjere
+server/               Firebase, upiti, kalendari i serverski SEO
+tests/                Automatizirani testovi i izdvojeni testni podaci
+.env.example          Predložak konfiguracije
+SETUP.md              Upute za povezivanje servisa
+vercel.json           Objavljivanje, usmjeravanje i Cron raspored
+```
 
-Produkcijske fotografije: migracija `real-photos-only-2026-10` uklanja preostale ogledne fotografije i popravlja naslovnice ili vodiče koji su ih referencirali. Javna biblioteka sadrži 86 fotografija apartmana, 11 fotografija kuće, okućnice i plaže te tri prizora destinacije. Stare ogledne datoteke interijera nisu dio objave.
+## Provjera i objavljivanje
 
-Čeština koristi oznaku `cs` i format `cs-CZ`. `dist/czech-data.js` sadrži prijevode javnih tekstova, a `dist/i18n.js` podržane jezike i dinamičke natpise. Lokalizirani sadržaj i opisi fotografija čuvaju češki prijevod; administracija omogućuje njegovo uređivanje. Upiti, predlošci odgovora i privatni vodič podržavaju češki. Migracija `czech-2026-10` jednom dopunjuje postojeći sadržaj bez promjene cijena, fotografija ili rezervacija.
+Prije objave promjena aplikacije pokrenuti:
 
-Fotografije kuće i plaže iz mape `Fotke/Okucnica i plaza` razvrstane su u `config/photo-folders.json`. Skripta `scripts/prepare-photos.py` izrađuje WebP kopije i odabrane naslovne fotografije; originale ne mijenja. Promjena revizije biblioteke dodaje fotografije i zamjenjuje stare regionalne naslovne prizore, čuvajući naknadne odabire domaćina.
+```sh
+npm run build
+npm test
+npm run test:runtime
+```
 
-### SEO administracija i indeksiranje
+Testovi pokrivaju cijene, datume, kapacitete, autorizaciju, spremanje sadržaja, iCal obradu, privatne vodiče i SEO. Nakon objave provjeriti javne stranice, prijavu i relevantne administratorske radnje u konfiguriranom okruženju.
 
-U administraciji je odjeljak **SEO i tražilice**. Za svaku javnu stranicu i apartman uređuju se naslovi i meta opisi na HR/EN/DE/CS, fotografija za Open Graph/Twitter prikaz te noindex. Prazna polja koriste automatske vrijednosti iz sadržaja objekta. Opće postavke sadrže glavnu HTTPS domenu, dodatak naslovu, zadane opise/fotografiju i verifikacijske kodove Google Search Console/Bing Webmastera. Kodove vlasnik dobiva u tim servisima; ova funkcionalnost ih sama ne registrira niti jamči indeksiranje/rangiranje.
-
-SEO se sprema u `site/public.data.seo` kroz postojeći administratorski endpoint, s istom Google autentikacijom, validacijom i provjerom revizije. Izmjena ne zahtijeva redeploy. Ne objavljuju se API ključevi ni privatni podaci gostiju. Glavnu domenu mijenjati tek nakon povezivanja na Vercelu.
-
-Produkcijski javni URL-ovi vraćaju serverski HTML s aktualnim sadržajem iz Firestorea, canonical/reciprocal hreflang poveznicama i JSON-LD (`LodgingBusiness`, `WebSite`, `WebPage`, breadcrumbs, apartman/FAQ gdje je primjenjivo). HR je osnovni URL, EN/DE/CS koriste `?lang=en`, `?lang=de`, `?lang=cs`; odabrani jezik ostaje u internim poveznicama. `sitemap.xml` i `robots.txt` također čitaju aktualne postavke. Sitemap se ručno prijavljuje u Search Console nakon verifikacije domene.
-
-Administracija, tajni vodič, preview deploymenti i 404 imaju noindex. Privatni vodič nikad ne izlaže upute za goste u početnom HTML-u. SEO ne dodaje analitiku ni marketinške kolačiće. Cijene i dostupnost nisu izmišljeni strukturirani podaci niti recenzije. Lokalni `npm run dev` također poslužuje SSR; čisti statički server prikazuje HTML pripremljen zadnjim buildom.
-
-Vercel build uklanja generirane statičke HTML/sitemap/robots snimke iz izlaza jer postojeće datoteke imaju prednost pred rewrites pravilima. Ostaju statički resursi i 404; javne stranice i SEO datoteke dolaze iz funkcije. Lokalni build zadržava HTML snimke.
+Povezani Vercel projekt automatski objavljuje promjene s grane `main`. Postavke okruženja i vanjskih servisa održavaju se zasebno od izvornog koda.
