@@ -24,7 +24,7 @@ export async function handle(request){if(request.method==='HEAD'){const result=a
   if(route==='sitemap.xml')return new Response(sitemapXml(site,{preview}),{headers:{...headers,'Content-Type':'application/xml; charset=utf-8'}});
   if(route==='robots.txt')return new Response(robotsTxt(site),{headers:{...headers,'Content-Type':'text/plain; charset=utf-8'}});
   const template=await readFile(new URL('../server/page-template.html',import.meta.url),'utf8');
-  const result=renderSeoHtml(template,site,u.searchParams.get('path')||'/',u.searchParams.get('lang')||'hr',{preview});
+  const result=renderSeoHtml(template,site,u.searchParams.get('pagePath')||'/',u.searchParams.get('lang')||'hr',{preview});
   return new Response(result.html,{status:result.status,headers:{...headers,'Content-Type':'text/html; charset=utf-8','X-Robots-Tag':result.meta.noindex?'noindex, nofollow':'index, follow','Referrer-Policy':result.meta.privatePage?'no-referrer':'strict-origin-when-cross-origin'}});
  }
  if(route==='calendar-background'&&method==='GET'){requireCalendarCron(request);return json(await runCalendarBackground(firebase().db));}

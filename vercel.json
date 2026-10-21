@@ -16,67 +16,67 @@
     },
     {
       "source": "/",
-      "destination": "/api/index?route=seo-page&path=/"
+      "destination": "/api/index?route=seo-page&pagePath=/"
     },
     {
       "source": "/apartmani",
-      "destination": "/api/index?route=seo-page&path=/apartmani"
+      "destination": "/api/index?route=seo-page&pagePath=/apartmani"
     },
     {
       "source": "/o-nama",
-      "destination": "/api/index?route=seo-page&path=/o-nama"
+      "destination": "/api/index?route=seo-page&pagePath=/o-nama"
     },
     {
       "source": "/galerija",
-      "destination": "/api/index?route=seo-page&path=/galerija"
+      "destination": "/api/index?route=seo-page&pagePath=/galerija"
     },
     {
       "source": "/kontakt",
-      "destination": "/api/index?route=seo-page&path=/kontakt"
+      "destination": "/api/index?route=seo-page&pagePath=/kontakt"
     },
     {
       "source": "/vodic",
-      "destination": "/api/index?route=seo-page&path=/vodic"
+      "destination": "/api/index?route=seo-page&pagePath=/vodic"
     },
     {
       "source": "/faq",
-      "destination": "/api/index?route=seo-page&path=/faq"
+      "destination": "/api/index?route=seo-page&pagePath=/faq"
     },
     {
       "source": "/dostupnost",
-      "destination": "/api/index?route=seo-page&path=/dostupnost"
+      "destination": "/api/index?route=seo-page&pagePath=/dostupnost"
     },
     {
       "source": "/usporedba",
-      "destination": "/api/index?route=seo-page&path=/usporedba"
+      "destination": "/api/index?route=seo-page&pagePath=/usporedba"
     },
     {
       "source": "/pronadi-apartman",
-      "destination": "/api/index?route=seo-page&path=/pronadi-apartman"
+      "destination": "/api/index?route=seo-page&pagePath=/pronadi-apartman"
     },
     {
       "source": "/plan-dana",
-      "destination": "/api/index?route=seo-page&path=/plan-dana"
+      "destination": "/api/index?route=seo-page&pagePath=/plan-dana"
     },
     {
       "source": "/privatnost",
-      "destination": "/api/index?route=seo-page&path=/privatnost"
+      "destination": "/api/index?route=seo-page&pagePath=/privatnost"
     },
     {
       "source": "/uvjeti",
-      "destination": "/api/index?route=seo-page&path=/uvjeti"
+      "destination": "/api/index?route=seo-page&pagePath=/uvjeti"
     },
     {
       "source": "/admin",
-      "destination": "/api/index?route=seo-page&path=/admin"
+      "destination": "/api/index?route=seo-page&pagePath=/admin"
     },
     {
       "source": "/gost",
-      "destination": "/api/index?route=seo-page&path=/gost"
+      "destination": "/api/index?route=seo-page&pagePath=/gost"
     },
     {
       "source": "/apartmani/:slug",
-      "destination": "/api/index?route=seo-page&path=/apartmani/:slug"
+      "destination": "/api/index?route=seo-page&pagePath=/apartmani/:slug"
     },
     {
       "source": "/sitemap.xml",
