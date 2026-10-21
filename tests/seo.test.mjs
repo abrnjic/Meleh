@@ -1,3 +1,6 @@
+import {publicSiteRecord} from '../server/site-record.js';
+import {readSiteData} from '../server/destination.js';
+import {memoryDb} from './memory-db.mjs';
 import {captureSeoValues,seoEditorMarkup} from '../dist/seo-editor.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -46,3 +49,5 @@ test('sharing metadata uses absolute images and escapes quote characters',()=>{
 });
 
 test('editing another page preserves SEO already entered for other pages and records four languages',()=>{const s=site();s.seo.pages['/']={title:{hr:'Početna'},description:{hr:'Prvi opis'},noindex:false,image:''};const values={'seo-siteUrl':s.seo.siteUrl,'seo-titleSuffix':s.name,'seo-image':'','seo-googleVerification':'token','seo-bingVerification':'','seo-title-hr':'Galerija domaćina','seo-title-cs':'Galerie hostitele','seo-description-en':'House and apartment photo albums.','seo-noindex':'on'};captureSeoValues(values,s,'/galerija');const saved=validateContent(s);assert.equal(saved.seo.pages['/'].title.hr,'Početna');assert.equal(saved.seo.pages['/galerija'].title.cs,'Galerie hostitele');assert.equal(saved.seo.pages['/galerija'].description.en,'House and apartment photo albums.');assert.equal(saved.seo.pages['/galerija'].noindex,true);assert.equal(saved.seo.googleVerification,'token');});
+
+test('an administrator SEO save keeps migration markers and does not change revision or house rules on the next read',async()=>{const s=site();s.seo.pages['/']={title:{hr:'Naslov domaćina'},description:{hr:'Novi opis'},image:'',noindex:false};s.smoking='Pravilo koje je uredio domaćin';const saved=publicSiteRecord(validateContent(s),23);const db=memoryDb({'site/public':saved});const first=await readSiteData(db,defaults);const again=await readSiteData(db,defaults);assert.equal(first.revision,23);assert.equal(again.revision,23);assert.equal(again.data.smoking,s.smoking);assert.equal(again.data.seo.pages['/'].title.hr,'Naslov domaćina');});
