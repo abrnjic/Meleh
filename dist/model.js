@@ -1,3 +1,4 @@
+import {validateSeo} from './seo.js';
 import {translateCs} from './i18n.js';
 // Shared browser/server validation. Dates use [arrival, departure) intervals.
 const invalid=message=>Object.assign(new Error(message),{status:400});
@@ -56,6 +57,7 @@ export function validateContent(input,{allowDataImages=false}={}){
   result.photoCredits=Array.isArray(input.photoCredits)?input.photoCredits.slice(0,100).map(c=>({file:text(c.file,120),title:text(c.title,250),author:text(c.author,200),source:https(c.source),license:text(c.license,100),licenseUrl:https(c.licenseUrl)})):[];
   result.reviews=[];result.faq=(input.faq||[]).slice(0,30).map(f=>({question:localized(f.question),answer:localized(f.answer)}));
   result.guide=(input.guide||[]).slice(0,30).map(g=>({title:localized(g.title),description:localized(g.description),category:slug(g.category),photo:slug(g.photo),url:https(g.url),mapUrl:https(g.mapUrl)}));
+  result.seo=validateSeo(input.seo,result);
   return result;
 }
 export function validateBooking(value,apartments){if(!apartments.some(a=>a.slug===value.apartment)||!interval(value.arrival,value.departure))throw invalid('Provjerite apartman i datume zauzeća.');return {id:value.id||null,apartment:value.apartment,arrival:value.arrival,departure:value.departure,note:text(value.note,500)||''}}

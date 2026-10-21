@@ -105,3 +105,13 @@ Produkcijske fotografije: migracija `real-photos-only-2026-10` uklanja preostale
 Čeština koristi oznaku `cs` i format `cs-CZ`. `dist/czech-data.js` sadrži prijevode javnih tekstova, a `dist/i18n.js` podržane jezike i dinamičke natpise. Lokalizirani sadržaj i opisi fotografija čuvaju češki prijevod; administracija omogućuje njegovo uređivanje. Upiti, predlošci odgovora i privatni vodič podržavaju češki. Migracija `czech-2026-10` jednom dopunjuje postojeći sadržaj bez promjene cijena, fotografija ili rezervacija.
 
 Fotografije kuće i plaže iz mape `Fotke/Okucnica i plaza` razvrstane su u `config/photo-folders.json`. Skripta `scripts/prepare-photos.py` izrađuje WebP kopije i odabrane naslovne fotografije; originale ne mijenja. Promjena revizije biblioteke dodaje fotografije i zamjenjuje stare regionalne naslovne prizore, čuvajući naknadne odabire domaćina.
+
+### SEO administracija i indeksiranje
+
+U administraciji je odjeljak **SEO i tražilice**. Za svaku javnu stranicu i apartman uređuju se naslovi i meta opisi na HR/EN/DE/CS, fotografija za Open Graph/Twitter prikaz te noindex. Prazna polja koriste automatske vrijednosti iz sadržaja objekta. Opće postavke sadrže glavnu HTTPS domenu, dodatak naslovu, zadane opise/fotografiju i verifikacijske kodove Google Search Console/Bing Webmastera. Kodove vlasnik dobiva u tim servisima; ova funkcionalnost ih sama ne registrira niti jamči indeksiranje/rangiranje.
+
+SEO se sprema u `site/public.data.seo` kroz postojeći administratorski endpoint, s istom Google autentikacijom, validacijom i provjerom revizije. Izmjena ne zahtijeva redeploy. Ne objavljuju se API ključevi ni privatni podaci gostiju. Glavnu domenu mijenjati tek nakon povezivanja na Vercelu.
+
+Produkcijski javni URL-ovi vraćaju serverski HTML s aktualnim sadržajem iz Firestorea, canonical/reciprocal hreflang poveznicama i JSON-LD (`LodgingBusiness`, `WebSite`, `WebPage`, breadcrumbs, apartman/FAQ gdje je primjenjivo). HR je osnovni URL, EN/DE/CS koriste `?lang=en`, `?lang=de`, `?lang=cs`; odabrani jezik ostaje u internim poveznicama. `sitemap.xml` i `robots.txt` također čitaju aktualne postavke. Sitemap se ručno prijavljuje u Search Console nakon verifikacije domene.
+
+Administracija, tajni vodič, preview deploymenti i 404 imaju noindex. Privatni vodič nikad ne izlaže upute za goste u početnom HTML-u. SEO ne dodaje analitiku ni marketinške kolačiće. Cijene i dostupnost nisu izmišljeni strukturirani podaci niti recenzije. Lokalni `npm run dev` također poslužuje SSR; čisti statički server prikazuje HTML pripremljen zadnjim buildom.

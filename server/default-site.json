@@ -2079,5 +2079,19 @@
       "url": "https://www.ston.hr/",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Restorani%20Luka%20Dubrava%20Pelje%C5%A1ac"
     }
-  ]
+  ],
+  "seo": {
+    "siteUrl": "https://meleh.vercel.app",
+    "titleSuffix": "Meleh Apartmani",
+    "description": {
+      "hr": "",
+      "en": "",
+      "de": "",
+      "cs": ""
+    },
+    "image": "",
+    "googleVerification": "",
+    "bingVerification": "",
+    "pages": {}
+  }
 }

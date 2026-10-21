@@ -15,13 +15,82 @@
       "destination": "/api/index?route=:path*"
     },
     {
+      "source": "/",
+      "destination": "/api/index?route=seo-page&path=/"
+    },
+    {
+      "source": "/apartmani",
+      "destination": "/api/index?route=seo-page&path=/apartmani"
+    },
+    {
+      "source": "/o-nama",
+      "destination": "/api/index?route=seo-page&path=/o-nama"
+    },
+    {
+      "source": "/galerija",
+      "destination": "/api/index?route=seo-page&path=/galerija"
+    },
+    {
+      "source": "/kontakt",
+      "destination": "/api/index?route=seo-page&path=/kontakt"
+    },
+    {
+      "source": "/vodic",
+      "destination": "/api/index?route=seo-page&path=/vodic"
+    },
+    {
+      "source": "/faq",
+      "destination": "/api/index?route=seo-page&path=/faq"
+    },
+    {
+      "source": "/dostupnost",
+      "destination": "/api/index?route=seo-page&path=/dostupnost"
+    },
+    {
+      "source": "/usporedba",
+      "destination": "/api/index?route=seo-page&path=/usporedba"
+    },
+    {
+      "source": "/pronadi-apartman",
+      "destination": "/api/index?route=seo-page&path=/pronadi-apartman"
+    },
+    {
+      "source": "/plan-dana",
+      "destination": "/api/index?route=seo-page&path=/plan-dana"
+    },
+    {
+      "source": "/privatnost",
+      "destination": "/api/index?route=seo-page&path=/privatnost"
+    },
+    {
+      "source": "/uvjeti",
+      "destination": "/api/index?route=seo-page&path=/uvjeti"
+    },
+    {
+      "source": "/admin",
+      "destination": "/api/index?route=seo-page&path=/admin"
+    },
+    {
+      "source": "/gost",
+      "destination": "/api/index?route=seo-page&path=/gost"
+    },
+    {
       "source": "/apartmani/:slug",
-      "destination": "/index.html"
+      "destination": "/api/index?route=seo-page&path=/apartmani/:slug"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/index?route=sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/api/index?route=robots.txt"
     }
   ],
   "functions": {
     "api/index.js": {
-      "maxDuration": 120
+      "maxDuration": 120,
+      "includeFiles": "server/page-template.html"
     }
   },
   "crons": [

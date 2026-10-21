@@ -1,3 +1,4 @@
+import {renderSeoHtml,sitemapXml,robotsTxt} from '../server/seo.js';
 import {build} from 'esbuild';
 import fs from 'node:fs/promises';
 import vm from 'node:vm';
@@ -10,8 +11,11 @@ await fs.writeFile('dist/content.js',content);
 const sandbox={window:{}};vm.runInNewContext(content,sandbox);
 const site=validateContent(applyPhotoLibrary(JSON.parse(JSON.stringify(sandbox.window.SITE))));
 await fs.mkdir('server',{recursive:true});await fs.writeFile('server/default-site.json',JSON.stringify(site,null,2)+'\n');
-const source=await fs.readFile('dist/index.html','utf8');
+const source=await fs.readFile('server/page-template.html','utf8');
 await fs.rm('dist/fotografije',{recursive:true,force:true});
-for(const route of ['pronadi-apartman','plan-dana','gost','apartmani','usporedba','o-nama','galerija','kontakt','privatnost','uvjeti','vodic','faq','dostupnost','admin',...site.apartments.map(a=>'apartmani/'+a.slug)]){await fs.mkdir('dist/'+route,{recursive:true});await fs.writeFile('dist/'+route+'/index.html',route==='gost'?source.replace('<head>','<head><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">').replace(/<link[^>]+(?:fonts\.googleapis|fonts\.gstatic)[^>]*>/g,''):source)}
-await fs.writeFile('dist/404.html',source);
-console.log('Built entry pages and validated default content.');
+const preview=process.env.VERCEL_ENV==='preview';
+await fs.writeFile('dist/index.html',renderSeoHtml(source,site,'/','hr',{preview}).html);
+for(const route of ['pronadi-apartman','plan-dana','gost','apartmani','usporedba','o-nama','galerija','kontakt','privatnost','uvjeti','vodic','faq','dostupnost','admin',...site.apartments.map(a=>'apartmani/'+a.slug)]){await fs.mkdir('dist/'+route,{recursive:true});await fs.writeFile('dist/'+route+'/index.html',renderSeoHtml(source,site,'/'+route,'hr',{preview}).html)}
+await fs.writeFile('dist/404.html',renderSeoHtml(source,site,'/404','hr',{preview}).html);
+await fs.writeFile('dist/robots.txt',robotsTxt(site));await fs.writeFile('dist/sitemap.xml',sitemapXml(site,{preview}));
+console.log('Built server-rendered entry pages, SEO metadata, sitemap and validated default content.');

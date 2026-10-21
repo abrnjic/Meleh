@@ -1,3 +1,5 @@
+import {readFile} from 'node:fs/promises';
+import {renderSeoHtml,sitemapXml,robotsTxt} from '../server/seo.js';
 import {readSiteData,destinationRevision,catalogueRevision,photoLibraryRevision,apartmentNamesRevision,amenitiesRevision,specificationRevision,viewsRevision,productionPhotoRevision,languageRevision,removeIllustrativePhotos} from '../server/destination.js';
 import {requireCalendarCron,runCalendarBackground} from '../server/calendar-background.js';
 import {addFeed,feedOverview,syncFeeds,combinedAvailability,createCalendarExport,readCalendarExport} from '../server/calendars.js';
@@ -9,12 +11,21 @@ import {mailConfigured,deliverInquiry} from '../server/mail.js';
 import {clone,validateContent,validateInquiry,validateBooking,overlaps} from '../dist/model.js';
 import defaults from '../server/default-site.json' with {type:'json'};
 const error=(message,status=400)=>Object.assign(new Error(message),{status});
-function json(data,status=200){return Response.json(data,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'}})}
+function json(data,status=200){return Response.json(data,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','X-Robots-Tag':'noindex, nofollow','Referrer-Policy':'no-referrer'}})}
 function sameOrigin(req){const origin=req.headers.get('origin');if(!origin||origin!==new URL(req.url).origin)throw error('Zahtjev mora doći s ove stranice.',403)}
 async function body(req,limit=700000){const raw=await req.text();if(Buffer.byteLength(raw)>limit)throw error('Podaci su preveliki.',413);try{return JSON.parse(raw)}catch{throw error('Neispravan JSON.')}}
 async function siteData(db){return readSiteData(db,defaults)}
 async function bookings(db){return (await db.collection('site').doc('calendar').get()).data()?.bookings||[]}
-export async function handle(request){try{const u=new URL(request.url);const route=(u.searchParams.get('route')||u.pathname.replace(/^\/api\/?/,'')).replace(/\/$/,'');const method=request.method;if(!['GET','POST','PUT','DELETE'].includes(method))return json({error:'Metoda nije dopuštena.'},405);if(method!=='GET')sameOrigin(request);
+export async function handle(request){if(request.method==='HEAD'){const result=await handle(new Request(request.url,{method:'GET',headers:request.headers}));return new Response(null,{status:result.status,headers:result.headers})}try{const u=new URL(request.url);const route=(u.searchParams.get('route')||u.pathname.replace(/^\/api\/?/,'')).replace(/\/$/,'');const method=request.method;if(!['GET','POST','PUT','DELETE'].includes(method))return json({error:'Metoda nije dopuštena.'},405);if(method!=='GET')sameOrigin(request);
+ if(['seo-page','sitemap.xml','robots.txt'].includes(route)&&method==='GET'){
+  const site=firebaseConfigured()?(await siteData(firebase().db)).data:defaults;const preview=process.env.VERCEL_ENV==='preview';
+  const headers={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
+  if(route==='sitemap.xml')return new Response(sitemapXml(site,{preview}),{headers:{...headers,'Content-Type':'application/xml; charset=utf-8'}});
+  if(route==='robots.txt')return new Response(robotsTxt(site),{headers:{...headers,'Content-Type':'text/plain; charset=utf-8'}});
+  const template=await readFile(new URL('../server/page-template.html',import.meta.url),'utf8');
+  const result=renderSeoHtml(template,site,u.searchParams.get('path')||'/',u.searchParams.get('lang')||'hr',{preview});
+  return new Response(result.html,{status:result.status,headers:{...headers,'Content-Type':'text/html; charset=utf-8','X-Robots-Tag':result.meta.noindex?'noindex, nofollow':'index, follow','Referrer-Policy':result.meta.privatePage?'no-referrer':'strict-origin-when-cross-origin'}});
+ }
  if(route==='calendar-background'&&method==='GET'){requireCalendarCron(request);return json(await runCalendarBackground(firebase().db));}
  if(route==='config'&&method==='GET'){const firebaseConfig=firebaseWebConfig();return json({firebaseConfigured:firebaseConfigured(),adminReady:Boolean(firebaseConfig.apiKey)&&await adminServicesReady(),mailReady:firebaseConfigured()&&mailConfigured(),firebaseApiKey:firebaseConfig.apiKey,firebaseConfig});}
  if(route==='content'&&method==='GET'){if(!firebaseConfigured())return json({configured:false,revision:0,data:null});const result=await siteData(firebase().db);return json({configured:true,...result});}
@@ -47,4 +58,4 @@ export async function handle(request){try{const u=new URL(request.url);const rou
  }
  return json({error:'Stranica nije pronađena.'},404);
  }catch(e){const status=e.status||500;if(status>=500)console.error('Meleh API error',{status,code:e.code||'not-configured'});return json({error:status===500?'Došlo je do pogreške. Pokušajte kasnije.':e.message},status)}}
-export const GET=handle;export const POST=handle;export const PUT=handle;export const DELETE=handle;
+export const HEAD=handle;export const GET=handle;export const POST=handle;export const PUT=handle;export const DELETE=handle;

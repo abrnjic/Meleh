@@ -171,3 +171,20 @@ html:is([data-text-size="130"],[data-text-size="150"]) .hero-bottom{position:rel
 html:is([data-text-size="130"],[data-text-size="150"]) .album-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:600px){html:is([data-text-size="130"],[data-text-size="150"]) .album-grid{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){.album-cover img{transition:none}}
+
+/* Administrator SEO editor and readable server-rendered fallback content. */
+.seo-global{border:1px solid var(--line);padding:20px;margin:25px 0}
+.seo-global summary{cursor:pointer;font-weight:600}
+.seo-global .form-grid{margin-top:22px}
+.seo-preview{margin:28px 0;padding:22px;background:var(--cream);min-width:0}
+.seo-preview .field{margin:18px 0}
+.seo-snippet{padding:20px;background:white;overflow-wrap:anywhere;border:1px solid var(--line)}
+.seo-snippet h4{margin:7px 0;color:#1656a4;font-family:var(--sans);font-size:1.125rem;line-height:1.4;font-weight:500}
+.seo-snippet p{font-size:.875rem;line-height:1.65}
+[data-seo-count]{color:var(--muted);font-size:.75rem}
+.seo-server-content article{margin:32px 0}
+.seo-server-content article img{max-width:640px;height:auto}
+.seo-server-content p,.seo-server-content dl{margin:22px 0}
+.seo-price-scroll{max-width:100%;overflow-x:auto}
+.seo-price-scroll th,.seo-price-scroll td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}
+@media(max-width:600px){.seo-preview,.seo-global,.seo-snippet{padding:14px}}
