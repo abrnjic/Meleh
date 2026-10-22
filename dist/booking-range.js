@@ -38,26 +38,27 @@ export function bookingRangeMarkup(state,periods=[],options={}){
  const countLabel=options.language==='cs'?(count===1?'noc':count>=2&&count<=4?'noci':'nocí'):count===1?text.night:text.nights;
  return `<input type="hidden" name="arrival" value="${state.arrival}"><input type="hidden" name="departure" value="${state.departure}"><div class="booking-range-fields">${[['arrival',text.arrival],['departure',text.departure]].map(([key,label])=>`<button type="button" data-booking-field="${key}" class="booking-range-field${state.active===key?' is-active':''}" aria-pressed="${state.active===key}"><span>${label}</span><strong>${state[key]?format(state[key],options):text.pick}</strong></button>`).join('')}</div><p class="booking-range-summary" role="status" aria-live="polite">${complete?`${count} ${countLabel} · ${format(state.arrival,options)} – ${format(state.departure,options)}`:state.arrival?text.end:text.start}</p><div class="booking-range-nav"><button type="button" data-booking-shift="-1" aria-label="${text.previous}">←</button><label>${text.month}<input type="month" data-booking-month value="${state.month}" min="1900-01" max="2200-12"></label><button type="button" data-booking-shift="1" aria-label="${text.next}">→</button></div><div class="booking-range-months">${monthMarkup(state.month,state,periods,0,options)}${monthMarkup(shiftMonth(state.month,1),state,periods,1,options)}</div><div class="booking-range-footer"><span><i aria-hidden="true"></i> ${text.occupied}</span>${options.public?`<span class="booking-range-availability">${options.known?text.available:text.unknown}</span>`:''}<button type="button" data-booking-clear>${text.clear}</button></div><p class="booking-range-help">${text.help}</p>`;
 }
-export function bindBookingRange(root,{getState,setState,getPeriods=()=>[],options={}}){
+export function bindBookingRange(root,{getState,setState,getPeriods=()=>[],options={},onChange=()=>{}}){
  if(!root)return;
  const paint=()=>{root.innerHTML=bookingRangeMarkup(getState(),getPeriods(),options)};
+ const update=state=>{const before=getState();setState(state);paint();if(before.arrival!==state.arrival||before.departure!==state.departure)onChange(state)};
  const focusDay=value=>root.querySelector(`[data-booking-day="${value}"]`)?.focus();
  root.onclick=e=>{
   const button=e.target.closest('button');if(!button||!root.contains(button))return;
   let state=getState(),focus='';
   if(button.dataset.bookingDay){focus=button.dataset.bookingDay;state=chooseBookingDate(state,focus,options)}
-  else if(button.dataset.bookingField){state={...state,active:button.dataset.bookingField};setState(state);paint();root.querySelector(`[data-booking-field="${state.active}"]`).focus();return}
+  else if(button.dataset.bookingField){state={...state,active:button.dataset.bookingField};update(state);root.querySelector(`[data-booking-field="${state.active}"]`).focus();return}
   else if(button.dataset.bookingShift){const month=shiftMonth(state.month,Number(button.dataset.bookingShift));if(month<'1900-01'||month>'2200-12')return;state={...state,month,focus:month+'-01'}}
   else if(button.hasAttribute('data-booking-clear'))state=clearBookingRange(state);
   else return;
-  setState(state);paint();if(focus)focusDay(focus);else root.querySelector(button.hasAttribute('data-booking-clear')?'[data-booking-clear]':`[data-booking-shift="${button.dataset.bookingShift}"]`)?.focus();
+  update(state);if(focus)focusDay(focus);else root.querySelector(button.hasAttribute('data-booking-clear')?'[data-booking-clear]':`[data-booking-shift="${button.dataset.bookingShift}"]`)?.focus();
  };
- root.onchange=e=>{if(!e.target.matches('[data-booking-month]'))return;const month=e.target.value;if(!/^\d{4}-\d{2}$/.test(month)||month<'1900-01'||month>'2200-12')return;setState({...getState(),month,focus:month+'-01'});paint();root.querySelector('[data-booking-month]').focus()};
+ root.onchange=e=>{if(!e.target.matches('[data-booking-month]'))return;const month=e.target.value;if(!/^\d{4}-\d{2}$/.test(month)||month<'1900-01'||month>'2200-12')return;update({...getState(),month,focus:month+'-01'});root.querySelector('[data-booking-month]').focus()};
  root.onkeydown=e=>{
   const button=e.target.closest('[data-booking-day]');if(!button)return;
   const value=button.dataset.bookingDay,day=new Date(value+'T12:00:00Z').getUTCDay(),offset={ArrowLeft:-1,ArrowRight:1,ArrowUp:-7,ArrowDown:7,Home:-((day+6)%7),End:6-((day+6)%7)}[e.key];
   let target;if(offset!==undefined)target=addDays(value,offset);else if(e.key==='PageUp'||e.key==='PageDown'){const month=shiftMonth(value.slice(0,7),e.key==='PageUp'?-1:1),last=new Date(Date.UTC(Number(month.slice(0,4)),Number(month.slice(5,7)),0)).getUTCDate();target=month+'-'+String(Math.min(Number(value.slice(8)),last)).padStart(2,'0')}else return;
-  if(target<'1900-01-01'||target>'2200-12-31'||options.minDate&&target<options.minDate)return;e.preventDefault();let state={...getState(),focus:target};if(!root.querySelector(`[data-booking-day="${target}"]`)||getComputedStyle(root.querySelector(`[data-booking-day="${target}"]`).closest('section')).display==='none')state.month=target.slice(0,7);setState(state);paint();focusDay(target);
+  if(target<'1900-01-01'||target>'2200-12-31'||options.minDate&&target<options.minDate)return;e.preventDefault();let state={...getState(),focus:target};if(!root.querySelector(`[data-booking-day="${target}"]`)||getComputedStyle(root.querySelector(`[data-booking-day="${target}"]`).closest('section')).display==='none')state.month=target.slice(0,7);update(state);focusDay(target);
  };
  paint();
 }
