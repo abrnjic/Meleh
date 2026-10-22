@@ -7,3 +7,13 @@ test('content rejects script text, fake image URLs and missing cover images',()=
 test('booking and inquiry validation enforce capacity, consent and dates',()=>{assert.throws(()=>validateBooking({apartment:'missing',arrival:'2027-07-01',departure:'2027-07-05'},base.apartments));const inquiry={id:'12345678-1234-1234-1234-123456789012',name:'Example Guest',email:'guest@example.test',arrival:'2027-07-01',departure:'2027-07-05',apartment:'more',adults:2,children:0,consent:true};assert.equal(validateInquiry(inquiry,base,'2026-10-19').adults,2);assert.throws(()=>validateInquiry({...inquiry,adults:3},base,'2026-10-19'));assert.throws(()=>validateInquiry({...inquiry,consent:false},base,'2026-10-19'));assert.throws(()=>validateInquiry({...inquiry,website:'spam'},base,'2026-10-19'));assert.throws(()=>validateInquiry({...inquiry,email:'bad\nBcc: x@example.test'},base,'2026-10-19'))});
 
 test('parking remains optional for older content and survives administrator saves',()=>{const data=clone(base);delete data.distances.parking;assert.equal(validateContent(data).distances.parking,null);data.distances.parking='Informacija nakon potvrde domaćina';assert.equal(validateContent(data).distances.parking,data.distances.parking)});
+
+test('optional distance links survive saves and can be removed independently',()=>{
+ const data=clone(base);assert.ok(Object.values(validateContent(data).distanceLinks).every(v=>v===null));
+ data.distanceLinks={beach:'https://maps.app.goo.gl/example',parking:'https://www.google.com/maps?q=Luka+Dubrava'};
+ const saved=validateContent(data);assert.equal(saved.distanceLinks.beach,data.distanceLinks.beach);assert.equal(saved.distanceLinks.parking,data.distanceLinks.parking);
+ saved.distanceLinks.beach='';const cleared=validateContent(saved);assert.equal(cleared.distanceLinks.beach,null);assert.equal(cleared.distances.beach,data.distances.beach);assert.equal(cleared.distanceLinks.parking,data.distanceLinks.parking);
+});
+test('distance links reject unsafe URLs on browser and server shared validation',()=>{
+ for(const url of ['javascript:alert(1)','http://maps.google.com/','https://user:pass@google.com/maps','not a URL']){const data=clone(base);data.distanceLinks={shop:url};assert.throws(()=>validateContent(data));}
+});

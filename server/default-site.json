@@ -272,8 +272,17 @@
     "airport": null,
     "parking": "Besplatan privatni parking ispred kuće"
   },
+  "distanceLinks": {
+    "beach": null,
+    "center": null,
+    "shop": null,
+    "restaurant": null,
+    "airport": null,
+    "parking": null
+  },
   "apartments": [
     {
+      "published": true,
       "slug": "a-3",
       "name": "A-3",
       "guests": "2 + 1",
@@ -355,6 +364,7 @@
       }
     },
     {
+      "published": true,
       "slug": "a-4",
       "name": "A-4",
       "guests": "4",
@@ -436,6 +446,7 @@
       }
     },
     {
+      "published": true,
       "slug": "a-9",
       "name": "A-9",
       "guests": "4",
@@ -517,6 +528,7 @@
       }
     },
     {
+      "published": true,
       "slug": "a-13",
       "name": "A-13",
       "guests": "4",
@@ -598,6 +610,7 @@
       }
     },
     {
+      "published": true,
       "slug": "a-8",
       "name": "A-8",
       "guests": "2 + 1",
@@ -679,6 +692,7 @@
       }
     },
     {
+      "published": true,
       "slug": "a-12",
       "name": "A-12",
       "guests": "2 + 1",
@@ -2080,6 +2094,17 @@
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Restorani%20Luka%20Dubrava%20Pelje%C5%A1ac"
     }
   ],
+  "branding": {
+    "logoUrl": "/assets/adria-maja-symbol.svg",
+    "faviconUrl": "/assets/favicon.svg",
+    "logoMode": "symbol",
+    "subtitle": "APARTMANI · PELJEŠAC",
+    "accent": "#066b9b",
+    "surface": "#dcedf9",
+    "ink": "#173f59",
+    "font": "classic",
+    "theme": "classic"
+  },
   "seo": {
     "siteUrl": "https://meleh.vercel.app",
     "titleSuffix": "Adria Maja Apartmani",
