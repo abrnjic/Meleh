@@ -39,3 +39,21 @@ test('markup identifies both endpoints, selected nights and existing bookings',(
  assert.equal((html.match(/is-occupied"/g)||[]).length,2);
  assert.match(html,/7 noćenja/);assert.match(html,/aria-live="polite"/);
 });
+
+test('guest date selection rejects past dates while admin can still enter them',()=>{
+ const state=createBookingRange('2027-07');
+ assert.equal(chooseBookingDate(state,'2027-07-02',{minDate:'2027-07-03'}),state);
+ assert.equal(chooseBookingDate(state,'2027-07-03',{minDate:'2027-07-03'}).arrival,'2027-07-03');
+ assert.equal(chooseBookingDate(state,'2027-07-02').arrival,'2027-07-02');
+ const html=bookingRangeMarkup(state,[],{public:true,minDate:'2027-07-03',known:false});
+ assert.match(html,/data-booking-day="2027-07-02"[^>]*disabled/);
+ assert.doesNotMatch(html,/data-booking-day="2027-07-03"[^>]*disabled/);
+ assert.match(html,/Dostupnost nije potvrđena/);assert.doesNotMatch(html,/Moguće slobodno/);
+});
+test('guest calendar labels and summaries follow all four site languages',()=>{
+ const state=chooseBookingDate(chooseBookingDate(createBookingRange('2027-07'),'2027-07-03'),'2027-07-10');
+ for(const [language,month,summary,label] of [['hr','srpanj','7 noćenja','Dolazak'],['en','July','7 nights','Check-in'],['de','Juli','7 Nächte','Anreise'],['cs','červenec','7 nocí','Příjezd']]){
+  const html=bookingRangeMarkup(state,[],{public:true,known:true,language});
+  assert.ok(html.includes(month),language);assert.ok(html.includes(summary),language);assert.ok(html.includes(label),language);
+ }
+});

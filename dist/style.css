@@ -250,3 +250,9 @@ html[data-identity="custom"] .brand{color:var(--ink)}html[data-identity="custom"
 @media(max-width:850px){.booking-range-months{grid-template-columns:minmax(0,1fr)}.booking-range-month:nth-child(2){display:none}}
 @media(max-width:420px){.booking-range-fields{grid-template-columns:1fr}.booking-range-nav label{font-size:.8em}.booking-range-field{padding:.65rem}.booking-range-day{font-size:.85em}}
 @media(max-width:600px){.booking-range-nav{display:grid;grid-template-columns:1fr 1fr}.booking-range-nav label{grid-column:1/-1;grid-row:1;display:flex;flex-direction:column;gap:.3rem;text-align:center;font-size:.85em}.booking-range-nav input{width:min(100%,16rem);box-sizing:border-box}.booking-range-nav>button{grid-row:2}.booking-range-nav>button:last-child{justify-self:end}}
+.booking-range{container-type:inline-size}
+.booking-range-day:disabled{color:#8b969c;background:#f5f6f7;cursor:default;text-decoration:line-through;opacity:.65}
+.booking-range-public .booking-range-day.is-occupied:not(.is-endpoint){color:#9f4940;background:#faeeeb;text-decoration:line-through}
+.booking-range-public .booking-range-day.is-occupied.is-between{background:#f0dbd6}
+.booking-range-availability{color:#526b76}
+@container(max-width:38rem){.booking-range-months{grid-template-columns:minmax(0,1fr)}.booking-range-month:nth-child(2){display:none}.booking-range-nav{display:grid;grid-template-columns:1fr 1fr}.booking-range-nav label{grid-column:1/-1;grid-row:1;display:flex;flex-direction:column;gap:.3rem;text-align:center;font-size:.85em}.booking-range-nav input{width:min(100%,16rem);box-sizing:border-box}.booking-range-nav>button{grid-row:2}.booking-range-nav>button:last-child{justify-self:end}}
