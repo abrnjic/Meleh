@@ -35,6 +35,10 @@
       "destination": "/api/index?route=seo-page&pagePath=/kontakt"
     },
     {
+      "source": "/kako-do-nas",
+      "destination": "/api/index?route=seo-page&pagePath=/kako-do-nas"
+    },
+    {
       "source": "/vodic",
       "destination": "/api/index?route=seo-page&pagePath=/vodic"
     },
@@ -53,10 +57,6 @@
     {
       "source": "/pronadi-apartman",
       "destination": "/api/index?route=seo-page&pagePath=/pronadi-apartman"
-    },
-    {
-      "source": "/plan-dana",
-      "destination": "/api/index?route=seo-page&pagePath=/plan-dana"
     },
     {
       "source": "/privatnost",
@@ -118,6 +118,11 @@
     {
       "source": "/fotografije",
       "destination": "/galerija",
+      "permanent": true
+    },
+    {
+      "source": "/plan-dana",
+      "destination": "/vodic",
       "permanent": true
     }
   ]

@@ -12,12 +12,12 @@ export const SEO_ROUTES={
  '/dostupnost':['Dostupnost apartmana','Apartment availability','Verfügbarkeit der Apartments','Dostupnost apartmánů'],
  '/usporedba':['Usporedite apartmane','Compare apartments','Apartments vergleichen','Porovnejte apartmány'],
  '/pronadi-apartman':['Pronađite apartman za svoj odmor','Find an apartment for your holiday','Finden Sie Ihr Urlaubsapartment','Najděte apartmán pro svou dovolenou'],
- '/plan-dana':['Isplanirajte dan na Pelješcu','Plan your day on Pelješac','Planen Sie Ihren Tag auf Pelješac','Naplánujte si den na Pelješci'],
+ '/kako-do-nas':['Kako do nas — Luka Dubrava','Getting here — Luka Dubrava','Anreise — Luka Dubrava','Jak se k nám dostat — Luka Dubrava'],
  '/privatnost':['Pravila privatnosti','Privacy notice','Datenschutzhinweise','Ochrana osobních údajů'],
  '/uvjeti':['Uvjeti korištenja','Terms of use','Nutzungsbedingungen','Podmínky použití']
 };
 export const seoText=(value,language='hr')=>typeof value==='string'?value:value?.[language]||value?.hr||'';
-export const seoPath=value=>{const path=String(value||'/').split('?')[0].replace(/\/+$/,'')||'/';return /^\/(?:[a-z0-9-]+(?:\/[a-z0-9-]+)*)?$/.test(path)?path:'/404'};
+export const seoPath=value=>{const raw=String(value||'/').split('?')[0].replace(/\/+$/,'')||'/',path=raw==='/plan-dana'?'/vodic':raw;return /^\/(?:[a-z0-9-]+(?:\/[a-z0-9-]+)*)?$/.test(path)?path:'/404'};
 export function seoPages(site){return [...Object.keys(SEO_ROUTES),...publishedApartments(site).map(a=>'/apartmani/'+a.slug)]}
 export function localizedUrl(path,language='hr',origin='https://meleh.vercel.app'){const u=new URL(seoPath(path),origin);if(language!=='hr'&&SEO_LANGUAGES.includes(language))u.searchParams.set('lang',language);return u.href}
 const clean=(value,max)=>{if(value==null||value==='')return '';if(typeof value!=='string'||value.length>max||/[<>\u0000-\u001f]/.test(value))throw Object.assign(new Error('Provjerite SEO tekst i dopuštenu duljinu.'),{status:400});return value.trim()};

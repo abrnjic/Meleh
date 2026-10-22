@@ -1,7 +1,8 @@
+import {arrivalContent} from '../dist/arrival.js';
 import {publicSite} from '../dist/publication.js';
 import {identityMarkup,identityStyle,validateIdentity} from '../dist/identity.js';
 import {translateCs} from '../dist/i18n.js';
-import {AMENITIES} from '../dist/planning.js';
+import {AMENITIES,DAY_PLANS} from '../dist/planning.js';
 import {SEO_LANGUAGES,SEO_ROUTES,seoPages,seoPath,seoText,localizedUrl,pageSeo,seoHead} from '../dist/seo.js';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const json=v=>JSON.stringify(v).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
@@ -18,7 +19,9 @@ export function seoBody(site,meta){
  else if(['/','/apartmani','/usporedba','/pronadi-apartman','/dostupnost'].includes(meta.path))content+=site.apartments.map(apartmentCard).join('');
  if(meta.path==='/galerija'){for(const [category,label] of [['house',tr('Kuća i okućnica','House & garden','Haus & Garten','Dům a zahrada')],['location',tr('Lokacija i plaže','Location & beaches','Lage & Strände','Poloha a pláže')],...site.apartments.map(a=>[a.slug,a.name])])content+=`<details><summary>${esc(label)}</summary>${site.photos.filter(p=>p.category===category).map(p=>photo(p.key)).join('')}</details>`;}
  if(meta.path==='/faq')content+=site.faq.map(f=>`<section><h2>${esc(local(f.question))}</h2><p>${esc(local(f.answer))}</p></section>`).join('');
+ if(meta.path==='/vodic'){const plan=DAY_PLANS.family,planText=v=>l===3?translateCs(v[1]):v[l];content+=`<section id="plan-dana"><h2>${tr('Plan dana','Day plan','Tagesplan','Plán dne')}</h2><h3>${esc(planText(plan.title))}</h3><ol>${plan.stops.map(stop=>`<li><h3>${esc(planText(stop.title))}</h3><p>${esc(planText(stop.text))}</p></li>`).join('')}</ol></section><h2>${tr('Doživite Pelješac.','Experience Pelješac.','Pelješac erleben.','Zažijte Pelješac.')}</h2>`;}
  if(['/vodic','/plan-dana'].includes(meta.path))content+=site.guide.map(g=>`<article><h2>${esc(local(g.title))}</h2>${photo(g.photo)}<p>${esc(local(g.description))}</p><a href="${esc(g.url)}" rel="noopener">${tr('Službeni vodič','Official guide','Offizieller Reiseführer','Oficiální průvodce')}</a> · <a href="${esc(g.mapUrl)}" rel="noopener">${tr('Na karti','On the map','Auf der Karte','Na mapě')}</a></article>`).join('');
+ if(meta.path==='/kako-do-nas')content+=arrivalContent(site,meta.language);
  if(meta.path==='/kontakt')content+=`<address>${esc(site.address)}<br><a href="tel:${esc(site.phone)}">${esc(site.phone)}</a></address><a href="${esc(site.mapsUrl)}">Google Maps</a>`;
  if(['/privatnost','/uvjeti'].includes(meta.path))content+=`<p>${tr('Kontaktirajte domaćina za informacije o obradi podataka i uvjetima boravka.','Contact your host for information on data processing and stay conditions.','Kontaktieren Sie Ihren Gastgeber für Informationen zur Datenverarbeitung und den Aufenthaltsbedingungen.','Informace o zpracování údajů a podmínkách pobytu vám poskytne hostitel.')}</p>`;
  return navigation+`<main id="main" class="section wrap seo-server-content"><h1>${esc(heading)}</h1>${content}</main><footer class="section wrap"><p>${esc(site.name)} · ${esc(site.address)}</p>${links}</footer>`;
