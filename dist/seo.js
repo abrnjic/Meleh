@@ -1,3 +1,4 @@
+import {publicSite,publishedApartments} from './publication.js';
 // Shared SEO model: server HTML and client navigation use the same canonical data.
 export const SEO_LANGUAGES=['hr','en','de','cs'];
 export const SEO_ROUTES={
@@ -17,7 +18,7 @@ export const SEO_ROUTES={
 };
 export const seoText=(value,language='hr')=>typeof value==='string'?value:value?.[language]||value?.hr||'';
 export const seoPath=value=>{const path=String(value||'/').split('?')[0].replace(/\/+$/,'')||'/';return /^\/(?:[a-z0-9-]+(?:\/[a-z0-9-]+)*)?$/.test(path)?path:'/404'};
-export function seoPages(site){return [...Object.keys(SEO_ROUTES),...(site.apartments||[]).map(a=>'/apartmani/'+a.slug)]}
+export function seoPages(site){return [...Object.keys(SEO_ROUTES),...publishedApartments(site).map(a=>'/apartmani/'+a.slug)]}
 export function localizedUrl(path,language='hr',origin='https://meleh.vercel.app'){const u=new URL(seoPath(path),origin);if(language!=='hr'&&SEO_LANGUAGES.includes(language))u.searchParams.set('lang',language);return u.href}
 const clean=(value,max)=>{if(value==null||value==='')return '';if(typeof value!=='string'||value.length>max||/[<>\u0000-\u001f]/.test(value))throw Object.assign(new Error('Provjerite SEO tekst i dopuštenu duljinu.'),{status:400});return value.trim()};
 const localized=(value,max)=>Object.fromEntries(SEO_LANGUAGES.map(l=>[l,clean(value?.[l],max)]));
@@ -32,7 +33,7 @@ export function validateSeo(input,site){
  return {siteUrl:origin,titleSuffix:clean(s.titleSuffix||site.name,100),description:localized(s.description,320),image:image(s.image),googleVerification:token(s.googleVerification),bingVerification:token(s.bingVerification),pages};
 }
 export function pageSeo(site,path,language='hr',{preview=false}={}){
- path=seoPath(path);language=SEO_LANGUAGES.includes(language)?language:'hr';const l=SEO_LANGUAGES.indexOf(language),a=site.apartments?.find(a=>path==='/apartmani/'+a.slug),known=seoPages(site).includes(path),privatePage=['/admin','/gost'].includes(path),s=site.seo||{},p=s.pages?.[path]||{};
+ site=publicSite(site);path=seoPath(path);language=SEO_LANGUAGES.includes(language)?language:'hr';const l=SEO_LANGUAGES.indexOf(language),a=site.apartments?.find(a=>path==='/apartmani/'+a.slug),known=seoPages(site).includes(path),privatePage=['/admin','/gost'].includes(path),s=site.seo||{},p=s.pages?.[path]||{};
  const generic=[`Šest apartmana u Luci Dubravi na Pelješcu, uz more. Terasa i balkon, kuhinja, Wi-Fi i privatni parking. Pogledajte fotografije, cijene i pošaljite upit.`,`Six apartments by the sea in Luka Dubrava, Pelješac. Terrace and balcony, kitchen, Wi-Fi and private parking. View photos and prices and enquire about your stay.`,`Sechs Apartments am Meer in Luka Dubrava auf Pelješac. Terrasse und Balkon, Küche, WLAN und Privatparkplatz. Fotos, Preise und direkte Anfrage.`,`Šest apartmánů u moře v Luce Dubravě na Pelješci. Terasa a balkon, kuchyň, Wi-Fi a soukromé parkování. Fotografie, ceny a přímá poptávka.`][l];
  const name=a?[`Apartman ${a.name} — Pelješac`,`Apartment ${a.name} — Pelješac`,`Apartment ${a.name} — Pelješac`,`Apartmán ${a.name} — Pelješac`][l]:SEO_ROUTES[path]?.[l]|| (privatePage?(path==='/admin'?'Administracija':'Vodič za goste'):['Stranica nije pronađena','Page not found','Seite nicht gefunden','Stránka nenalezena'][l]);
  const description=p.description?.[language]|| (a?seoText(a.description,language).slice(0,300):s.description?.[language])||(path==='/'?generic:name+'. '+generic);
@@ -41,7 +42,7 @@ export function pageSeo(site,path,language='hr',{preview=false}={}){
  return {path,language,title:brandText(title,site),description:brandText(description,site),canonical,image:photo?new URL(photo.url||'/assets/'+photo.file,origin).href:null,imageAlt:photo?(photo[['alt','altEn','altDe','altCs'][l]]||photo.alt):'',noindex:preview||privatePage||!known||p.noindex===true,known,privatePage,apartment:a,origin,alternates:known&&!privatePage?SEO_LANGUAGES.map(language=>({language,url:localizedUrl(path,language,origin)})):[]};
 }
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-export function structuredData(site,meta){
+export function structuredData(site,meta){site=publicSite(site);
  if(meta.noindex)return null;const root=meta.origin,local=v=>seoText(v,meta.language),business={'@type':'LodgingBusiness','@id':root+'/#lodging',name:site.name,url:root+'/',description:local(site.aboutText),address:{'@type':'PostalAddress',streetAddress:site.address,addressCountry:'HR'},telephone:site.phone,image:meta.image,sameAs:[site.instagram,site.facebook].filter(Boolean)},website={'@type':'WebSite','@id':root+'/#website',url:root+'/',name:site.name,inLanguage:SEO_LANGUAGES};
  const graph=[business,website,{'@type':'WebPage','@id':meta.canonical+'#page',url:meta.canonical,name:meta.title,description:meta.description,inLanguage:meta.language,isPartOf:{'@id':website['@id']},about:{'@id':business['@id']}}];
  if(meta.path!=='/'){const crumbs=[{'@type':'ListItem',position:1,name:['Naslovnica','Home','Startseite','Úvod'][SEO_LANGUAGES.indexOf(meta.language)],item:localizedUrl('/',meta.language,root)}];if(meta.apartment)crumbs.push({'@type':'ListItem',position:2,name:SEO_ROUTES['/apartmani'][SEO_LANGUAGES.indexOf(meta.language)],item:localizedUrl('/apartmani',meta.language,root)});crumbs.push({'@type':'ListItem',position:crumbs.length+1,name:meta.apartment?.name||meta.title.split(' | ')[0],item:meta.canonical});graph.push({'@type':'BreadcrumbList',itemListElement:crumbs})}

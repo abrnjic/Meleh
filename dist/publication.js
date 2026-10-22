@@ -1,0 +1,6 @@
+export const publishedApartments=site=>(site.apartments||[]).filter(a=>a.published!==false);
+export function publicPhotos(site){const hidden=new Set((site.apartments||[]).filter(a=>a.published===false).map(a=>a.slug));return (site.photos||[]).filter(p=>!hidden.has(p.category))}
+export function publicSite(site){const apartments=publishedApartments(site),photos=publicPhotos(site),hidden=new Set((site.apartments||[]).filter(a=>a.published===false).map(a=>'/apartmani/'+a.slug));const result={...site,apartments,photos,seo:{...site.seo,pages:Object.fromEntries(Object.entries(site.seo?.pages||{}).filter(([path])=>!hidden.has(path.replace(/\/$/,''))))}};for(const key of ['heroImage','introImage','bannerImage'])if(!photos.some(p=>p.key===result[key]))result[key]=photos.find(p=>p.category==='location')?.key||photos[0]?.key||null;return result}
+// Private editors keep the full catalogue. Public client navigation uses the same
+// visibility rule as initial server HTML, even immediately after an admin save.
+export function siteView(source,isEditor){return new Proxy(source,{get(target,key,receiver){if(!isEditor()){if(key==='apartments')return publishedApartments(target);if(key==='photos')return publicPhotos(target)}return Reflect.get(target,key,receiver)}})}

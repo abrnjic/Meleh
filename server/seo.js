@@ -1,3 +1,4 @@
+import {publicSite} from '../dist/publication.js';
 import {identityMarkup,identityStyle,validateIdentity} from '../dist/identity.js';
 import {translateCs} from '../dist/i18n.js';
 import {AMENITIES} from '../dist/planning.js';
@@ -23,7 +24,7 @@ export function seoBody(site,meta){
  return navigation+`<main id="main" class="section wrap seo-server-content"><h1>${esc(heading)}</h1>${content}</main><footer class="section wrap"><p>${esc(site.name)} · ${esc(site.address)}</p>${links}</footer>`;
 }
 export function renderSeoHtml(template,site,path,language='hr',options={}){
- const b=validateIdentity(site.branding);const meta=pageSeo(site,path,language,options);let html=template.replace(/<title\b[^>]*>[\s\S]*?<\/title>/gi,'').replace(/<meta\s+[^>]*name=["'](?:description|robots)["'][^>]*>/gi,'').replace(/<link\s+[^>]*rel=["']canonical["'][^>]*>/gi,'');
+ site=publicSite(site);const b=validateIdentity(site.branding);const meta=pageSeo(site,path,language,options);let html=template.replace(/<title\b[^>]*>[\s\S]*?<\/title>/gi,'').replace(/<meta\s+[^>]*name=["'](?:description|robots)["'][^>]*>/gi,'').replace(/<link\s+[^>]*rel=["']canonical["'][^>]*>/gi,'');
  html=html.replace(/<html\b[^>]*>/,`<html lang="${meta.language}" data-theme="light" data-identity="custom" style="${identityStyle(b)}">`).replace('</head>',seoHead(site,meta)+'</head>');
  html=html.replace(/<meta[^>]*name="theme-color"[^>]*>/g,`<meta name="theme-color" content="${b.surface}">`).replace(/<link[^>]*rel="icon"[^>]*>/g,`<link rel="icon" href="${esc(b.faviconUrl||'/assets/favicon.svg')}">`);
  // This is public site content only. No user records, tokens or guest instructions are serialized.
