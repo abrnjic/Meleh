@@ -7,7 +7,7 @@ import {openForStay} from '../dist/planning.js';
 import {readSiteData,destinationRevision,catalogueRevision,photoLibraryRevision,apartmentNamesRevision,amenitiesRevision,specificationRevision} from '../server/destination.js';
 import {memoryDb} from './memory-db.mjs';
 test('all six apartments retain the workbook equipment, pet fees and 36 correctly bounded price periods',()=>{
- assert.equal(defaults.name,'Meleh Apartmani');assert.equal(defaults.checkIn,'15:00');assert.equal(defaults.checkOut,'10:00');assert.equal(defaults.categoryStars,3);assert.equal(defaults.touristTaxIncluded,true);
+ assert.equal(defaults.name,'Adria Maja Apartmani');assert.equal(defaults.checkIn,'15:00');assert.equal(defaults.checkOut,'10:00');assert.equal(defaults.categoryStars,3);assert.equal(defaults.touristTaxIncluded,true);
  assert.equal(defaults.apartments.reduce((n,a)=>n+a.seasons.length,0),36);
  for(const a of defaults.apartments){const source=imported.apartments[a.slug];assert.deepEqual(a.seasons,source.seasons);assert.equal(a.petFee,10);assert.equal(a.minNights,['a-3','a-8'].includes(a.slug)?7:1);for(const key of ['aircon','terrace','balcony','wifi','parking','kitchen','tv','seaView','gardenView','privateBathroom'])assert.equal(a.amenities[key],true);assert.equal(a.amenities.microwave,['a-4','a-9'].includes(a.slug));assert.equal(a.amenities.dishwasher,['a-4','a-9'].includes(a.slug));assert.equal(a.amenities.washingMachine,false);assert.ok(!Object.hasOwn(a.amenities,'stepFree'));}
  assert.deepEqual(validateContent(defaults),defaults);

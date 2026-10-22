@@ -10,6 +10,7 @@ export const specificationRevision='workbook-specification-2026-10';
 export const viewsRevision='sea-and-garden-views-2026-10';
 export const productionPhotoRevision='real-photos-only-2026-10';
 export const languageRevision='czech-2026-10';
+export const brandRevision='adria-maja-2026-10';
 export const houseRulesRevision='smoking-outdoors-2026-10';
 
 export function correctedViews(previous,defaults){
@@ -73,12 +74,12 @@ export function correctedCatalogue(previous,defaults){
 export async function readSiteData(db,defaults){
  const ref=db.collection('site').doc('public'),snapshot=await ref.get();
  if(!snapshot.exists)return {revision:0,data:clone(defaults)};
- if(snapshot.data().destinationRevision===destinationRevision&&snapshot.data().catalogueRevision===catalogueRevision&&snapshot.data().photoLibraryRevision===photoLibraryRevision&&snapshot.data().apartmentNamesRevision===apartmentNamesRevision&&snapshot.data().amenitiesRevision===amenitiesRevision&&snapshot.data().specificationRevision===specificationRevision&&snapshot.data().viewsRevision===viewsRevision&&snapshot.data().productionPhotoRevision===productionPhotoRevision&&snapshot.data().languageRevision===languageRevision&&snapshot.data().houseRulesRevision===houseRulesRevision)return snapshot.data();
+ if(snapshot.data().destinationRevision===destinationRevision&&snapshot.data().catalogueRevision===catalogueRevision&&snapshot.data().photoLibraryRevision===photoLibraryRevision&&snapshot.data().apartmentNamesRevision===apartmentNamesRevision&&snapshot.data().amenitiesRevision===amenitiesRevision&&snapshot.data().specificationRevision===specificationRevision&&snapshot.data().viewsRevision===viewsRevision&&snapshot.data().productionPhotoRevision===productionPhotoRevision&&snapshot.data().languageRevision===languageRevision&&snapshot.data().houseRulesRevision===houseRulesRevision&&snapshot.data().brandRevision===brandRevision)return snapshot.data();
  return db.runTransaction(async tx=>{
   const current=await tx.get(ref);
   if(!current.exists)return {revision:0,data:clone(defaults)};
   const previous=current.data();
-  if(previous.destinationRevision===destinationRevision&&previous.catalogueRevision===catalogueRevision&&previous.photoLibraryRevision===photoLibraryRevision&&previous.apartmentNamesRevision===apartmentNamesRevision&&previous.amenitiesRevision===amenitiesRevision&&previous.specificationRevision===specificationRevision&&previous.viewsRevision===viewsRevision&&previous.productionPhotoRevision===productionPhotoRevision&&previous.languageRevision===languageRevision&&previous.houseRulesRevision===houseRulesRevision)return previous;
+  if(previous.destinationRevision===destinationRevision&&previous.catalogueRevision===catalogueRevision&&previous.photoLibraryRevision===photoLibraryRevision&&previous.apartmentNamesRevision===apartmentNamesRevision&&previous.amenitiesRevision===amenitiesRevision&&previous.specificationRevision===specificationRevision&&previous.viewsRevision===viewsRevision&&previous.productionPhotoRevision===productionPhotoRevision&&previous.languageRevision===languageRevision&&previous.houseRulesRevision===houseRulesRevision&&previous.brandRevision===brandRevision)return previous;
   let data=previous.destinationRevision===destinationRevision?previous.data:correctedDestination(previous.data,defaults);
   if(previous.catalogueRevision!==catalogueRevision){
    // Preserve the former catalogue privately; do not guess a mapping for historical stays.
@@ -93,7 +94,12 @@ export async function readSiteData(db,defaults){
   if(previous.productionPhotoRevision!==productionPhotoRevision)data=validateContent(removeIllustrativePhotos(data));
   if(previous.languageRevision!==languageRevision)data=validateContent(data);
   if(previous.houseRulesRevision!==houseRulesRevision)data=validateContent({...data,smoking:defaults.smoking,quietHours:null});
-  const next={...previous,data,houseRulesRevision,photoLibraryRevision,apartmentNamesRevision,amenitiesRevision,specificationRevision,viewsRevision,productionPhotoRevision,languageRevision,revision:(previous.revision||0)+1,destinationRevision,catalogueRevision,updatedAt:new Date().toISOString()};
+  if(previous.brandRevision!==brandRevision){
+   data=clone(data);data.name='Adria Maja Apartmani';
+   data.aboutText=Object.fromEntries(Object.entries(data.aboutText||{}).map(([lang,text])=>[lang,typeof text==='string'?text.replace(/Meleh Apartmani/g,'Adria Maja Apartmani').replace(/Meleh Apartments/g,'Adria Maja Apartments'):text]));
+   data=validateContent(data);
+  }
+  const next={...previous,data,brandRevision,houseRulesRevision,photoLibraryRevision,apartmentNamesRevision,amenitiesRevision,specificationRevision,viewsRevision,productionPhotoRevision,languageRevision,revision:(previous.revision||0)+1,destinationRevision,catalogueRevision,updatedAt:new Date().toISOString()};
   tx.set(ref,next);return next;
  });
 }
