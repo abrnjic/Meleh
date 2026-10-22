@@ -1,3 +1,4 @@
+import {identityMarkup,identityStyle,validateIdentity} from '../dist/identity.js';
 import {translateCs} from '../dist/i18n.js';
 import {AMENITIES} from '../dist/planning.js';
 import {SEO_LANGUAGES,SEO_ROUTES,seoPages,seoPath,seoText,localizedUrl,pageSeo,seoHead} from '../dist/seo.js';
@@ -6,7 +7,7 @@ const json=v=>JSON.stringify(v).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u20
 export function seoBody(site,meta){
  const l=SEO_LANGUAGES.indexOf(meta.language),tr=(...v)=>v[l],local=v=>seoText(v,meta.language),href=p=>esc(localizedUrl(p,meta.language,meta.origin)),photo=key=>{const p=site.photos.find(p=>p.key===key);return p?`<img src="${esc(p.url||'/assets/'+p.file)}" alt="${esc(p[['alt','altEn','altDe','altCs'][l]]||p.alt)}" width="1200" height="800" loading="lazy">`:''};
  const links=seoPages(site).map(p=>`<a href="${href(p)}">${esc(site.apartments.find(a=>p==='/apartmani/'+a.slug)?.name||SEO_ROUTES[p]?.[l])}</a>`).join(' · ');
- const navigation=`<header class="section wrap"><a class="brand" href="${href('/')}">${esc(site.name)}</a><nav aria-label="${tr('Navigacija','Navigation','Navigation','Navigace')}">${links}</nav><nav aria-label="${tr('Jezik','Language','Sprache','Jazyk')}">${SEO_LANGUAGES.map(lang=>`<a href="${esc(localizedUrl(meta.path,lang,meta.origin))}" lang="${lang}" hreflang="${lang}">${lang.toUpperCase()}</a>`).join(' · ')}</nav></header>`;
+ const navigation=`<header class="section wrap">${identityMarkup(site,esc)}<nav aria-label="${tr('Navigacija','Navigation','Navigation','Navigace')}">${links}</nav><nav aria-label="${tr('Jezik','Language','Sprache','Jazyk')}">${SEO_LANGUAGES.map(lang=>`<a href="${esc(localizedUrl(meta.path,lang,meta.origin))}" lang="${lang}" hreflang="${lang}">${lang.toUpperCase()}</a>`).join(' · ')}</nav></header>`;
  const heading=meta.apartment?tr('Apartman ','Apartment ','Apartment ','Apartmán ')+meta.apartment.name:meta.title.split(' | ')[0];
  if(!meta.known)return navigation+`<main id="main" class="section wrap"><h1>${esc(heading)}</h1><a href="${href('/')}">${tr('Naslovnica','Home','Startseite','Úvod')}</a></main>`;
  let content=`<p>${esc(meta.description)}</p>`;
@@ -22,8 +23,9 @@ export function seoBody(site,meta){
  return navigation+`<main id="main" class="section wrap seo-server-content"><h1>${esc(heading)}</h1>${content}</main><footer class="section wrap"><p>${esc(site.name)} · ${esc(site.address)}</p>${links}</footer>`;
 }
 export function renderSeoHtml(template,site,path,language='hr',options={}){
- const meta=pageSeo(site,path,language,options);let html=template.replace(/<title\b[^>]*>[\s\S]*?<\/title>/gi,'').replace(/<meta\s+[^>]*name=["'](?:description|robots)["'][^>]*>/gi,'').replace(/<link\s+[^>]*rel=["']canonical["'][^>]*>/gi,'');
- html=html.replace(/<html\b[^>]*>/,`<html lang="${meta.language}" data-theme="light">`).replace('</head>',seoHead(site,meta)+'</head>');
+ const b=validateIdentity(site.branding);const meta=pageSeo(site,path,language,options);let html=template.replace(/<title\b[^>]*>[\s\S]*?<\/title>/gi,'').replace(/<meta\s+[^>]*name=["'](?:description|robots)["'][^>]*>/gi,'').replace(/<link\s+[^>]*rel=["']canonical["'][^>]*>/gi,'');
+ html=html.replace(/<html\b[^>]*>/,`<html lang="${meta.language}" data-theme="light" data-identity="custom" style="${identityStyle(b)}">`).replace('</head>',seoHead(site,meta)+'</head>');
+ html=html.replace(/<meta[^>]*name="theme-color"[^>]*>/g,`<meta name="theme-color" content="${b.surface}">`).replace(/<link[^>]*rel="icon"[^>]*>/g,`<link rel="icon" href="${esc(b.faviconUrl||'/assets/favicon.svg')}">`);
  // This is public site content only. No user records, tokens or guest instructions are serialized.
  html=html.replace(/<script src="\/content.js" defer><\/script>/,`<script>window.SITE=${json(site)};window.MELEH_PREVIEW=${options.preview===true};</script>`).replace('<div id="app"></div>',`<div id="app">${seoBody(site,meta)}</div>`);
  if(meta.privatePage&&meta.path==='/gost')html=html.replace('</head>','<meta name="referrer" content="no-referrer"></head>').replace(/<link[^>]+(?:fonts\.googleapis|fonts\.gstatic)[^>]*>/g,'');

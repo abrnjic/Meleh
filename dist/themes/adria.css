@@ -1,0 +1,18 @@
+/* Opt-in design trial. Every visual override is scoped to the preview attribute. */
+html[data-design="adria"]{--ink:#123b4a;--muted:#426473;--cream:#eaf5f5;--sand:#cfe7e8;--line:#b4d4d9;--accent:#006c80;--gold:#98743b;--serif:Georgia,'Times New Roman',serif}
+html[data-design="adria"] .header{border-bottom:1px solid var(--line);box-shadow:0 3px 18px #123b4a0a}
+html[data-design="adria"] .brand{color:var(--ink)}
+html[data-design="adria"] .btn{border-radius:12px;background:var(--accent);border-color:var(--accent)}
+html[data-design="adria"] .btn.outline,html[data-design="adria"] .btn.light{background:white;color:var(--ink)}
+html[data-design="adria"] .btn:hover{background:#00576a;color:white}
+html[data-design="adria"] .availability,html[data-design="adria"] .page-head,html[data-design="adria"] .cta-band{background:linear-gradient(125deg,#ffffff,var(--cream))}
+html[data-design="adria"] .footer{background:var(--cream)}
+html[data-design="adria"] .photo-label{background:var(--cream);border-radius:12px}
+html[data-design="adria"] .distances .distance{background:linear-gradient(145deg,#ffffff,var(--cream));border-radius:18px}
+html[data-design="adria"] .image-wrap,html[data-design="adria"] .gallery-item,html[data-design="adria"] .guide-card,html[data-design="adria"] .booking-box{border-radius:18px;overflow:hidden}
+html[data-design="adria"] .guide-card,html[data-design="adria"] .booking-box{box-shadow:0 8px 28px #123b4a0a}
+html[data-design="adria"] .image-label{border-radius:8px}
+html[data-design="adria"] .filter{border-radius:999px}
+html[data-design="adria"] .theme-preview-banner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 24px;padding:12px 20px;background:#123b4a;color:white;font:600 .875rem/1.5 var(--sans);text-align:center}
+html[data-design="adria"] .theme-preview-banner a{color:white;text-decoration:underline;text-underline-offset:4px;padding:6px}
+html[data-design="adria"] .theme-preview-banner a:focus-visible{outline-color:white}
