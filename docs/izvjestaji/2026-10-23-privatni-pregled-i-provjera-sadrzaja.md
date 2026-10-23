@@ -75,3 +75,24 @@ Popravljeno je ponašanje duljeg naziva objekta pri povećanom fontu: naziv se m
 ## Granice ovog kruga
 
 U ovom su krugu izvedene dvije prethodno preporučene prioritetne nadogradnje: stvarni pregled nacrta i provjere prije objave. Jedinstveni kalendar svih apartmana, ponude iz upita, dodatne funkcije biblioteke fotografija i prošireno upravljanje poviješću ostaju zasebne sljedeće nadogradnje. Postojeće funkcije tih odjeljaka ostaju dostupne.
+
+## Naknadni popravak prijenosa fotografija
+
+U produkcijskim zapisima potvrđena su tri neuspjela POST zahtjeva prema administrativnom API-ju, sa serverskom greškom 500 i izvornim kodom 404. Izravan upit Google Storage API-ju vraća `The specified bucket does not exist.` za `meleh-ce687.firebasestorage.app` i raniji zadani naziv `meleh-ce687.appspot.com`.
+
+Dodano je:
+
+- prikaz tijeka prijenosa uz album u koji se dodaju fotografije;
+- jasna poruka kada Storage spremnik ne postoji ili servisni račun nema pristup;
+- zadržavanje uspješno prenesenih fotografija kada druga datoteka u istom odabiru ne uspije;
+- mogućnost ponovnog odabira iste datoteke nakon pogreške;
+- provjera ograničenja broja fotografija i potvrde URL-a poslužitelja prije dodavanja stavke galerije;
+- automatsko spremanje dodanih fotografija u privatni nacrt, uz postojeću odvojenu potvrdu javne objave.
+
+Svih 173 automatiziranih testova prolazi. U izoliranom Chrome pregledniku dodatno je provjeren stvarni PNG koji se prilagođava u JPEG, prikaz Storage greške, ponovni pokušaj iste datoteke, dodavanje sličice i spremanje nacrta bez promjene javnog sadržaja.
+
+### Preostala vanjska postavka
+
+Prijenos na produkciju još zahtijeva aktivan Storage spremnik u postojećem Firebase projektu. Kod spremnika koji se razlikuje od zadanog treba uskladiti `FIREBASE_STORAGE_BUCKET`. Servisni račun `vercel-meleh-server@meleh-ce687.iam.gserviceaccount.com` treba pravo čitanja i stvaranja objekata u tom spremniku, primjerice ulogu `roles/storage.objectUser` ograničenu na taj spremnik.
+
+Aktivacija Storagea ili naplate nije provedena. Za Firebase Storage potreban je Blaze plan: https://firebase.google.com/docs/storage/web/start . Prava spremnika opisana su na https://docs.cloud.google.com/storage/docs/access-control/iam-roles . Izravni javni zapis ostaje zabranjen; prijenos ide kroz zaštićeni administratorski API.

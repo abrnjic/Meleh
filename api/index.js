@@ -1,3 +1,4 @@
+import {storePhoto} from '../server/photo-storage.js';
 import {publicSite,publishedApartments} from '../dist/publication.js';
 import {listProperties,createProperty,readProperty,savePropertyDraft,publishProperty,publicProperties,publicProperty,propertyHistory,restoreProperty} from '../server/properties.js';
 import {CMS_WORKSPACE,CMS_WORKSPACE_VERSION,developmentDatabase,initializeDevelopmentWorkspace} from '../server/cms-workspace.js';
@@ -74,7 +75,7 @@ export async function handle(request){if(request.method==='HEAD'){const result=a
   if(resource==='inquiries'&&method==='GET'){const rows=await db.collection('inquiries').orderBy('createdAt','desc').limit(100).get();return json({inquiries:rows.docs.map(d=>({id:d.id,...d.data()}))});}
   if(resource==='inquiries'&&method==='PUT')return json(await updateInquiry(db,await body(request,25000)));
   if(resource==='retry-email'&&method==='POST'){if(!canMail)throw error('Email servis nije konfiguriran.',503);const {id}=await body(request,500);if(!/^[a-f0-9-]{36}$/.test(id))throw error('Neispravna oznaka upita.');return json({delivery:await deliverInquiry(db,id,(await siteData(db)).data)});}
-  if(resource==='upload'&&method==='POST'){const type=request.headers.get('content-type');if(!['image/jpeg','image/png','image/webp'].includes(type))throw error('Podržane su JPG, PNG i WebP fotografije.');const bytes=Buffer.from(await request.arrayBuffer());if(bytes.length>2000000||bytes.length<12)throw error('Fotografija smije imati najviše 2 MB.',413);const signature=type==='image/jpeg'?bytes[0]===255&&bytes[1]===216&&bytes[2]===255:type==='image/png'?bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])):bytes.subarray(0,4).toString()==='RIFF'&&bytes.subarray(8,12).toString()==='WEBP';if(!signature)throw error('Datoteka nije valjana fotografija.');const id=randomUUID()+'.'+({'image/jpeg':'jpg','image/png':'png','image/webp':'webp'}[type]);await services().bucket().file('photos/'+id).save(bytes,{resumable:false,metadata:{contentType:type}});return json({url:'/api/photo?id='+id});}
+  if(resource==='upload'&&method==='POST')return json(await storePhoto(services().bucket(),Buffer.from(await request.arrayBuffer()),request.headers.get('content-type')));
  }
  return json({error:'Stranica nije pronađena.'},404);
  }catch(e){const status=e.status||500;if(status>=500)console.error('Meleh API error',{status,code:e.code||'not-configured'});return json({error:status===500?'Došlo je do pogreške. Pokušajte kasnije.':e.message},status)}}
