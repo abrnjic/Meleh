@@ -1,3 +1,4 @@
+import {validateEditorDraft,validateEditorTrash} from './editor-draft.js';
 import { randomUUID } from "node:crypto";
 import { validateContent } from "../dist/model.js";
 import { removeIllustrativePhotos } from "./destination.js";
@@ -23,7 +24,7 @@ export async function readCmsDraft(db, published) {
   );
 }
 export async function saveCmsDraft(db, input, user) {
-  const data = normalized(input.data);
+  const data = input.partial===true?validateEditorDraft(input.data):normalized(input.data);
   revision(input.revision);
   revision(input.baseRevision);
   let record;
@@ -44,6 +45,7 @@ export async function saveCmsDraft(db, input, user) {
       throw fail("Početna objava skice nije aktualna. Osvježite prikaz.", 409);
     record = {
       data,
+      trash:validateEditorTrash(input.trash??current?.trash??[]),
       revision: input.revision + 1,
       baseRevision: input.baseRevision,
       updatedAt: new Date().toISOString(),
@@ -121,6 +123,7 @@ export async function publishContent(db, input, user, { draft = false } = {}) {
     if (draft)
       tx.set(draftRef, {
         data,
+        trash:validateEditorTrash(stored.trash||[]),
         revision: stored.revision + 1,
         baseRevision: actual + 1,
         updatedAt: now,
@@ -151,6 +154,7 @@ export async function restoreCmsVersion(db, input, user, published) {
       throw fail("Skica je promijenjena. Osvježite prikaz.", 409);
     record = {
       data,
+      trash:validateEditorTrash(draft.data()?.trash||[]),
       revision: input.revision + 1,
       baseRevision: current.data()?.revision ?? published.revision,
       updatedAt: new Date().toISOString(),
@@ -174,6 +178,7 @@ export async function resetCmsDraft(db, input, user, published) {
     const live = current.data() || published;
     record = {
       data: normalized(live.data),
+      trash:validateEditorTrash(draft.data()?.trash||[]),
       revision: input.revision + 1,
       baseRevision: live.revision,
       updatedAt: new Date().toISOString(),
