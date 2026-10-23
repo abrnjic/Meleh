@@ -8,7 +8,7 @@ export const SEO_ROUTES={
  '/galerija':['Galerija apartmana, kuće i plaža','Apartment, house and beach photo albums','Fotoalben der Apartments, des Hauses und der Strände','Fotoalba apartmánů, domu a pláží'],
  '/kontakt':['Kontakt i upit za smještaj','Contact and accommodation enquiries','Kontakt und Unterkunftsanfrage','Kontakt a poptávka ubytování'],
  '/vodic':['Vodič kroz Pelješac','Pelješac travel guide','Reiseführer für Pelješac','Průvodce Pelješcem'],
- '/faq':['Česta pitanja o boravku','Frequently asked questions about your stay','Häufige Fragen zu Ihrem Aufenthalt','Časté otázky k pobytu'],
+ '/faq':['Česta pitanja','Frequently asked questions','Häufig gestellte Fragen','Časté otázky'],
  '/dostupnost':['Dostupnost apartmana','Apartment availability','Verfügbarkeit der Apartments','Dostupnost apartmánů'],
  '/usporedba':['Usporedite apartmane','Compare apartments','Apartments vergleichen','Porovnejte apartmány'],
  '/pronadi-apartman':['Pronađite apartman za svoj odmor','Find an apartment for your holiday','Finden Sie Ihr Urlaubsapartment','Najděte apartmán pro svou dovolenou'],
