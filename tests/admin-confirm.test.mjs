@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {confirmRemoval,DRAFT_REMOVAL_NOTICE} from '../dist/admin-confirm.js';
+test('cancelling a removal does not execute its mutation',()=>{const rows=['keep'];let message='';if(confirmRemoval('Ukloniti preporuku?',undefined,text=>{message=text;return false}))rows.pop();assert.deepEqual(rows,['keep']);assert.equal(message,'Ukloniti preporuku?\n\n'+DRAFT_REMOVAL_NOTICE)});
+test('explicit confirmation executes a removal once with its specific consequence',()=>{let mutations=0,message='';if(confirmRemoval('Opozvati pristup?', 'Poveznica prestaje raditi odmah.',text=>{message=text;return true}))mutations++;assert.equal(mutations,1);assert.ok(message.includes('Poveznica prestaje raditi odmah.'));assert.equal(confirmRemoval('Ukloniti?',undefined,()=>undefined),false)});
